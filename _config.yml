@@ -1,5 +1,7 @@
 markdown: redcarpet
 
+baseurl: /r43ples
+
 defaults:
   -
     scope:
