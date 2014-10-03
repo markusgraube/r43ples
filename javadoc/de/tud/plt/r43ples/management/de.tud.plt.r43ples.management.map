@@ -1,14 +1,14 @@
 <map id="G" name="G">
-<area shape="rect" id="node1_0" href="./SparqlRewriter.html" title="de.tud.plt.r43ples.management.SparqlRewriter" alt="" coords="15,193,897,305"/>
-<area shape="rect" id="node1" href="./SparqlRewriter.html" title="&lt;TABLE&gt;" alt="" coords="5,188,907,311"/>
-<area shape="rect" id="node2_1" href="./SampleDataSet.html" title="de.tud.plt.r43ples.management.SampleDataSet" alt="" coords="942,202,1194,297"/>
-<area shape="rect" id="node2" href="./SampleDataSet.html" title="&lt;TABLE&gt;" alt="" coords="931,197,1205,302"/>
-<area shape="rect" id="node3_2" href="./TripleStoreInterface.html" title="de.tud.plt.r43ples.management.TripleStoreInterface" alt="" coords="1239,185,1739,314"/>
-<area shape="rect" id="node3" href="./TripleStoreInterface.html" title="&lt;TABLE&gt;" alt="" coords="1229,179,1750,319"/>
-<area shape="rect" id="node4_3" href="./Config.html" title="de.tud.plt.r43ples.management.Config" alt="" coords="1785,202,2018,297"/>
-<area shape="rect" id="node4" href="./Config.html" title="&lt;TABLE&gt;" alt="" coords="1774,197,2029,302"/>
-<area shape="rect" id="node5_4" href="./RevisionManagement.html" title="de.tud.plt.r43ples.management.RevisionManagement" alt="" coords="2064,11,3397,487"/>
-<area shape="rect" id="node5" href="./RevisionManagement.html" title="&lt;TABLE&gt;" alt="" coords="2053,6,3408,493"/>
-<area shape="rect" id="node6_5" href="./ResourceManagement.html" title="de.tud.plt.r43ples.management.ResourceManagement" alt="" coords="3443,211,3811,288"/>
-<area shape="rect" id="node6" href="./ResourceManagement.html" title="&lt;TABLE&gt;" alt="" coords="3432,205,3821,293"/>
+<area shape="rect" id="c15" href="./SparqlRewriter.html" title="de.tud.plt.r43ples.management.SparqlRewriter" alt="" coords="15,179,897,285"/>
+<area shape="rect" id="node1" href="./SparqlRewriter.html" title="&lt;TABLE&gt;" alt="" coords="5,174,907,290"/>
+<area shape="rect" id="c16" href="./ResourceManagement.html" title="de.tud.plt.r43ples.management.ResourceManagement" alt="" coords="941,195,1309,269"/>
+<area shape="rect" id="node2" href="./ResourceManagement.html" title="&lt;TABLE&gt;" alt="" coords="931,190,1320,274"/>
+<area shape="rect" id="c17" href="./SampleDataSet.html" title="de.tud.plt.r43ples.management.SampleDataSet" alt="" coords="1354,187,1606,277"/>
+<area shape="rect" id="node3" href="./SampleDataSet.html" title="&lt;TABLE&gt;" alt="" coords="1344,182,1616,282"/>
+<area shape="rect" id="c18" href="./TripleStoreInterface.html" title="de.tud.plt.r43ples.management.TripleStoreInterface" alt="" coords="1650,171,2150,293"/>
+<area shape="rect" id="node4" href="./TripleStoreInterface.html" title="&lt;TABLE&gt;" alt="" coords="1640,166,2160,298"/>
+<area shape="rect" id="c19" href="./Config.html" title="de.tud.plt.r43ples.management.Config" alt="" coords="2194,187,2427,277"/>
+<area shape="rect" id="node5" href="./Config.html" title="&lt;TABLE&gt;" alt="" coords="2184,182,2437,282"/>
+<area shape="rect" id="c20" href="./RevisionManagement.html" title="de.tud.plt.r43ples.management.RevisionManagement" alt="" coords="2472,11,3805,453"/>
+<area shape="rect" id="node6" href="./RevisionManagement.html" title="&lt;TABLE&gt;" alt="" coords="2461,6,3816,458"/>
 </map>

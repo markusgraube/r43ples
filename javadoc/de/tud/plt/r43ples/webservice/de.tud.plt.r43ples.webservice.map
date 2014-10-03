@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node1_0" href="./Endpoint.html" title="de.tud.plt.r43ples.webservice.Endpoint" alt="" coords="15,11,713,245"/>
-<area shape="rect" id="node1" href="./Endpoint.html" title="&lt;TABLE&gt;" alt="" coords="5,6,723,250"/>
-<area shape="rect" id="node2_1" href="./Service.html" title="de.tud.plt.r43ples.webservice.Service" alt="" coords="758,72,906,184"/>
-<area shape="rect" id="node2" href="./Service.html" title="&lt;TABLE&gt;" alt="" coords="747,67,917,189"/>
+<area shape="rect" id="c63" href="./Endpoint.html" title="de.tud.plt.r43ples.webservice.Endpoint" alt="" coords="15,11,713,229"/>
+<area shape="rect" id="node1" href="./Endpoint.html" title="&lt;TABLE&gt;" alt="" coords="5,6,723,234"/>
+<area shape="rect" id="c64" href="./Service.html" title="de.tud.plt.r43ples.webservice.Service" alt="" coords="757,67,905,173"/>
+<area shape="rect" id="node2" href="./Service.html" title="&lt;TABLE&gt;" alt="" coords="747,62,915,178"/>
 </map>
