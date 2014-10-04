@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// de.tud.plt.r43ples.management.RevisionManagement
-	c259 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../management/RevisionManagement.html">
+	c258 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../management/RevisionManagement.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> RevisionManagement </td></tr>
 <tr><td align="center" balign="center"> de.tud.plt.r43ples.management </td></tr>
@@ -37,7 +37,8 @@ digraph G {
 <tr><td align="left" balign="left"> + getRevisionNumberForNewBranch(graphName : java.lang.String, revisionNumber : java.lang.String) : java.lang.String </td></tr>
 <tr><td align="left" balign="left"> - executeINSERT(graphName : java.lang.String, dataSetAsNTriples : java.lang.String) </td></tr>
 <tr><td align="left" balign="left"> + getRevisionInformation(graphName : java.lang.String, format : java.lang.String) : java.lang.String </td></tr>
-<tr><td align="left" balign="left"> + getRevisedGraphs(format : java.lang.String) : java.lang.String </td></tr>
+<tr><td align="left" balign="left"> + getRevisedGraphsSparql(format : java.lang.String) : java.lang.String </td></tr>
+<tr><td align="left" balign="left"> + getRevisedGraphs() : java.util.ArrayList&lt;java.lang.String&gt; </td></tr>
 <tr><td align="left" balign="left"> + purgeGraph(graph : java.lang.String) </td></tr>
 <tr><td align="left" balign="left"> + getUserName(user : java.lang.String) : java.lang.String </td></tr>
 <tr><td align="left" balign="left"> + getDateString() : java.lang.String </td></tr>
@@ -45,24 +46,8 @@ digraph G {
 <tr><td align="left" balign="left"> + isBranch(graphName : java.lang.String, identifier : java.lang.String) : boolean </td></tr>
 		</table></td></tr>
 		</table>>, URL="../management/RevisionManagement.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// de.tud.plt.r43ples.revisionTree.Tree
-	c260 [label=<<table title="de.tud.plt.r43ples.revisionTree.Tree" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Tree.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> Tree </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + addNode(revisionNumber : String, revisionUri : String, fullGraph : String) </td></tr>
-<tr><td align="left" balign="left"> + addEdgeNode(node : String, predecessor : String) </td></tr>
-<tr><td align="left" balign="left"> + getPathToRevision(revisionNumber : String) : LinkedList&lt;String&gt; </td></tr>
-<tr><td align="left" balign="left"> + getPathToRevisionWithUri(revisionNumber : String) : LinkedList&lt;String&gt; </td></tr>
-<tr><td align="left" balign="left"> + getMap() : HashMap&lt;String, NodeSpecification&gt; </td></tr>
-		</table></td></tr>
-		</table>>, URL="./Tree.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.revisionTree.NodeSpecification
-	c261 [label=<<table title="de.tud.plt.r43ples.revisionTree.NodeSpecification" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./NodeSpecification.html">
+	c260 [label=<<table title="de.tud.plt.r43ples.revisionTree.NodeSpecification" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./NodeSpecification.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> NodeSpecification </td></tr>
 		</table></td></tr>
@@ -82,13 +67,29 @@ digraph G {
 <tr><td align="left" balign="left"> + getRevisionUri() : String </td></tr>
 		</table></td></tr>
 		</table>>, URL="./NodeSpecification.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// de.tud.plt.r43ples.revisionTree.Tree
+	c261 [label=<<table title="de.tud.plt.r43ples.revisionTree.Tree" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Tree.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> Tree </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + addNode(revisionNumber : String, revisionUri : String, fullGraph : String) </td></tr>
+<tr><td align="left" balign="left"> + addEdgeNode(node : String, predecessor : String) </td></tr>
+<tr><td align="left" balign="left"> + getPathToRevision(revisionNumber : String) : LinkedList&lt;String&gt; </td></tr>
+<tr><td align="left" balign="left"> + getPathToRevisionWithUri(revisionNumber : String) : LinkedList&lt;String&gt; </td></tr>
+<tr><td align="left" balign="left"> + getMap() : HashMap&lt;String, NodeSpecification&gt; </td></tr>
+		</table></td></tr>
+		</table>>, URL="./Tree.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// de.tud.plt.r43ples.revisionTree.NodeSpecification NAVASSOC de.tud.plt.r43ples.revisionTree.NodeSpecification
+	c260:p -> c260:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// de.tud.plt.r43ples.revisionTree.NodeSpecification NAVASSOC de.tud.plt.r43ples.revisionTree.NodeSpecification
+	c260:p -> c260:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// de.tud.plt.r43ples.revisionTree.Tree NAVASSOC de.tud.plt.r43ples.revisionTree.NodeSpecification
-	c260:p -> c261:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// de.tud.plt.r43ples.revisionTree.NodeSpecification NAVASSOC de.tud.plt.r43ples.revisionTree.NodeSpecification
-	c261:p -> c261:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// de.tud.plt.r43ples.revisionTree.NodeSpecification NAVASSOC de.tud.plt.r43ples.revisionTree.NodeSpecification
-	c261:p -> c261:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c261:p -> c260:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// de.tud.plt.r43ples.management.RevisionManagement DEPEND de.tud.plt.r43ples.revisionTree.Tree
-	c259:p -> c260:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c258:p -> c261:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

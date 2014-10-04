@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// de.tud.plt.r43ples.management.RevisionManagement
-	c189 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./RevisionManagement.html">
+	c188 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./RevisionManagement.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> RevisionManagement </td></tr>
 		</table></td></tr>
@@ -36,7 +36,8 @@ digraph G {
 <tr><td align="left" balign="left"> + getRevisionNumberForNewBranch(graphName : String, revisionNumber : String) : String </td></tr>
 <tr><td align="left" balign="left"> - executeINSERT(graphName : String, dataSetAsNTriples : String) </td></tr>
 <tr><td align="left" balign="left"> + getRevisionInformation(graphName : String, format : String) : String </td></tr>
-<tr><td align="left" balign="left"> + getRevisedGraphs(format : String) : String </td></tr>
+<tr><td align="left" balign="left"> + getRevisedGraphsSparql(format : String) : String </td></tr>
+<tr><td align="left" balign="left"> + getRevisedGraphs() : ArrayList&lt;String&gt; </td></tr>
 <tr><td align="left" balign="left"> + purgeGraph(graph : String) </td></tr>
 <tr><td align="left" balign="left"> + getUserName(user : String) : String </td></tr>
 <tr><td align="left" balign="left"> + getDateString() : String </td></tr>
@@ -45,7 +46,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="./RevisionManagement.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.revisionTree.Tree
-	c190 [label=<<table title="de.tud.plt.r43ples.revisionTree.Tree" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../revisionTree/Tree.html">
+	c191 [label=<<table title="de.tud.plt.r43ples.revisionTree.Tree" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../revisionTree/Tree.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Tree </td></tr>
 <tr><td align="center" balign="center"> de.tud.plt.r43ples.revisionTree </td></tr>
@@ -62,6 +63,6 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="../revisionTree/Tree.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.management.RevisionManagement DEPEND de.tud.plt.r43ples.revisionTree.Tree
-	c189:p -> c190:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c188:p -> c191:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 
