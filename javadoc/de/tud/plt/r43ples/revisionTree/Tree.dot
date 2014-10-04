@@ -37,7 +37,8 @@ digraph G {
 <tr><td align="left" balign="left"> + getRevisionNumberForNewBranch(graphName : java.lang.String, revisionNumber : java.lang.String) : java.lang.String </td></tr>
 <tr><td align="left" balign="left"> - executeINSERT(graphName : java.lang.String, dataSetAsNTriples : java.lang.String) </td></tr>
 <tr><td align="left" balign="left"> + getRevisionInformation(graphName : java.lang.String, format : java.lang.String) : java.lang.String </td></tr>
-<tr><td align="left" balign="left"> + getRevisedGraphs(format : java.lang.String) : java.lang.String </td></tr>
+<tr><td align="left" balign="left"> + getRevisedGraphsSparql(format : java.lang.String) : java.lang.String </td></tr>
+<tr><td align="left" balign="left"> + getRevisedGraphs() : java.util.ArrayList&lt;java.lang.String&gt; </td></tr>
 <tr><td align="left" balign="left"> + purgeGraph(graph : java.lang.String) </td></tr>
 <tr><td align="left" balign="left"> + getUserName(user : java.lang.String) : java.lang.String </td></tr>
 <tr><td align="left" balign="left"> + getDateString() : java.lang.String </td></tr>

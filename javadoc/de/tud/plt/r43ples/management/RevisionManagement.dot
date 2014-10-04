@@ -36,7 +36,8 @@ digraph G {
 <tr><td align="left" balign="left"> + getRevisionNumberForNewBranch(graphName : String, revisionNumber : String) : String </td></tr>
 <tr><td align="left" balign="left"> - executeINSERT(graphName : String, dataSetAsNTriples : String) </td></tr>
 <tr><td align="left" balign="left"> + getRevisionInformation(graphName : String, format : String) : String </td></tr>
-<tr><td align="left" balign="left"> + getRevisedGraphs(format : String) : String </td></tr>
+<tr><td align="left" balign="left"> + getRevisedGraphsSparql(format : String) : String </td></tr>
+<tr><td align="left" balign="left"> + getRevisedGraphs() : ArrayList&lt;String&gt; </td></tr>
 <tr><td align="left" balign="left"> + purgeGraph(graph : String) </td></tr>
 <tr><td align="left" balign="left"> + getUserName(user : String) : String </td></tr>
 <tr><td align="left" balign="left"> + getDateString() : String </td></tr>
