@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// de.tud.plt.r43ples.management.RevisionManagement
-	c256 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../management/RevisionManagement.html">
+	c289 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../management/RevisionManagement.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> RevisionManagement </td></tr>
 <tr><td align="center" balign="center"> de.tud.plt.r43ples.management </td></tr>
@@ -47,7 +47,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="../management/RevisionManagement.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.revisionTree.Tree
-	c260 [label=<<table title="de.tud.plt.r43ples.revisionTree.Tree" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Tree.html">
+	c291 [label=<<table title="de.tud.plt.r43ples.revisionTree.Tree" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Tree.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Tree </td></tr>
 		</table></td></tr>
@@ -56,14 +56,12 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> + addNode(revisionNumber : String, revisionUri : String, fullGraph : String) </td></tr>
-<tr><td align="left" balign="left"> + addEdgeNode(node : String, predecessor : String) </td></tr>
-<tr><td align="left" balign="left"> + getPathToRevision(revisionNumber : String) : LinkedList&lt;String&gt; </td></tr>
-<tr><td align="left" balign="left"> + getPathToRevisionWithUri(revisionNumber : String) : LinkedList&lt;String&gt; </td></tr>
-<tr><td align="left" balign="left"> + getMap() : HashMap&lt;String, NodeSpecification&gt; </td></tr>
+<tr><td align="left" balign="left"> + addEdge(successor : String, predecessor : String) </td></tr>
+<tr><td align="left" balign="left"> + getPathToRevision(revisionNumber : String) : LinkedList&lt;NodeSpecification&gt; </td></tr>
 		</table></td></tr>
 		</table>>, URL="./Tree.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.revisionTree.NodeSpecification
-	c261 [label=<<table title="de.tud.plt.r43ples.revisionTree.NodeSpecification" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./NodeSpecification.html">
+	c292 [label=<<table title="de.tud.plt.r43ples.revisionTree.NodeSpecification" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./NodeSpecification.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> NodeSpecification </td></tr>
 		</table></td></tr>
@@ -84,12 +82,12 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="./NodeSpecification.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.revisionTree.Tree NAVASSOC de.tud.plt.r43ples.revisionTree.NodeSpecification
-	c260:p -> c261:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c291:p -> c292:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// de.tud.plt.r43ples.revisionTree.NodeSpecification NAVASSOC de.tud.plt.r43ples.revisionTree.NodeSpecification
-	c261:p -> c261:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c292:p -> c292:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// de.tud.plt.r43ples.revisionTree.NodeSpecification NAVASSOC de.tud.plt.r43ples.revisionTree.NodeSpecification
-	c261:p -> c261:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c292:p -> c292:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// de.tud.plt.r43ples.management.RevisionManagement DEPEND de.tud.plt.r43ples.revisionTree.Tree
-	c256:p -> c260:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c289:p -> c291:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

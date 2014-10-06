@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// de.tud.plt.r43ples.management.RevisionManagement
-	c186 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./RevisionManagement.html">
+	c215 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./RevisionManagement.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> RevisionManagement </td></tr>
 		</table></td></tr>
@@ -46,7 +46,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="./RevisionManagement.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.revisionTree.Tree
-	c190 [label=<<table title="de.tud.plt.r43ples.revisionTree.Tree" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../revisionTree/Tree.html">
+	c217 [label=<<table title="de.tud.plt.r43ples.revisionTree.Tree" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../revisionTree/Tree.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Tree </td></tr>
 <tr><td align="center" balign="center"> de.tud.plt.r43ples.revisionTree </td></tr>
@@ -56,13 +56,11 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> + addNode(revisionNumber : java.lang.String, revisionUri : java.lang.String, fullGraph : java.lang.String) </td></tr>
-<tr><td align="left" balign="left"> + addEdgeNode(node : java.lang.String, predecessor : java.lang.String) </td></tr>
-<tr><td align="left" balign="left"> + getPathToRevision(revisionNumber : java.lang.String) : java.util.LinkedList&lt;java.lang.String&gt; </td></tr>
-<tr><td align="left" balign="left"> + getPathToRevisionWithUri(revisionNumber : java.lang.String) : java.util.LinkedList&lt;java.lang.String&gt; </td></tr>
-<tr><td align="left" balign="left"> + getMap() : java.util.HashMap&lt;java.lang.String, de.tud.plt.r43ples.revisionTree.NodeSpecification&gt; </td></tr>
+<tr><td align="left" balign="left"> + addEdge(successor : java.lang.String, predecessor : java.lang.String) </td></tr>
+<tr><td align="left" balign="left"> + getPathToRevision(revisionNumber : java.lang.String) : java.util.LinkedList&lt;de.tud.plt.r43ples.revisionTree.NodeSpecification&gt; </td></tr>
 		</table></td></tr>
 		</table>>, URL="../revisionTree/Tree.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.management.RevisionManagement DEPEND de.tud.plt.r43ples.revisionTree.Tree
-	c186:p -> c190:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c215:p -> c217:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 
