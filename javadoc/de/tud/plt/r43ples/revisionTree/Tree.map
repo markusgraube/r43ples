@@ -1,8 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="c256" href="../management/RevisionManagement.html" title="de.tud.plt.r43ples.management.RevisionManagement" alt="" coords="16,11,1789,485"/>
+<area shape="rect" id="c284" href="../management/RevisionManagement.html" title="de.tud.plt.r43ples.management.RevisionManagement" alt="" coords="16,11,1789,485"/>
 <area shape="rect" id="node1" href="../management/RevisionManagement.html" title="&lt;TABLE&gt;" alt="" coords="5,6,1800,490"/>
-<area shape="rect" id="c260" href="./Tree.html" title="de.tud.plt.r43ples.revisionTree.Tree" alt="" coords="676,545,1129,682"/>
-<area shape="rect" id="node2" href="./Tree.html" title="&lt;TABLE&gt;" alt="" coords="665,539,1140,687"/>
-<area shape="rect" id="c261" href="./NodeSpecification.html" title="de.tud.plt.r43ples.revisionTree.NodeSpecification" alt="" coords="741,742,1065,959"/>
-<area shape="rect" id="node3" href="./NodeSpecification.html" title="&lt;TABLE&gt;" alt="" coords="731,737,1075,965"/>
+<area shape="rect" id="c291" href="./Tree.html" title="de.tud.plt.r43ples.revisionTree.Tree" alt="" coords="662,545,1143,650"/>
+<area shape="rect" id="node2" href="./Tree.html" title="&lt;TABLE&gt;" alt="" coords="652,539,1153,655"/>
+<area shape="rect" id="c292" href="./NodeSpecification.html" title="de.tud.plt.r43ples.revisionTree.NodeSpecification" alt="" coords="741,710,1065,927"/>
+<area shape="rect" id="node3" href="./NodeSpecification.html" title="&lt;TABLE&gt;" alt="" coords="731,705,1075,933"/>
 </map>
