@@ -76,12 +76,12 @@ header h1 {
   font-size: 72px;
   color: #fff;
   line-height: 1;
-  margin-bottom: 0.2em;
+  /* margin-bottom: 0.2em; */
   width: 540px;
   background-image: url(../images/r43ples-logo.png);
   background-repeat: no-repeat;
   padding-top: 110px;
-  background-size: 350px;
+  background-size: 320px;
   height: 0;
   overflow: hidden;
 }
