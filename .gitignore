@@ -1,2 +1,10 @@
-/_site/
-/bin/
+_site/
+bin/
+build/
+test/
+src/
+resources/
+lib/
+doc/
+.update-gh-pages.sh
+.configure-git.sh
