@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="c37" href="./Tree.html" title="de.tud.plt.r43ples.revisionTree.Tree" alt="" coords="15,67,497,172"/>
-<area shape="rect" id="node1" href="./Tree.html" title="&lt;TABLE&gt;" alt="" coords="5,61,507,177"/>
-<area shape="rect" id="c38" href="./NodeSpecification.html" title="de.tud.plt.r43ples.revisionTree.NodeSpecification" alt="" coords="94,232,418,449"/>
-<area shape="rect" id="node2" href="./NodeSpecification.html" title="&lt;TABLE&gt;" alt="" coords="84,227,428,455"/>
+<area shape="rect" id="c37" href="./NodeSpecification.html" title="de.tud.plt.r43ples.revisionTree.NodeSpecification" alt="" coords="94,232,418,449"/>
+<area shape="rect" id="node1" href="./NodeSpecification.html" title="&lt;TABLE&gt;" alt="" coords="84,227,428,455"/>
+<area shape="rect" id="c38" href="./Tree.html" title="de.tud.plt.r43ples.revisionTree.Tree" alt="" coords="15,67,497,172"/>
+<area shape="rect" id="node2" href="./Tree.html" title="&lt;TABLE&gt;" alt="" coords="5,61,507,177"/>
 </map>
