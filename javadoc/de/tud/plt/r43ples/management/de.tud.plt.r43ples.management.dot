@@ -9,45 +9,8 @@ digraph G {
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	nodesep=0.25;
 	ranksep=0.5;
-	// de.tud.plt.r43ples.management.Config
-	c16 [label=<<table title="de.tud.plt.r43ples.management.Config" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Config.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> Config </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + readDefaultConfig() </td></tr>
-<tr><td align="left" balign="left"> + readConfig(configFilePath : String) </td></tr>
-		</table></td></tr>
-		</table>>, URL="./Config.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// de.tud.plt.r43ples.management.PreparationDBpediaTest
-	c17 [label=<<table title="de.tud.plt.r43ples.management.PreparationDBpediaTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PreparationDBpediaTest.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> PreparationDBpediaTest </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + main(args : String[]) </td></tr>
-		</table></td></tr>
-		</table>>, URL="./PreparationDBpediaTest.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// de.tud.plt.r43ples.management.ResourceManagement
-	c18 [label=<<table title="de.tud.plt.r43ples.management.ResourceManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ResourceManagement.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> ResourceManagement </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + getContentFromResource(resourceName : String) : String </td></tr>
-		</table></td></tr>
-		</table>>, URL="./ResourceManagement.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.management.RevisionManagement
-	c19 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./RevisionManagement.html">
+	c16 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./RevisionManagement.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> RevisionManagement </td></tr>
 		</table></td></tr>
@@ -82,21 +45,8 @@ digraph G {
 <tr><td align="left" balign="left"> + isBranch(graphName : String, identifier : String) : boolean </td></tr>
 		</table></td></tr>
 		</table>>, URL="./RevisionManagement.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// de.tud.plt.r43ples.management.SampleDataSet
-	c20 [label=<<table title="de.tud.plt.r43ples.management.SampleDataSet" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SampleDataSet.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> SampleDataSet </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + createSampleDataset1(graph : String) </td></tr>
-<tr><td align="left" balign="left"> + createSampleDataset2(graph : String) </td></tr>
-		</table></td></tr>
-		</table>>, URL="./SampleDataSet.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.management.SparqlRewriter
-	c21 [label=<<table title="de.tud.plt.r43ples.management.SparqlRewriter" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SparqlRewriter.html">
+	c17 [label=<<table title="de.tud.plt.r43ples.management.SparqlRewriter" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SparqlRewriter.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> SparqlRewriter </td></tr>
 		</table></td></tr>
@@ -109,8 +59,33 @@ digraph G {
 <tr><td align="left" balign="left"> - getRewrittenTriplePath(expression_list_revision_path : ExprList, expression_list_last_revision : ExprList, triplePath : TriplePath) : Element </td></tr>
 		</table></td></tr>
 		</table>>, URL="./SparqlRewriter.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// de.tud.plt.r43ples.management.PreparationDBpediaTest
+	c18 [label=<<table title="de.tud.plt.r43ples.management.PreparationDBpediaTest" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PreparationDBpediaTest.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> PreparationDBpediaTest </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + main(args : String[]) </td></tr>
+		</table></td></tr>
+		</table>>, URL="./PreparationDBpediaTest.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// de.tud.plt.r43ples.management.SampleDataSet
+	c19 [label=<<table title="de.tud.plt.r43ples.management.SampleDataSet" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./SampleDataSet.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> SampleDataSet </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + createSampleDataset1(graph : String) </td></tr>
+<tr><td align="left" balign="left"> + createSampleDataset2(graph : String) </td></tr>
+		</table></td></tr>
+		</table>>, URL="./SampleDataSet.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.management.TripleStoreInterface
-	c22 [label=<<table title="de.tud.plt.r43ples.management.TripleStoreInterface" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TripleStoreInterface.html">
+	c20 [label=<<table title="de.tud.plt.r43ples.management.TripleStoreInterface" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TripleStoreInterface.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> TripleStoreInterface </td></tr>
 		</table></td></tr>
@@ -124,5 +99,30 @@ digraph G {
 <tr><td align="left" balign="left"> + executeQueryWithAuthorization(query : String, format : String) : String </td></tr>
 		</table></td></tr>
 		</table>>, URL="./TripleStoreInterface.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// de.tud.plt.r43ples.management.ResourceManagement
+	c21 [label=<<table title="de.tud.plt.r43ples.management.ResourceManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ResourceManagement.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> ResourceManagement </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + getContentFromResource(resourceName : String) : String </td></tr>
+		</table></td></tr>
+		</table>>, URL="./ResourceManagement.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// de.tud.plt.r43ples.management.Config
+	c22 [label=<<table title="de.tud.plt.r43ples.management.Config" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Config.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> Config </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + readDefaultConfig() </td></tr>
+<tr><td align="left" balign="left"> + readConfig(configFilePath : String) </td></tr>
+		</table></td></tr>
+		</table>>, URL="./Config.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 }
 
