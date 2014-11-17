@@ -10,24 +10,30 @@ import org.apache.log4j.Logger;
  * Can read from configuration file.
  * 
  * @author Markus Graube
+ * @author Stephan Hensel
  *
  */
 public class Config {
 	
 	public static String service_uri;
 	public static int service_port;
+	
+	public static String ssl_keystore;
+	public static String ssl_password;
+	
 	public static String sparql_endpoint;
 	public static String sparql_user;
 	public static String sparql_password;
-	public static String yed_filepath;
-	public static String visualisation_path;
+	
 	public static String revision_graph;
+	
 	public static String sdd_graph;
 	public static String sdd_graph_defaultContent;
-
+	
+	public static String yed_filepath;
+	public static String visualisation_path;
 	
 	private static Logger logger = Logger.getLogger(Config.class);
-
 
 	
 	public static void readDefaultConfig() throws ConfigurationException {
@@ -46,6 +52,9 @@ public class Config {
 			config = new PropertiesConfiguration(configFilePath);
 			service_uri = config.getString("service.uri");
 			service_port = config.getInt("service.port");
+			
+			ssl_keystore = config.getString("ssl.keystore");
+			ssl_password = config.getString("ssl.password");
 			
 			sparql_endpoint = config.getString("sparql.endpoint");
 			sparql_user = config.getString("sparql.username");
