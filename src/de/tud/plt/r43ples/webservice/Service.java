@@ -46,7 +46,8 @@ public class Service {
 		logger.info("Starting R43ples on grizzly...");
 		Config.readConfig("r43ples.conf");
 		URI BASE_URI = UriBuilder.fromUri(Config.service_uri).port(Config.service_port).build();
-		ResourceConfig rc = new ClassNamesResourceConfig("de.tud.plt.r43ples.webservice.Endpoint");
+		ResourceConfig rc = new ClassNamesResourceConfig("de.tud.plt.r43ples.webservice.Endpoint",
+				"de.tud.plt.r43ples.webservice.AuthenticationFilter");
 		
 		SSLContextConfigurator sslCon = new SSLContextConfigurator();
 		sslCon.setKeyStoreFile(Config.ssl_keystore);
