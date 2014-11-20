@@ -31,5 +31,6 @@
 	<classpathentry kind="lib" path="lib/jsonld-java-0.5.0.jar"/>
 	<classpathentry kind="lib" path="lib/grappa1_2.jar"/>
 	<classpathentry kind="lib" path="lib/xmlunit-1.5.jar"/>
+	<classpathentry kind="lib" path="lib/jsr250-api.jar"/>
 	<classpathentry kind="output" path="build"/>
 </classpath>

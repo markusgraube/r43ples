@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.annotation.security.DenyAll;
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -183,6 +186,8 @@ public class Endpoint {
 	 * 
 	 * @return list of graphs which are under revision control
 	 */
+	// TODO (only test of deny all)
+//	@DenyAll
 	@Path("getRevisedGraphs")
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
@@ -212,6 +217,8 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws HttpException 
 	 */
+//	@DenyAll
+//	@RolesAllowed({ "Editor" })
 	@Path("sparql")
 	@POST
 	@Produces({ MediaType.TEXT_PLAIN, MediaType.TEXT_HTML, MediaType.APPLICATION_JSON, "application/rdf+xml", "text/turtle" })
@@ -239,6 +246,9 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws HttpException 
 	 */
+//	@DenyAll
+	@PermitAll
+	@RolesAllowed({ "Editor" })
 	@Path("sparql")
 	@GET
 	@Produces({ MediaType.TEXT_PLAIN, MediaType.TEXT_HTML, MediaType.APPLICATION_JSON, "application/rdf+xml", "text/turtle" })
@@ -265,6 +275,8 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws HttpException 
 	 */
+//	@PermitAll
+	@DenyAll
 	public final Response sparql(final String format, final String sparqlQuery)
 			throws IOException, HttpException {
 		if (sparqlQuery.equals("")) {

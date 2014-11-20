@@ -55,10 +55,14 @@ public class Service {
 //		ResourceConfig rc = new PackagesResourceConfig("");
 		
 		ResourceConfig rc = new ClassNamesResourceConfig("de.tud.plt.r43ples.webservice.Endpoint");
+//		rc.getProperties().put(
+//		    "com.sun.jersey.spi.container.ContainerRequestFilters",
+//		    "de.tud.plt.r43ples.webservice.AuthenticationFilter"
+//		);
 		rc.getProperties().put(
-		    "com.sun.jersey.spi.container.ContainerRequestFilters",
-		    "de.tud.plt.r43ples.webservice.AuthenticationFilter"
-		);
+			    "com.sun.jersey.spi.container.ResourceFilters",
+			    "de.tud.plt.r43ples.webservice.ResourceFilterFactory"
+			);
 				
 		SSLContextConfigurator sslCon = new SSLContextConfigurator();
 		sslCon.setKeyStoreFile(Config.ssl_keystore);
