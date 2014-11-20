@@ -3,6 +3,7 @@ package de.tud.plt.r43ples.webservice;
 import java.io.IOException;
 import java.net.URI;
 
+import javax.ws.rs.core.Application;
 import javax.ws.rs.core.UriBuilder;
 
 import org.apache.commons.configuration.ConfigurationException;
@@ -17,6 +18,7 @@ import org.glassfish.grizzly.ssl.SSLEngineConfigurator;
 import com.sun.jersey.api.container.ContainerFactory;
 import com.sun.jersey.api.container.grizzly2.GrizzlyServerFactory;
 import com.sun.jersey.api.core.ClassNamesResourceConfig;
+import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.api.core.ResourceConfig;
 
 import de.tud.plt.r43ples.management.Config;
@@ -46,9 +48,18 @@ public class Service {
 		logger.info("Starting R43ples on grizzly...");
 		Config.readConfig("r43ples.conf");
 		URI BASE_URI = UriBuilder.fromUri(Config.service_uri).port(Config.service_port).build();
-		ResourceConfig rc = new ClassNamesResourceConfig("de.tud.plt.r43ples.webservice.Endpoint",
-				"de.tud.plt.r43ples.webservice.AuthenticationFilter");
+//		ResourceConfig rc = new ClassNamesResourceConfig("de.tud.plt.r43ples.webservice.Endpoint",
+//				"de.tud.plt.r43ples.webservice.AuthenticationFilter");
+//		rc.add(
+				
+//		ResourceConfig rc = new PackagesResourceConfig("");
 		
+		ResourceConfig rc = new ClassNamesResourceConfig("de.tud.plt.r43ples.webservice.Endpoint");
+		rc.getProperties().put(
+		    "com.sun.jersey.spi.container.ContainerRequestFilters",
+		    "de.tud.plt.r43ples.webservice.AuthenticationFilter"
+		);
+				
 		SSLContextConfigurator sslCon = new SSLContextConfigurator();
 		sslCon.setKeyStoreFile(Config.ssl_keystore);
 	    sslCon.setKeyStorePass(Config.ssl_password);
