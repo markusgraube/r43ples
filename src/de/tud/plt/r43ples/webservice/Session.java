@@ -3,6 +3,12 @@ package de.tud.plt.r43ples.webservice;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * The session.
+ * 
+ * @author Stephan Hensel
+ *
+ */
 public class Session implements Serializable {
 
 	/** The default version UID. **/
@@ -24,6 +30,8 @@ public class Session implements Serializable {
 	
 	
 	/**
+	 * Get the session ID.
+	 * 
 	 * @return the sessionId
 	 */
 	public String getSessionId() {
@@ -32,6 +40,8 @@ public class Session implements Serializable {
 	
 	
 	/**
+	 * Set the session ID.
+	 * 
 	 * @param sessionId the sessionId to set
 	 */
 	public void setSessionId(String sessionId) {
@@ -40,6 +50,8 @@ public class Session implements Serializable {
 	
 	
 	/**
+	 * Get the user ID.
+	 * 
 	 * @return the userId
 	 */
 	public String getUserId() {
@@ -48,6 +60,8 @@ public class Session implements Serializable {
 	
 	
 	/**
+	 * Set the user ID.
+	 * 
 	 * @param userId the userId to set
 	 */
 	public void setUserId(String userId) {
@@ -56,7 +70,9 @@ public class Session implements Serializable {
 	
 	
 	/**
-	 * @return the active
+	 * Ask if the session is active.
+	 * 
+	 * @return the active flag
 	 */
 	public boolean isActive() {
 		return active;
@@ -64,7 +80,9 @@ public class Session implements Serializable {
 	
 	
 	/**
-	 * @param active the active to set
+	 * Set the active flag of the session.
+	 * 
+	 * @param active the active flag to set
 	 */
 	public void setActive(boolean active) {
 		this.active = active;
@@ -72,7 +90,9 @@ public class Session implements Serializable {
 	
 	
 	/**
-	 * @return the secure
+	 * Ask if the session is secure.
+	 * 
+	 * @return the secure flag
 	 */
 	public boolean isSecure() {
 		return secure;
@@ -80,7 +100,9 @@ public class Session implements Serializable {
 	
 	
 	/**
-	 * @param secure the secure to set
+	 * Set the secure flag of the session.
+	 * 
+	 * @param secure the secure flag to set
 	 */
 	public void setSecure(boolean secure) {
 		this.secure = secure;
@@ -88,7 +110,9 @@ public class Session implements Serializable {
 	
 	
 	/**
-	 * @return the creationTime
+	 * Get the creation time.
+	 * 
+	 * @return the creation time
 	 */
 	public Date getCreationTime() {
 		return creationTime;
@@ -96,7 +120,9 @@ public class Session implements Serializable {
 	
 	
 	/**
-	 * @param creationTime the creationTime to set
+	 * Set the creation time.
+	 * 
+	 * @param creationTime the creation time to set
 	 */
 	public void setCreationTime(Date creationTime) {
 		this.creationTime = creationTime;
@@ -104,7 +130,9 @@ public class Session implements Serializable {
 	
 	
 	/**
-	 * @return the lastAccessedTime
+	 * Get the last accessed time.
+	 * 
+	 * @return the last accessed time
 	 */
 	public Date getLastAccessedTime() {
 		return lastAccessedTime;
@@ -112,7 +140,9 @@ public class Session implements Serializable {
 	
 	
 	/**
-	 * @param lastAccessedTime the lastAccessedTime to set
+	 * Set the last accessed time.
+	 * 
+	 * @param lastAccessedTime the last accessed time to set
 	 */
 	public void setLastAccessedTime(Date lastAccessedTime) {
 		this.lastAccessedTime = lastAccessedTime;

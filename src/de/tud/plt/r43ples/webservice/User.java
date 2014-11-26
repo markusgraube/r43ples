@@ -36,7 +36,9 @@ public class User implements Principal {
 	
 	
 	/**
-	 * @return the userId
+	 * Get the user ID.
+	 * 
+	 * @return the user ID
 	 */
 	public String getUserId() {
 		return userId;
@@ -44,7 +46,9 @@ public class User implements Principal {
 
 
 	/**
-	 * @param userId the userId to set
+	 * Set the user ID.
+	 * 
+	 * @param userId the user ID to set
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
@@ -52,6 +56,8 @@ public class User implements Principal {
 
 
 	/**
+	 * Set the user name.
+	 * 
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
@@ -60,7 +66,9 @@ public class User implements Principal {
 
 
 	/**
-	 * @return the emailAddress
+	 * Get the email address.
+	 * 
+	 * @return the email address
 	 */
 	public String getEmailAddress() {
 		return emailAddress;
@@ -68,6 +76,8 @@ public class User implements Principal {
 
 
 	/**
+	 * Set the email address.
+	 * 
 	 * @param emailAddress the emailAddress to set
 	 */
 	public void setEmailAddress(String emailAddress) {
@@ -76,6 +86,8 @@ public class User implements Principal {
 
 
 	/**
+	 * Get the roles.
+	 * 
 	 * @return the roles
 	 */
 	public Set<Role> getRoles() {
@@ -84,6 +96,8 @@ public class User implements Principal {
 
 
 	/**
+	 * Set the roles.
+	 * 
 	 * @param roles the roles to set
 	 */
 	public void setRoles(Set<Role> roles) {
