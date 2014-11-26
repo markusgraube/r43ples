@@ -122,6 +122,7 @@ public class Endpoint {
 	 * Creates sample datasets
 	 * @return information provided as HTML response
 	 */
+	@RolesAllowed({"SAMPLE"})
 	@Path("createSampleDataset")
 	@GET
 	public final Response createSampleDataset() {
@@ -154,6 +155,7 @@ public class Endpoint {
 	 *            Provide only information about this graph (if not null)
 	 * @return RDF model of revision information
 	 */
+	@RolesAllowed({"REVISION_GRAPH"})
 	@Path("revisiongraph")
 	@GET
 	@Produces({ "text/turtle", "application/rdf+xml", MediaType.APPLICATION_JSON, MediaType.TEXT_HTML,
@@ -186,8 +188,7 @@ public class Endpoint {
 	 * 
 	 * @return list of graphs which are under revision control
 	 */
-	// TODO (only test of deny all)
-//	@DenyAll
+	@RolesAllowed({"REVISED_GRAPHS"})
 	@Path("getRevisedGraphs")
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
@@ -217,8 +218,7 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws HttpException 
 	 */
-//	@DenyAll
-//	@RolesAllowed({ "Editor" })
+	@RolesAllowed({"SPARQL"})
 	@Path("sparql")
 	@POST
 	@Produces({ MediaType.TEXT_PLAIN, MediaType.TEXT_HTML, MediaType.APPLICATION_JSON, "application/rdf+xml", "text/turtle" })
@@ -246,9 +246,7 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws HttpException 
 	 */
-//	@DenyAll
-	@PermitAll
-	@RolesAllowed({ "Editor" })
+	@RolesAllowed({"SPARQL"})
 	@Path("sparql")
 	@GET
 	@Produces({ MediaType.TEXT_PLAIN, MediaType.TEXT_HTML, MediaType.APPLICATION_JSON, "application/rdf+xml", "text/turtle" })
@@ -275,8 +273,7 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws HttpException 
 	 */
-//	@PermitAll
-	@DenyAll
+	@RolesAllowed({"SPARQL"})
 	public final Response sparql(final String format, final String sparqlQuery)
 			throws IOException, HttpException {
 		if (sparqlQuery.equals("")) {
@@ -296,6 +293,7 @@ public class Endpoint {
 	 * @return
 	 * @throws InternalServerErrorException
 	 */
+	@RolesAllowed({"SPARQL"})
 	private Response getSparqlResponse(final String format, String sparqlQuery) throws InternalServerErrorException {
 		logger.info("SPARQL query was requested. Query: " + sparqlQuery);
 		try {
@@ -364,7 +362,7 @@ public class Endpoint {
 	 * with the additional R43ples feature (sd:feature) and replaced URIs.
 	 * 
 	 * @param format
-	 *            serialisation format of the service description
+	 *            serialization format of the service description
 	 * @return Extended Service Description
 	 * @throws ClientProtocolException
 	 * @throws IOException
@@ -422,6 +420,7 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws AuthenticationException
 	 */
+	@RolesAllowed({"SELECT"})
 	private Response getSelectResponse(final String query, final String format) throws HttpException, IOException {
 		if (query.contains("OPTION r43ples:SPARQL_JOIN")) {
 			ResponseBuilder responseBuilder = Response.ok();
@@ -444,6 +443,7 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
+	@RolesAllowed({"SELECT", "SELECT_CLASSIC"})
 	private Response getSelectResponseClassic(final String query, final String format) throws HttpException, IOException, UnsupportedEncodingException {
 		ResponseBuilder responseBuilder = Response.ok();
 		String queryM = query;
@@ -511,6 +511,7 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws HttpException
 	 */
+	@RolesAllowed({"UPDATE"})
 	private Response getUpdateResponse(final String query, final String user, final String commitMessage,
 			final String format) throws HttpException, IOException {
 
@@ -613,6 +614,7 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws HttpException
 	 */
+	@RolesAllowed({"CREATE"})
 	private Response getCreateGraphResponse(final String query, final String format) throws IOException, HttpException {
 		ResponseBuilder responseBuilder = Response.created(URI.create(""));
 		logger.info("Graph creation detected");
@@ -656,6 +658,7 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws HttpException
 	 */
+	@RolesAllowed({"DROP"})
 	private Response getDropGraphResponse(final String query, final String format) throws IOException, HttpException {
 		ResponseBuilder responseBuilder = Response.created(URI.create(""));
 
@@ -687,6 +690,7 @@ public class Endpoint {
 	 * @throws IOException
 	 * @throws AuthenticationException
 	 */
+	@RolesAllowed({"BRANCH_TAG"})
 	private Response getBranchOrTagResponse(final String sparqlQuery, final String user, final String commitMessage,
 			final String format) throws HttpException, IOException {
 		ResponseBuilder responseBuilder = Response.created(URI.create(""));
@@ -739,6 +743,7 @@ public class Endpoint {
 	 * @throws IOException 
 	 * @throws AuthenticationException 
 	 */
+	@RolesAllowed({"MERGE"})
 	private Response getMergeResponse(final String sparqlQuery, final String user, final String commitMessage, final String format) throws HttpException, IOException {
 		ResponseBuilder responseBuilder = Response.created(URI.create(""));
 		logger.info("Merge creation detected");
