@@ -16,11 +16,11 @@ import com.sun.jersey.spi.container.ResourceFilter;
 @Provider
 public class SecurityContextFilter implements ResourceFilter, ContainerRequestFilter {
 
-//	@Autowired
-//	private SessionRepository sessionRepository;  // DAO to access Session
-//
-//	@Autowired
-//	private UserRepository userRepository;  // DAO to access User
+	/** DAO to access session. **/
+	private SessionRepository sessionRepository = new SessionRepository();
+
+	/** DAO to access user. **/
+	private UserRepository userRepository = new UserRepository();
 	
 	
 	/* (non-Javadoc)
@@ -35,11 +35,11 @@ public class SecurityContextFilter implements ResourceFilter, ContainerRequestFi
 		Session session = null;
 		if (sessionId != null && sessionId.length() > 0) {
 			// Load session object from repository
-//			session = sessionRepository.findOne(sessionId);
+			session = sessionRepository.findOne(sessionId);
 			
 			// Load associated user from session
 			if (null != session) {
-//				user = userRepository.findOne(session.getUserId());
+				user = userRepository.findOne(session.getUserId());
 			}
 		}
 		

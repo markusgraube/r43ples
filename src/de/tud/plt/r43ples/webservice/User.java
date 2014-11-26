@@ -3,17 +3,27 @@ package de.tud.plt.r43ples.webservice;
 import java.security.Principal;
 import java.util.Set;
 
+/**
+ * The user.
+ * 
+ * @author Stephan Hensel
+ *
+ */
 public class User implements Principal {
 
 	// Role
 	public enum Role {
-		Editor, Visitor, Contributor
+		SAMPLE, REVISION_GRAPH, REVISED_GRAPHS, SPARQL, SELECT, SELECT_CLASSIC, UPDATE, CREATE, DROP, BRANCH_TAG, MERGE
 	};
 	
-	private String userId;          // id
-	private String name;            // name
-	private String emailAddress;    // email
-	private Set<Role> roles;        // roles
+	/** The user ID. **/
+	private String userId;
+	/** The user name. **/
+	private String name;
+	/** The user email address. **/
+	private String emailAddress;
+	/** The roles of the user. **/
+	private Set<Role> roles;
 	
 	
 	/* (non-Javadoc)
