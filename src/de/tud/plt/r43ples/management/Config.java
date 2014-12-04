@@ -17,6 +17,7 @@ public class Config {
 	
 	public static String service_uri;
 	public static int service_port;
+	public static boolean service_secure;
 	
 	public static String ssl_keystore;
 	public static String ssl_password;
@@ -52,6 +53,7 @@ public class Config {
 			config = new PropertiesConfiguration(configFilePath);
 			service_uri = config.getString("service.uri");
 			service_port = config.getInt("service.port");
+			service_secure = config.getBoolean("service.secure");
 			
 			ssl_keystore = config.getString("ssl.keystore");
 			ssl_password = config.getString("ssl.password");

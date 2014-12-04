@@ -3,7 +3,6 @@ package de.tud.plt.r43ples.webservice;
 import java.io.IOException;
 import java.net.URI;
 
-import javax.ws.rs.core.Application;
 import javax.ws.rs.core.UriBuilder;
 
 import org.apache.commons.configuration.ConfigurationException;
@@ -18,7 +17,6 @@ import org.glassfish.grizzly.ssl.SSLEngineConfigurator;
 import com.sun.jersey.api.container.ContainerFactory;
 import com.sun.jersey.api.container.grizzly2.GrizzlyServerFactory;
 import com.sun.jersey.api.core.ClassNamesResourceConfig;
-import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.api.core.ResourceConfig;
 
 import de.tud.plt.r43ples.management.Config;
@@ -37,45 +35,68 @@ public class Service {
 
 	/** The logger */
 	private static Logger logger = Logger.getLogger(Service.class);
+	/** The HTTP server. **/
 	private static HttpServer server;
 	
+	
+	/**
+	 * Starts the server.
+	 * 
+	 * @param args
+	 * @throws ConfigurationException
+	 * @throws IOException
+	 * @throws HttpException
+	 */
 	public static void main(String[] args) throws ConfigurationException, IOException, HttpException {
 		start();
 		while(true);
 	}
 	
-	public static void start()  throws ConfigurationException, IOException, HttpException {
+	
+	/**
+	 * Starts the server. It is possible to enable a secure connection.
+	 * 
+	 * @throws ConfigurationException
+	 * @throws IOException
+	 * @throws HttpException
+	 */
+	public static void start() throws ConfigurationException, IOException, HttpException {
 		logger.info("Starting R43ples on grizzly...");
 		Config.readConfig("r43ples.conf");
-		URI BASE_URI = UriBuilder.fromUri(Config.service_uri).port(Config.service_port).build();
-//		ResourceConfig rc = new ClassNamesResourceConfig("de.tud.plt.r43ples.webservice.Endpoint",
-//				"de.tud.plt.r43ples.webservice.AuthenticationFilter");
-//		rc.add(
-				
-//		ResourceConfig rc = new PackagesResourceConfig("");
+		URI BASE_URI = null;
 		
-		ResourceConfig rc = new ClassNamesResourceConfig("de.tud.plt.r43ples.webservice.Endpoint");
-//		rc.getProperties().put(
-//		    "com.sun.jersey.spi.container.ContainerRequestFilters",
-//		    "de.tud.plt.r43ples.webservice.AuthenticationFilter"
-//		);
-		rc.getProperties().put(
-			    "com.sun.jersey.spi.container.ResourceFilters",
-			    "de.tud.plt.r43ples.webservice.ResourceFilterFactory"
+		// Choose if the endpoint should be SSL secured
+		if (Config.service_secure) {
+			BASE_URI = UriBuilder.fromUri(Config.service_uri.replaceFirst("http://", "https://")).port(Config.service_port).build();
+		
+			ResourceConfig rc = new ClassNamesResourceConfig("de.tud.plt.r43ples.webservice.Endpoint");
+			rc.getProperties().put(
+					"com.sun.jersey.spi.container.ResourceFilters",
+					"de.tud.plt.r43ples.webservice.ResourceFilterFactory"
 			);
-				
-		SSLContextConfigurator sslCon = new SSLContextConfigurator();
-		sslCon.setKeyStoreFile(Config.ssl_keystore);
-	    sslCon.setKeyStorePass(Config.ssl_password);
+			
+			SSLContextConfigurator sslCon = new SSLContextConfigurator();
+			sslCon.setKeyStoreFile(Config.ssl_keystore);
+			sslCon.setKeyStorePass(Config.ssl_password);
+	
+			HttpHandler hand = ContainerFactory.createContainer(HttpHandler.class, rc);
+	
+			server = GrizzlyServerFactory.createHttpServer(BASE_URI, hand, true, 
+					new SSLEngineConfigurator(sslCon, false, false, false));
+			server.getServerConfiguration().addHttpHandler(
+					new StaticHttpHandler("./resources/webapp/"), "/static/");
+			server.start();
 		
-		HttpHandler hand = ContainerFactory.createContainer(HttpHandler.class, rc);
-		
-		server = GrizzlyServerFactory.createHttpServer(BASE_URI, hand, true, 
-				new SSLEngineConfigurator(sslCon, false, false, false));
-
-		server.getServerConfiguration().addHttpHandler(
-		        new StaticHttpHandler("./resources/webapp/"), "/static/");
-		server.start();
+			logger.info("Connection is secure.");
+		} else {
+			BASE_URI = UriBuilder.fromUri(Config.service_uri).port(Config.service_port).build();
+			ResourceConfig rc = new ClassNamesResourceConfig("de.tud.plt.r43ples.webservice.Endpoint");
+			server = GrizzlyServerFactory.createHttpServer(BASE_URI, rc);
+			server.getServerConfiguration().addHttpHandler(new StaticHttpHandler("./resources/webapp/"), "/static/");
+			server.start();
+			
+			logger.info("Connection is not secure.");
+		}
 		
 		logger.info(String.format("Server started - R43ples endpoint available under: %sr43ples/sparql", BASE_URI));
 		
@@ -85,6 +106,9 @@ public class Service {
 	}
 	
 	
+	/**
+	 * Stops the server.
+	 */
 	public static void stop() {
 		server.stop();
 	}
