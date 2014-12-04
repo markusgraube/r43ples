@@ -32,5 +32,6 @@
 	<classpathentry kind="lib" path="lib/grappa1_2.jar"/>
 	<classpathentry kind="lib" path="lib/xmlunit-1.5.jar"/>
 	<classpathentry kind="lib" path="lib/jsr250-api.jar"/>
+	<classpathentry kind="lib" path="lib/ldap/api-all-1.0.0-M26.jar"/>
 	<classpathentry kind="output" path="build"/>
 </classpath>

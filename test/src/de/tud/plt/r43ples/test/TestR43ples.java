@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.io.IOUtils;
+import org.apache.directory.api.ldap.model.exception.LdapException;
 import org.apache.http.HttpException;
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
@@ -38,7 +39,7 @@ public class TestR43ples {
 	
 	
 	@BeforeClass
-	public static void setUp() throws ConfigurationException, IOException, HttpException{
+	public static void setUp() throws ConfigurationException, IOException, HttpException, LdapException{
 		Config.readConfig("r43ples.conf");
 		TripleStoreInterface.init(Config.sparql_endpoint, Config.sparql_user, Config.sparql_password);
 		SampleDataSet.createSampleDataSetMerging(graphName);
@@ -46,7 +47,7 @@ public class TestR43ples {
 	}
 	
 	@AfterClass
-	public static void tearDown() {
+	public static void tearDown() throws IOException, LdapException {
 		Service.stop();
 	}
 	

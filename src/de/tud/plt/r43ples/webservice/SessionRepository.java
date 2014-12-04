@@ -17,7 +17,7 @@ public class SessionRepository {
 	 * Find session by session ID.
 	 * 
 	 * @param sessionId the session ID
-	 * @return the corresponding session to the specified session ID 
+	 * @return the corresponding session of the specified session ID 
 	 */
 	public Session findOne(String sessionId) {
 		// TODO Auto-generated method stub
@@ -30,7 +30,7 @@ public class SessionRepository {
 	 * 
 	 * @param userName the user name
 	 * @param userPassword the user password
-	 * @return the session id
+	 * @return the session ID
 	 */
 	public UUID createNewSession(String userName, String userPassword) {		
 		

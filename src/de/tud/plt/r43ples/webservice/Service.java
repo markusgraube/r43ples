@@ -6,6 +6,9 @@ import java.net.URI;
 import javax.ws.rs.core.UriBuilder;
 
 import org.apache.commons.configuration.ConfigurationException;
+import org.apache.directory.api.ldap.model.exception.LdapException;
+import org.apache.directory.ldap.client.api.LdapConnection;
+import org.apache.directory.ldap.client.api.LdapNetworkConnection;
 import org.apache.http.HttpException;
 import org.apache.log4j.Logger;
 import org.glassfish.grizzly.http.server.HttpHandler;
@@ -37,7 +40,8 @@ public class Service {
 	private static Logger logger = Logger.getLogger(Service.class);
 	/** The HTTP server. **/
 	private static HttpServer server;
-	
+	/** The LDAP connection **/
+	private static LdapConnection ldapConnection;
 	
 	/**
 	 * Starts the server.
@@ -46,8 +50,9 @@ public class Service {
 	 * @throws ConfigurationException
 	 * @throws IOException
 	 * @throws HttpException
+	 * @throws LdapException 
 	 */
-	public static void main(String[] args) throws ConfigurationException, IOException, HttpException {
+	public static void main(String[] args) throws ConfigurationException, IOException, HttpException, LdapException {
 		start();
 		while(true);
 	}
@@ -59,10 +64,17 @@ public class Service {
 	 * @throws ConfigurationException
 	 * @throws IOException
 	 * @throws HttpException
+	 * @throws LdapException 
 	 */
-	public static void start() throws ConfigurationException, IOException, HttpException {
+	public static void start() throws ConfigurationException, IOException, HttpException, LdapException {
 		logger.info("Starting R43ples on grizzly...");
 		Config.readConfig("r43ples.conf");
+		
+		// Create LDAP connection
+		ldapConnection = new LdapNetworkConnection(Config.ldap_uri, Config.ldap_port);
+		ldapConnection.bind();
+		
+		// Create HTTP server
 		URI BASE_URI = null;
 		
 		// Choose if the endpoint should be SSL secured
@@ -108,8 +120,13 @@ public class Service {
 	
 	/**
 	 * Stops the server.
+	 * 
+	 * @throws IOException 
+	 * @throws LdapException 
 	 */
-	public static void stop() {
+	public static void stop() throws IOException, LdapException {
+		ldapConnection.unBind();
+		ldapConnection.close();
 		server.stop();
 	}
 	
