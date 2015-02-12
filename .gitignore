@@ -8,3 +8,5 @@ lib/
 doc/
 .update-gh-pages.sh
 .configure-git.sh
+target
+database/
