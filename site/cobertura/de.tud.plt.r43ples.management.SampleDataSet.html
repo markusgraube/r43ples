@@ -12,7 +12,7 @@
 <div class="separator">&nbsp;</div>
 <table class="report">
 <thead><tr>  <td class="heading">Classes in this File</td>  <td class="heading"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Line Coverage</a></td>  <td class="heading"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Branch Coverage</a></td>  <td class="heading"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">Complexity</a></td></tr></thead>
-  <tr><td><a href="de.tud.plt.r43ples.management.SampleDataSet.html">SampleDataSet</a></td><td><table cellpadding="0px" cellspacing="0px" class="percentgraph"><tr class="percentgraph"><td align="right" class="percentgraph" width="40">47%</td><td class="percentgraph"><div class="percentgraph"><div class="greenbar" style="width:47px"><span class="text">75/158</span></div></div></td></tr></table></td><td><table cellpadding="0px" cellspacing="0px" class="percentgraph"><tr class="percentgraph"><td align="right" class="percentgraph" width="40"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">N/A</a></td><td class="percentgraph"><div class="percentgraph"><div class="na" style="width:100px"><span class="text"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">N/A</a></span></div></div></td></tr></table></td><td class="value"><span class="hidden">1.0;</span>1</td></tr>
+  <tr><td><a href="de.tud.plt.r43ples.management.SampleDataSet.html">SampleDataSet</a></td><td><table cellpadding="0px" cellspacing="0px" class="percentgraph"><tr class="percentgraph"><td align="right" class="percentgraph" width="40">38%</td><td class="percentgraph"><div class="percentgraph"><div class="greenbar" style="width:38px"><span class="text">49/126</span></div></div></td></tr></table></td><td><table cellpadding="0px" cellspacing="0px" class="percentgraph"><tr class="percentgraph"><td align="right" class="percentgraph" width="40"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">N/A</a></td><td class="percentgraph"><div class="percentgraph"><div class="na" style="width:100px"><span class="text"><a class="dfn" href="help.html" onclick="popupwindow('help.html'); return false;">N/A</a></span></div></div></td></tr></table></td><td class="value"><span class="hidden">1.0;</span>1</td></tr>
 
 </table>
 <div class="separator">&nbsp;</div>
@@ -40,67 +40,88 @@
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;12</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">/** The logger. */</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;13</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">private</span> <span class="keyword">static</span> Logger logger = Logger.getLogger(SampleDataSet.<span class="keyword">class</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;13</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">private</span> <span class="keyword">static</span> Logger logger = Logger.getLogger(SampleDataSet.<span class="keyword">class</span>);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;14</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;15</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> createSampleDataset1(String graph) <span class="keyword">throws</span> InternalErrorException  {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;16</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.purgeGraph(graph);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;17</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.putGraphUnderVersionControl(graph);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;16</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.purgeGraph(graph);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;17</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.putGraphUnderVersionControl(graph);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;18</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;19</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;20</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"0"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;21</td>  <td class="nbHitsCovered">&nbsp;40</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;22</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/added-1.nt"</span>),</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;23</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/removed-1.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;24</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 1"</span>, list);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;25</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                list.remove(<span class="string">"0"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;26</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"1"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;27</td>  <td class="nbHitsCovered">&nbsp;28</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;28</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/added-2.nt"</span>),</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;29</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/removed-2.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;30</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 2"</span>, list);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;31</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                list.remove(<span class="string">"1"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;32</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"2"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;33</td>  <td class="nbHitsCovered">&nbsp;28</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;34</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/added-3.nt"</span>),</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;35</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/removed-3.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;36</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 3"</span>, list);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;37</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                list.remove(<span class="string">"2"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;38</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"3"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;39</td>  <td class="nbHitsCovered">&nbsp;28</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;40</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/added-4.nt"</span>),</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;41</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/removed-4.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;42</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 4"</span>, list);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;43</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                list.remove(<span class="string">"3"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;44</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"4"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;45</td>  <td class="nbHitsCovered">&nbsp;28</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;46</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/added-5.nt"</span>),</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;47</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/removed-5.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;48</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 5"</span>, list);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;49</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;19</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;20</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"0"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;21</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;22</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/added-1.nt"</span>),</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;23</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/removed-1.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;24</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 1"</span>, list);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;25</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.remove(<span class="string">"0"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;26</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"1"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;27</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;28</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/added-2.nt"</span>),</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;29</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/removed-2.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;30</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 2"</span>, list);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;31</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.remove(<span class="string">"1"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;32</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"2"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;33</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;34</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/added-3.nt"</span>),</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;35</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/removed-3.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;36</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 3"</span>, list);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;37</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.remove(<span class="string">"2"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;38</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"3"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;39</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;40</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/added-4.nt"</span>),</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;41</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/removed-4.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;42</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 4"</span>, list);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;43</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.remove(<span class="string">"3"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;44</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"4"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;45</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;46</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/added-5.nt"</span>),</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;47</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/dataset1/removed-5.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;48</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 5"</span>, list);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;49</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;50</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;51</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> createSampleDataset2(String graph) <span class="keyword">throws</span> InternalErrorException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;52</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.purgeGraph(graph);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;53</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.putGraphUnderVersionControl(graph);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;52</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.purgeGraph(graph);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;53</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.putGraphUnderVersionControl(graph);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;54</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;55</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;56</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"0"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;57</td>  <td class="nbHitsCovered">&nbsp;10</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;58</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/test2-delta-added-1.nt"</span>),</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;59</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/test2-delta-removed-1.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;60</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 1"</span>, list);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;61</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.remove(<span class="string">"0"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;62</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"1"</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;63</td>  <td class="nbHitsCovered">&nbsp;10</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;64</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/test2-delta-added-2.nt"</span>),</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;65</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/test2-delta-removed-2.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;66</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 2"</span>, list);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;67</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;55</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;56</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"0"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;57</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;58</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/test2-delta-added-1.nt"</span>),</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;59</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/test2-delta-removed-1.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;60</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 1"</span>, list);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;61</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                list.remove(<span class="string">"0"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;62</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                list.add(<span class="string">"1"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;63</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                RevisionManagement.createNewRevision(graph,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;64</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/test2-delta-added-2.nt"</span>),</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;65</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                ResourceManagement.getContentFromResource(<span class="string">"samples/test2-delta-removed-2.nt"</span>), <span class="string">"test_user"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;66</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                <span class="string">"test commit message 2"</span>, list);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;67</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;68</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;69</td>  <td class="nbHits">&nbsp;</td>
@@ -147,96 +168,101 @@
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> createSampleDataSetMerging(String graphName) <span class="keyword">throws</span> InternalErrorException {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;90</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">/** The user. **/</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;91</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                String user = <span class="string">"shensel"</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;91</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                String user = <span class="string">"shensel"</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;92</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;93</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Create new example graph</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;94</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.createNewGraph(graphName);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;94</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.createNewGraph(graphName);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;95</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;96</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Initial commit</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;97</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                String triples = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"A\". \n"</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;97</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                String triples = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"A\". \n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;98</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                + <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"B\". \n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;99</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                + <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"C\". \n"</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;100</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;101</td>  <td class="nbHitsCovered">&nbsp;20</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertQuery(user, <span class="string">"Initial commit"</span>, graphName, <span class="string">"0"</span>, triples);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;101</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertQuery(user, <span class="string">"Initial commit"</span>, graphName, <span class="string">"0"</span>, triples);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;102</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;103</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Create a new branch B1</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;104</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.createNewBranch(user, <span class="string">"Create a new branch B1"</span>, graphName, <span class="string">"1"</span>, <span class="string">"B1"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;104</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.createNewBranch(user, <span class="string">"Create a new branch B1"</span>, graphName, <span class="string">"1"</span>, <span class="string">"B1"</span>);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;105</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;106</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Create a new branch B2</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;107</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.createNewBranch(user, <span class="string">"Create a new branch B2"</span>, graphName, <span class="string">"1"</span>, <span class="string">"B2"</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;107</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.createNewBranch(user, <span class="string">"Create a new branch B2"</span>, graphName, <span class="string">"1"</span>, <span class="string">"B2"</span>);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;108</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;109</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// First commit to B1</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;110</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                String triplesInsert = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"D\". \n"</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;110</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                String triplesInsert = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"D\". \n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;111</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                + <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"E\". \n"</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;112</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;113</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                String triplesDelete = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"A\". \n"</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;113</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                String triplesDelete = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"A\". \n"</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;114</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;115</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertDeleteQuery(user, <span class="string">"First commit to B1"</span>, graphName, <span class="string">"B1"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;116</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                triplesInsert, triplesDelete);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;115</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertDeleteQuery(user, <span class="string">"First commit to B1"</span>, graphName, <span class="string">"B1"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;116</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                triplesInsert, triplesDelete);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;117</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;118</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// First commit to B2</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;119</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                triplesInsert = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"D\". \n"</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;119</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                triplesInsert = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"D\". \n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;120</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                + <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"H\". \n"</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;121</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;122</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                triplesDelete = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"C\". \n"</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;122</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                triplesDelete = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"C\". \n"</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;123</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;124</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertDeleteQuery(user, <span class="string">"First commit to B2"</span>, graphName, <span class="string">"B2"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;125</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                triplesInsert, triplesDelete);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;124</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertDeleteQuery(user, <span class="string">"First commit to B2"</span>, graphName, <span class="string">"B2"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;125</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                triplesInsert, triplesDelete);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;126</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;127</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Second commit to B1</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;128</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                triplesInsert = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"G\". \n"</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;128</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                triplesInsert = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"G\". \n"</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;129</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;130</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                triplesDelete = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"D\". \n"</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;130</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                triplesDelete = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"D\". \n"</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;131</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;132</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertDeleteQuery(user, <span class="string">"Second commit to B1"</span>, graphName, <span class="string">"B1"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;133</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                triplesInsert, triplesDelete);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;132</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertDeleteQuery(user, <span class="string">"Second commit to B1"</span>, graphName, <span class="string">"B1"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;133</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                triplesInsert, triplesDelete);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;134</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;135</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Second commit to B2</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;136</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                triplesInsert = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"I\". \n"</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;137</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertQuery(user, <span class="string">"Second commit to B2"</span>, graphName, <span class="string">"B2"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;138</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                triplesInsert);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;136</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                triplesInsert = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"I\". \n"</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;137</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertQuery(user, <span class="string">"Second commit to B2"</span>, graphName, <span class="string">"B2"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;138</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                triplesInsert);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;139</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                </pre></td></tr>
 <tr>  <td class="numLine">&nbsp;140</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Third commit to B2</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;141</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                triplesInsert = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"J\". \n"</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;142</td>  <td class="nbHitsCovered">&nbsp;13</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertQuery(user, <span class="string">"Third commit to B2"</span>, graphName, <span class="string">"B2"</span>,</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;143</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                                triplesInsert);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;141</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                triplesInsert = <span class="string">"&lt;http://example.com/testS&gt; &lt;http://example.com/testP&gt; \"J\". \n"</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;142</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                DatasetGenerationManagement.executeInsertQuery(user, <span class="string">"Third commit to B2"</span>, graphName, <span class="string">"B2"</span>,</pre></td></tr>
+<tr>  <td class="numLine">&nbsp;143</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                triplesInsert);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;144</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                </pre></td></tr>
 <tr>  <td class="numLine">&nbsp;145</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                </pre></td></tr>
 <tr>  <td class="numLine">&nbsp;146</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;147</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                logger.info(<span class="string">"Example graph created."</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;148</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;147</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;                logger.info(<span class="string">"Example graph created."</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;148</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;149</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        </pre></td></tr>
 <tr>  <td class="numLine">&nbsp;150</td>  <td class="nbHits">&nbsp;</td>
@@ -327,7 +353,8 @@
 <tr>  <td class="numLine">&nbsp;197</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Second commit to B1 - delete sub plant T4</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;198</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                DatasetGenerationManagement.executeDeleteWhereQuery(user, <span class="string">"Second commit to B1"</span>, graphName, <span class="string">"B1"</span>,</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;199</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                                <span class="string">"&lt;http://eatld.et.tu-dresden.de/batch/A3A5R07QZU&gt; ?p ?o . \n"</span>);</span></pre></td></tr>
+<tr>  <td class="numLine">&nbsp;199</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                <span class="string">"&lt;http://eatld.et.tu-dresden.de/batch/A3A5R07QZU&gt; ?p ?o . \n"</span>);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;200</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;201</td>  <td class="nbHits">&nbsp;</td>
@@ -338,7 +365,8 @@
 <tr>  <td class="numLine">&nbsp;204</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="comment">// Second commit to B2 - delete armature V002</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;205</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                DatasetGenerationManagement.executeDeleteWhereQuery(user, <span class="string">"Second commit to B2"</span>, graphName, <span class="string">"B2"</span>,</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;206</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                                <span class="string">"&lt;http://eatld.et.tu-dresden.de/batch/A3A5R01TZU&gt; ?p ?o . \n"</span>);</span></pre></td></tr>
+<tr>  <td class="numLine">&nbsp;206</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                <span class="string">"&lt;http://eatld.et.tu-dresden.de/batch/A3A5R01TZU&gt; ?p ?o . \n"</span>);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;207</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;208</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                logger.info(<span class="string">"Example graph created."</span>);</span></pre></td></tr>
@@ -436,7 +464,8 @@
 <tr>  <td class="numLine">&nbsp;259</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;260</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                DatasetGenerationManagement.executeInsertDeleteQuery(user, <span class="string">"First commit to B1"</span>, graphName, <span class="string">"B1"</span>,</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;261</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                                triplesInsert, triplesDelete);</span></pre></td></tr>
+<tr>  <td class="numLine">&nbsp;261</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                triplesInsert, triplesDelete);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;262</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;263</td>  <td class="nbHits">&nbsp;</td>
@@ -450,7 +479,8 @@
 <tr>  <td class="numLine">&nbsp;268</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;269</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                DatasetGenerationManagement.executeInsertDeleteQuery(user, <span class="string">"First commit to B2"</span>, graphName, <span class="string">"B2"</span>,</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;270</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                                triplesInsert, triplesDelete);</span></pre></td></tr>
+<tr>  <td class="numLine">&nbsp;270</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                triplesInsert, triplesDelete);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;271</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;272</td>  <td class="nbHits">&nbsp;</td>
@@ -462,7 +492,8 @@
 <tr>  <td class="numLine">&nbsp;276</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;277</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                DatasetGenerationManagement.executeInsertDeleteQuery(user, <span class="string">"Second commit to B1"</span>, graphName, <span class="string">"B1"</span>,</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;278</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                                triplesInsert, triplesDelete);</span></pre></td></tr>
+<tr>  <td class="numLine">&nbsp;278</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                triplesInsert, triplesDelete);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;279</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;280</td>  <td class="nbHits">&nbsp;</td>
@@ -471,7 +502,8 @@
 <tr>  <td class="numLine">&nbsp;282</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;283</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                DatasetGenerationManagement.executeInsertQuery(user, <span class="string">"Second commit to B2"</span>, graphName, <span class="string">"B2"</span>,</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;284</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                                triplesInsert);</span></pre></td></tr>
+<tr>  <td class="numLine">&nbsp;284</td>  <td class="nbHits">&nbsp;</td>
+  <td class="src"><pre class="src">&nbsp;                                triplesInsert);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;285</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;286</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                logger.info(<span class="string">"Example graph created."</span>);</span></pre></td></tr>
@@ -729,6 +761,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.0.3 on 25.02.15 18:08.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.0.3 on 2/25/15 5:47 PM.</div>
 </body>
 </html>
