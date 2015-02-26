@@ -1,8 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="c1690" href="./StructuredTree.html" title="de.tud.plt.r43ples.revisionTree.StructuredTree" alt="" coords="16,27,325,149"/>
-<area shape="rect" id="node1" href="./StructuredTree.html" title="&lt;TABLE&gt;" alt="" coords="5,22,336,154"/>
-<area shape="rect" id="c1693" href="./Tag.html" title="de.tud.plt.r43ples.revisionTree.Tag" alt="" coords="207,225,497,314"/>
-<area shape="rect" id="node3" href="./Tag.html" title="&lt;TABLE&gt;" alt="" coords="197,219,507,319"/>
-<area shape="rect" id="c1692" href="./Reference.html" title="de.tud.plt.r43ples.revisionTree.Reference" alt="" coords="371,11,699,165"/>
-<area shape="rect" id="node2" href="./Reference.html" title="&lt;TABLE&gt;" alt="" coords="360,6,709,170"/>
+<area shape="rect" id="c1681" href="./Reference.html" title="de.tud.plt.r43ples.revisionTree.Reference" alt="" coords="16,11,344,165"/>
+<area shape="rect" id="node1" href="./Reference.html" title="&lt;TABLE&gt;" alt="" coords="5,6,355,170"/>
+<area shape="rect" id="c1684" href="./Tag.html" title="de.tud.plt.r43ples.revisionTree.Tag" alt="" coords="217,225,506,314"/>
+<area shape="rect" id="node2" href="./Tag.html" title="&lt;TABLE&gt;" alt="" coords="207,219,516,319"/>
+<area shape="rect" id="c1685" href="./StructuredTree.html" title="de.tud.plt.r43ples.revisionTree.StructuredTree" alt="" coords="389,27,699,149"/>
+<area shape="rect" id="node3" href="./StructuredTree.html" title="&lt;TABLE&gt;" alt="" coords="379,22,709,154"/>
 </map>
