@@ -24,7 +24,7 @@
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>  
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.management.Config;
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.management.RevisionManagement;
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.triplestoreInterface.TripleStoreInterfaceFactory;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.triplestoreInterface.TripleStoreInterfaceSingleton;
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>  
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../de/tud/plt/r43ples/revisionTree/StructuredTree.html">StructuredTree</a> {
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  
@@ -66,17 +66,17 @@
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  		<em class="jxr_comment">//query all branches</em>
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>  		String queryBranches = String.format(
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  				RevisionManagement.prefixes
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>  						+ <span class="jxr_string">"SELECT ?branch ?title ?commit\n"</span>
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>  						+ <span class="jxr_string">"WHERE { GRAPH &lt;%s&gt; { \n"</span>
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>  						+ <span class="jxr_string">"?branch a rmo:Branch;\n"</span>
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>  						+ <span class="jxr_string">"rdfs:label ?title;\n"</span>
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>  						+ <span class="jxr_string">"rmo:references ?rev.\n"</span>
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>  						+ <span class="jxr_string">"?rev rmo:revisionOf &lt;%s&gt;.\n"</span>
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  						+ <span class="jxr_string">"?commit a rmo:Commit;\n"</span>
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  						+ <span class="jxr_string">"prov:generated ?rev.\n"</span>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  						+ <span class="jxr_string">"SELECT ?branch ?title ?commit%n"</span>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  						+ <span class="jxr_string">"WHERE { GRAPH &lt;%s&gt; { %n"</span>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  						+ <span class="jxr_string">"?branch a rmo:Branch;%n"</span>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  						+ <span class="jxr_string">"rdfs:label ?title;%n"</span>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  						+ <span class="jxr_string">"rmo:references ?rev.%n"</span>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  						+ <span class="jxr_string">"?rev rmo:revisionOf &lt;%s&gt;.%n"</span>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  						+ <span class="jxr_string">"?commit a rmo:Commit;%n"</span>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  						+ <span class="jxr_string">"prov:generated ?rev.%n"</span>
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  						+ <span class="jxr_string">"} }"</span>, Config.revision_graph, graph);
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		ResultSet resultsBranches = TripleStoreInterfaceFactory.get().executeSelectQuery(queryBranches);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		ResultSet resultsBranches = TripleStoreInterfaceSingleton.get().executeSelectQuery(queryBranches);
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  		<strong class="jxr_keyword">while</strong> (resultsBranches.hasNext()) {
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  			QuerySolution sol = resultsBranches.next();
@@ -90,17 +90,17 @@
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  		<em class="jxr_comment">// query all tags</em>
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  		String queryBranches = String.format(
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  				RevisionManagement.prefixes
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>  						+ <span class="jxr_string">"SELECT ?tag ?title ?commit\n"</span>
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>  						+ <span class="jxr_string">"WHERE { GRAPH &lt;%s&gt; {\n"</span>
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>  						+ <span class="jxr_string">"?tag a rmo:Tag;\n"</span>
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>  						+ <span class="jxr_string">"rdfs:label ?title;\n"</span>
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>  						+ <span class="jxr_string">"rmo:references ?rev.\n"</span>
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>  						+ <span class="jxr_string">"?rev rmo:revisionOf &lt;%s&gt;.\n"</span>
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>  						+ <span class="jxr_string">"?commit a rmo:Commit;\n"</span>
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>  						+ <span class="jxr_string">"prov:generated ?rev.\n"</span>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  						+ <span class="jxr_string">"SELECT ?tag ?title ?commit%n"</span>
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  						+ <span class="jxr_string">"WHERE { GRAPH &lt;%s&gt; {%n"</span>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  						+ <span class="jxr_string">"?tag a rmo:Tag;%n"</span>
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  						+ <span class="jxr_string">"rdfs:label ?title;%n"</span>
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  						+ <span class="jxr_string">"rmo:references ?rev.%n"</span>
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  						+ <span class="jxr_string">"?rev rmo:revisionOf &lt;%s&gt;.%n"</span>
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  						+ <span class="jxr_string">"?commit a rmo:Commit;%n"</span>
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  						+ <span class="jxr_string">"prov:generated ?rev.%n"</span>
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  						+ <span class="jxr_string">"} }"</span>, Config.revision_graph, graph);
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>  		ResultSet resultsTags = TripleStoreInterfaceFactory.get().executeSelectQuery(queryBranches);
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  		ResultSet resultsTags = TripleStoreInterfaceSingleton.get().executeSelectQuery(queryBranches);
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>  
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>  		<strong class="jxr_keyword">while</strong> (resultsTags.hasNext()) {
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>  			QuerySolution sol = resultsTags.next();
@@ -129,24 +129,24 @@
 <a class="jxr_linenumber" name="L121" href="#L121">121</a> 		<em class="jxr_comment">// query all commits</em>
 <a class="jxr_linenumber" name="L122" href="#L122">122</a> 		String queryCommits = String.format(
 <a class="jxr_linenumber" name="L123" href="#L123">123</a> 				RevisionManagement.prefixes
-<a class="jxr_linenumber" name="L124" href="#L124">124</a> 						+ <span class="jxr_string">"SELECT ?commit ?time ?prev ?next ?title ?authname ?branch\n"</span>
-<a class="jxr_linenumber" name="L125" href="#L125">125</a> 						+ <span class="jxr_string">"WHERE { GRAPH &lt;%s&gt; {\n"</span>
-<a class="jxr_linenumber" name="L126" href="#L126">126</a> 						+ <span class="jxr_string">"?commit a rmo:Commit;\n"</span>
-<a class="jxr_linenumber" name="L127" href="#L127">127</a> 						+ <span class="jxr_string">"dc-terms:title ?title;\n"</span>
-<a class="jxr_linenumber" name="L128" href="#L128">128</a> 						+ <span class="jxr_string">"prov:used ?reva;\n"</span>
-<a class="jxr_linenumber" name="L129" href="#L129">129</a> 						+ <span class="jxr_string">"prov:generated ?revb;\n"</span>
-<a class="jxr_linenumber" name="L130" href="#L130">130</a> 						+ <span class="jxr_string">"prov:atTime ?time;\n"</span>
-<a class="jxr_linenumber" name="L131" href="#L131">131</a> 						+ <span class="jxr_string">"prov:wasAssociatedWith ?author.\n"</span>
-<a class="jxr_linenumber" name="L132" href="#L132">132</a> 						+ <span class="jxr_string">"OPTIONAL { ?author rdfs:label ?authname. }\n"</span>
+<a class="jxr_linenumber" name="L124" href="#L124">124</a> 						+ <span class="jxr_string">"SELECT ?commit ?time ?prev ?next ?title ?authname ?branch%n"</span>
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> 						+ <span class="jxr_string">"WHERE { GRAPH &lt;%s&gt; {%n"</span>
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> 						+ <span class="jxr_string">"?commit a rmo:Commit;%n"</span>
+<a class="jxr_linenumber" name="L127" href="#L127">127</a> 						+ <span class="jxr_string">"dc-terms:title ?title;%n"</span>
+<a class="jxr_linenumber" name="L128" href="#L128">128</a> 						+ <span class="jxr_string">"prov:used ?reva;%n"</span>
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> 						+ <span class="jxr_string">"prov:generated ?revb;%n"</span>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> 						+ <span class="jxr_string">"prov:atTime ?time;%n"</span>
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> 						+ <span class="jxr_string">"prov:wasAssociatedWith ?author.%n"</span>
+<a class="jxr_linenumber" name="L132" href="#L132">132</a> 						+ <span class="jxr_string">"OPTIONAL { ?author rdfs:label ?authname. }%n"</span>
 <a class="jxr_linenumber" name="L133" href="#L133">133</a> 						+ <span class="jxr_string">"?reva rmo:revisionNumber ?prev;"</span>
-<a class="jxr_linenumber" name="L134" href="#L134">134</a> 						+ <span class="jxr_string">"rmo:revisionOf &lt;%s&gt;.\n"</span>
+<a class="jxr_linenumber" name="L134" href="#L134">134</a> 						+ <span class="jxr_string">"rmo:revisionOf &lt;%s&gt;.%n"</span>
 <a class="jxr_linenumber" name="L135" href="#L135">135</a> 						+ <span class="jxr_string">"?revb rmo:revisionNumber ?next."</span>
-<a class="jxr_linenumber" name="L136" href="#L136">136</a> 						+ <span class="jxr_string">"OPTIONAL { ?revb rmo:revisionOfBranch ?branch. }\n"</span>
+<a class="jxr_linenumber" name="L136" href="#L136">136</a> 						+ <span class="jxr_string">"OPTIONAL { ?revb rmo:revisionOfBranch ?branch. }%n"</span>
 <a class="jxr_linenumber" name="L137" href="#L137">137</a> 						+ <span class="jxr_string">"} }"</span>,
 <a class="jxr_linenumber" name="L138" href="#L138">138</a> 				Config.revision_graph,
 <a class="jxr_linenumber" name="L139" href="#L139">139</a> 				graph);
 <a class="jxr_linenumber" name="L140" href="#L140">140</a> 		
-<a class="jxr_linenumber" name="L141" href="#L141">141</a> 		ResultSet resultsCommits = TripleStoreInterfaceFactory.get().executeSelectQuery(queryCommits);
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 		ResultSet resultsCommits = TripleStoreInterfaceSingleton.get().executeSelectQuery(queryCommits);
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> 
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> 		<em class="jxr_comment">// generate list of commits</em>
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> 		DateFormat df = <strong class="jxr_keyword">new</strong> SimpleDateFormat(<span class="jxr_string">"yyyy-MM-dd'T'HH:mm:ss"</span>);

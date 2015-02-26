@@ -54,7 +54,7 @@
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.management.RevisionManagement;
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.management.SampleDataSet;
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.management.SparqlRewriter;
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.triplestoreInterface.TripleStoreInterfaceFactory;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.triplestoreInterface.TripleStoreInterfaceSingleton;
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.visualisation.MMSTVisualisation;
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.visualisation.VisualisationD3;
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>  
@@ -335,11 +335,11 @@
 <a class="jxr_linenumber" name="L327" href="#L327">327</a> 	<strong class="jxr_keyword">private</strong> String getSparqlDebugResponse(<strong class="jxr_keyword">final</strong> String sparqlQuery) {
 <a class="jxr_linenumber" name="L328" href="#L328">328</a> 		logger.info(<span class="jxr_string">"Debug query was requested. Query: "</span> + sparqlQuery);
 <a class="jxr_linenumber" name="L329" href="#L329">329</a> 		<strong class="jxr_keyword">if</strong> (sparqlQuery.contains(<span class="jxr_string">"INSERT"</span>)) {
-<a class="jxr_linenumber" name="L330" href="#L330">330</a> 			TripleStoreInterfaceFactory.get().executeUpdateQuery(sparqlQuery);
+<a class="jxr_linenumber" name="L330" href="#L330">330</a> 			TripleStoreInterfaceSingleton.get().executeUpdateQuery(sparqlQuery);
 <a class="jxr_linenumber" name="L331" href="#L331">331</a> 			<strong class="jxr_keyword">return</strong> <span class="jxr_string">"Query executed"</span>;
 <a class="jxr_linenumber" name="L332" href="#L332">332</a> 		}
 <a class="jxr_linenumber" name="L333" href="#L333">333</a> 		<strong class="jxr_keyword">else</strong>
-<a class="jxr_linenumber" name="L334" href="#L334">334</a> 			<strong class="jxr_keyword">return</strong> TripleStoreInterfaceFactory.get().executeSelectConstructAskQuery(sparqlQuery, <span class="jxr_string">"text/html"</span>);
+<a class="jxr_linenumber" name="L334" href="#L334">334</a> 			<strong class="jxr_keyword">return</strong> TripleStoreInterfaceSingleton.get().executeSelectConstructAskQuery(sparqlQuery, <span class="jxr_string">"text/html"</span>);
 <a class="jxr_linenumber" name="L335" href="#L335">335</a> 	}
 <a class="jxr_linenumber" name="L336" href="#L336">336</a> 	
 <a class="jxr_linenumber" name="L337" href="#L337">337</a> 	
@@ -353,7 +353,7 @@
 <a class="jxr_linenumber" name="L345" href="#L345">345</a> 		MustacheFactory mf = <strong class="jxr_keyword">new</strong> DefaultMustacheFactory();
 <a class="jxr_linenumber" name="L346" href="#L346">346</a> 	    Mustache mustache = mf.compile(<span class="jxr_string">"templates/debug.mustache"</span>);
 <a class="jxr_linenumber" name="L347" href="#L347">347</a> 	    StringWriter sw = <strong class="jxr_keyword">new</strong> StringWriter();
-<a class="jxr_linenumber" name="L348" href="#L348">348</a> 	    htmlMap.put(<span class="jxr_string">"graphs"</span>, TripleStoreInterfaceFactory.get().getGraphs());
+<a class="jxr_linenumber" name="L348" href="#L348">348</a> 	    htmlMap.put(<span class="jxr_string">"graphs"</span>, TripleStoreInterfaceSingleton.get().getGraphs());
 <a class="jxr_linenumber" name="L349" href="#L349">349</a> 	    htmlMap.put(<span class="jxr_string">"revisionGraph"</span>, Config.revision_graph);
 <a class="jxr_linenumber" name="L350" href="#L350">350</a> 	    mustache.execute(sw, htmlMap);		
 <a class="jxr_linenumber" name="L351" href="#L351">351</a> 		
@@ -480,7 +480,7 @@
 <a class="jxr_linenumber" name="L472" href="#L472">472</a> 		<strong class="jxr_keyword">if</strong> (query.contains(<span class="jxr_string">"OPTION r43ples:SPARQL_JOIN"</span>)) {
 <a class="jxr_linenumber" name="L473" href="#L473">473</a> 			String query_rewritten = query.replace(<span class="jxr_string">"OPTION r43ples:SPARQL_JOIN"</span>, <span class="jxr_string">""</span>);
 <a class="jxr_linenumber" name="L474" href="#L474">474</a> 			query_rewritten = SparqlRewriter.rewriteQuery(query_rewritten);
-<a class="jxr_linenumber" name="L475" href="#L475">475</a> 			result = TripleStoreInterfaceFactory.get().executeSelectConstructAskQuery(query_rewritten, format);
+<a class="jxr_linenumber" name="L475" href="#L475">475</a> 			result = TripleStoreInterfaceSingleton.get().executeSelectConstructAskQuery(query_rewritten, format);
 <a class="jxr_linenumber" name="L476" href="#L476">476</a> 		}
 <a class="jxr_linenumber" name="L477" href="#L477">477</a> 		<strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L478" href="#L478">478</a> 			result = getSelectConstructAskResponseClassic(query, format);
@@ -550,7 +550,7 @@
 <a class="jxr_linenumber" name="L542" href="#L542">542</a> 			m = patternSelectFromPart.matcher(queryM);
 <a class="jxr_linenumber" name="L543" href="#L543">543</a> 			
 <a class="jxr_linenumber" name="L544" href="#L544">544</a> 		}
-<a class="jxr_linenumber" name="L545" href="#L545">545</a> 		String response = TripleStoreInterfaceFactory.get().executeSelectConstructAskQuery(queryM, format);
+<a class="jxr_linenumber" name="L545" href="#L545">545</a> 		String response = TripleStoreInterfaceSingleton.get().executeSelectConstructAskQuery(queryM, format);
 <a class="jxr_linenumber" name="L546" href="#L546">546</a> 		<strong class="jxr_keyword">return</strong> response;
 <a class="jxr_linenumber" name="L547" href="#L547">547</a> 	}
 <a class="jxr_linenumber" name="L548" href="#L548">548</a> 
@@ -611,7 +611,7 @@
 <a class="jxr_linenumber" name="L603" href="#L603">603</a> 		m= patternEmptyGraphPattern.matcher(queryM);
 <a class="jxr_linenumber" name="L604" href="#L604">604</a> 		queryM = m.replaceAll(<span class="jxr_string">""</span>);
 <a class="jxr_linenumber" name="L605" href="#L605">605</a> 
-<a class="jxr_linenumber" name="L606" href="#L606">606</a> 		TripleStoreInterfaceFactory.get().executeUpdateQuery(queryM);
+<a class="jxr_linenumber" name="L606" href="#L606">606</a> 		TripleStoreInterfaceSingleton.get().executeUpdateQuery(queryM);
 <a class="jxr_linenumber" name="L607" href="#L607">607</a> 
 <a class="jxr_linenumber" name="L608" href="#L608">608</a> 		queryM = query;
 <a class="jxr_linenumber" name="L609" href="#L609">609</a> 		m = patternGraphWithRevision.matcher(queryM);
@@ -629,19 +629,19 @@
 <a class="jxr_linenumber" name="L621" href="#L621">621</a> 			<em class="jxr_comment">// remove doubled data</em>
 <a class="jxr_linenumber" name="L622" href="#L622">622</a> 			<em class="jxr_comment">// (already existing triples in add set; not existing triples in</em>
 <a class="jxr_linenumber" name="L623" href="#L623">623</a> 			<em class="jxr_comment">// delete set)</em>
-<a class="jxr_linenumber" name="L624" href="#L624">624</a> 			TripleStoreInterfaceFactory.get().executeUpdateQuery(String.format(
+<a class="jxr_linenumber" name="L624" href="#L624">624</a> 			TripleStoreInterfaceSingleton.get().executeUpdateQuery(String.format(
 <a class="jxr_linenumber" name="L625" href="#L625">625</a> 							<span class="jxr_string">"DELETE { GRAPH &lt;%s&gt; { ?s ?p ?o. } } WHERE { GRAPH &lt;%s&gt; { ?s ?p ?o. } }"</span>, addSetGraphUri,
 <a class="jxr_linenumber" name="L626" href="#L626">626</a> 							referenceFullGraph));
-<a class="jxr_linenumber" name="L627" href="#L627">627</a> 			TripleStoreInterfaceFactory.get().executeUpdateQuery(String.format(
+<a class="jxr_linenumber" name="L627" href="#L627">627</a> 			TripleStoreInterfaceSingleton.get().executeUpdateQuery(String.format(
 <a class="jxr_linenumber" name="L628" href="#L628">628</a> 					<span class="jxr_string">"DELETE { GRAPH &lt;%s&gt; { ?s ?p ?o. } } WHERE { GRAPH &lt;%s&gt; { ?s ?p ?o. } MINUS { GRAPH &lt;%s&gt; { ?s ?p ?o. } } }"</span>,
 <a class="jxr_linenumber" name="L629" href="#L629">629</a> 					removeSetGraphUri, removeSetGraphUri, referenceFullGraph));
 <a class="jxr_linenumber" name="L630" href="#L630">630</a> 
 <a class="jxr_linenumber" name="L631" href="#L631">631</a> 			<em class="jxr_comment">// merge change sets into reference graph</em>
 <a class="jxr_linenumber" name="L632" href="#L632">632</a> 			<em class="jxr_comment">// (copy add set to reference graph; remove delete set from reference graph)</em>
-<a class="jxr_linenumber" name="L633" href="#L633">633</a> 			TripleStoreInterfaceFactory.get().executeUpdateQuery(String.format(
+<a class="jxr_linenumber" name="L633" href="#L633">633</a> 			TripleStoreInterfaceSingleton.get().executeUpdateQuery(String.format(
 <a class="jxr_linenumber" name="L634" href="#L634">634</a> 						<span class="jxr_string">"INSERT { GRAPH &lt;%s&gt; { ?s ?p ?o. } } WHERE { GRAPH &lt;%s&gt; { ?s ?p ?o. } }"</span>,
 <a class="jxr_linenumber" name="L635" href="#L635">635</a> 						referenceFullGraph,	addSetGraphUri));
-<a class="jxr_linenumber" name="L636" href="#L636">636</a> 			TripleStoreInterfaceFactory.get().executeUpdateQuery(String.format(
+<a class="jxr_linenumber" name="L636" href="#L636">636</a> 			TripleStoreInterfaceSingleton.get().executeUpdateQuery(String.format(
 <a class="jxr_linenumber" name="L637" href="#L637">637</a> 					<span class="jxr_string">"DELETE { GRAPH &lt;%s&gt; { ?s ?p ?o. } } WHERE { GRAPH &lt;%s&gt; { ?s ?p ?o. } }"</span>, 
 <a class="jxr_linenumber" name="L638" href="#L638">638</a> 					referenceFullGraph,	removeSetGraphUri));
 <a class="jxr_linenumber" name="L639" href="#L639">639</a> 
@@ -691,7 +691,7 @@
 <a class="jxr_linenumber" name="L683" href="#L683">683</a> <em class="jxr_comment">//			String silent = m.group("silent");</em>
 <a class="jxr_linenumber" name="L684" href="#L684">684</a> 			
 <a class="jxr_linenumber" name="L685" href="#L685">685</a> 			<em class="jxr_comment">// Create graph</em>
-<a class="jxr_linenumber" name="L686" href="#L686">686</a> 			TripleStoreInterfaceFactory.get().executeCreateGraph(graphName);
+<a class="jxr_linenumber" name="L686" href="#L686">686</a> 			TripleStoreInterfaceSingleton.get().executeCreateGraph(graphName);
 <a class="jxr_linenumber" name="L687" href="#L687">687</a> 		    
 <a class="jxr_linenumber" name="L688" href="#L688">688</a> 		    <strong class="jxr_keyword">if</strong> (RevisionManagement.getMasterRevisionNumber(graphName) == <strong class="jxr_keyword">null</strong>)
 <a class="jxr_linenumber" name="L689" href="#L689">689</a> 		    {
@@ -739,230 +739,231 @@
 <a class="jxr_linenumber" name="L731" href="#L731">731</a> 		String result = <span class="jxr_string">"Graph successfully dropped"</span>;
 <a class="jxr_linenumber" name="L732" href="#L732">732</a> 		
 <a class="jxr_linenumber" name="L733" href="#L733">733</a> 		ResponseBuilder responseBuilder = Response.ok();
-<a class="jxr_linenumber" name="L734" href="#L734">734</a> 		<strong class="jxr_keyword">if</strong> (format.equals(<span class="jxr_string">"text/html"</span>)){
+<a class="jxr_linenumber" name="L734" href="#L734">734</a> 		<strong class="jxr_keyword">if</strong> (format.contains(<span class="jxr_string">"text/html"</span>)){
 <a class="jxr_linenumber" name="L735" href="#L735">735</a> 			responseBuilder.entity(getHTMLResult(result, query));
-<a class="jxr_linenumber" name="L736" href="#L736">736</a> 		} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L737" href="#L737">737</a> 			responseBuilder.entity(result);
-<a class="jxr_linenumber" name="L738" href="#L738">738</a> 		}
-<a class="jxr_linenumber" name="L739" href="#L739">739</a> 		responseBuilder.type(format);		
-<a class="jxr_linenumber" name="L740" href="#L740">740</a> 		<strong class="jxr_keyword">return</strong> responseBuilder.build();
-<a class="jxr_linenumber" name="L741" href="#L741">741</a> 	}
-<a class="jxr_linenumber" name="L742" href="#L742">742</a> 
-<a class="jxr_linenumber" name="L743" href="#L743">743</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L744" href="#L744">744</a> <em class="jxr_javadoccomment">	 * Creates a tag or a branch for a specific graph and revision. Using</em>
-<a class="jxr_linenumber" name="L745" href="#L745">745</a> <em class="jxr_javadoccomment">	 * command "TAG GRAPH &lt;?&gt; REVISION "rev" TO "tag" Using command</em>
-<a class="jxr_linenumber" name="L746" href="#L746">746</a> <em class="jxr_javadoccomment">	 * "BRANCH GRAPH &lt;?&gt; REVISION "rev" TO "tag"</em>
-<a class="jxr_linenumber" name="L747" href="#L747">747</a> <em class="jxr_javadoccomment">	 * </em>
-<a class="jxr_linenumber" name="L748" href="#L748">748</a> <em class="jxr_javadoccomment">	 * @param sparqlQuery</em>
-<a class="jxr_linenumber" name="L749" href="#L749">749</a> <em class="jxr_javadoccomment">	 *            the SPARQL query</em>
-<a class="jxr_linenumber" name="L750" href="#L750">750</a> <em class="jxr_javadoccomment">	 * @param format</em>
-<a class="jxr_linenumber" name="L751" href="#L751">751</a> <em class="jxr_javadoccomment">	 *            the result format</em>
-<a class="jxr_linenumber" name="L752" href="#L752">752</a> <em class="jxr_javadoccomment">	 * @throws InternalErrorException </em>
-<a class="jxr_linenumber" name="L753" href="#L753">753</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L754" href="#L754">754</a> 	<strong class="jxr_keyword">private</strong> Response getBranchOrTagResponse(<strong class="jxr_keyword">final</strong> String sparqlQuery, <strong class="jxr_keyword">final</strong> String user, <strong class="jxr_keyword">final</strong> String commitMessage,
-<a class="jxr_linenumber" name="L755" href="#L755">755</a> 			<strong class="jxr_keyword">final</strong> String format) <strong class="jxr_keyword">throws</strong> InternalErrorException {
-<a class="jxr_linenumber" name="L756" href="#L756">756</a> 		logger.info(<span class="jxr_string">"Tag or branch creation detected"</span>);
-<a class="jxr_linenumber" name="L757" href="#L757">757</a> 
-<a class="jxr_linenumber" name="L758" href="#L758">758</a> 		<em class="jxr_comment">// Add R43ples information</em>
-<a class="jxr_linenumber" name="L759" href="#L759">759</a> 		Matcher m = patternBranchOrTagQuery.matcher(sparqlQuery);
-<a class="jxr_linenumber" name="L760" href="#L760">760</a> 
-<a class="jxr_linenumber" name="L761" href="#L761">761</a> 		<strong class="jxr_keyword">boolean</strong> foundEntry = false;
-<a class="jxr_linenumber" name="L762" href="#L762">762</a> 		<strong class="jxr_keyword">while</strong> (m.find()) {
-<a class="jxr_linenumber" name="L763" href="#L763">763</a> 			foundEntry = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L764" href="#L764">764</a> 			String action = m.group(<span class="jxr_string">"action"</span>);
-<a class="jxr_linenumber" name="L765" href="#L765">765</a> 			String graphName = m.group(<span class="jxr_string">"graph"</span>);
-<a class="jxr_linenumber" name="L766" href="#L766">766</a> 			String revisionNumber = m.group(<span class="jxr_string">"revision"</span>).toLowerCase();
-<a class="jxr_linenumber" name="L767" href="#L767">767</a> 			String referenceName = m.group(<span class="jxr_string">"name"</span>).toLowerCase();
-<a class="jxr_linenumber" name="L768" href="#L768">768</a> 			<strong class="jxr_keyword">if</strong> (action.equals(<span class="jxr_string">"TAG"</span>)) {
-<a class="jxr_linenumber" name="L769" href="#L769">769</a> 				RevisionManagement.createReference(<span class="jxr_string">"tag"</span>, graphName, revisionNumber, referenceName, user, commitMessage);
-<a class="jxr_linenumber" name="L770" href="#L770">770</a> 			} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (action.equals(<span class="jxr_string">"BRANCH"</span>)) {
-<a class="jxr_linenumber" name="L771" href="#L771">771</a> 				RevisionManagement.createReference(<span class="jxr_string">"branch"</span>, graphName, revisionNumber, referenceName, user, commitMessage);
-<a class="jxr_linenumber" name="L772" href="#L772">772</a> 			} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L773" href="#L773">773</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/QueryErrorException.html">QueryErrorException</a>(<span class="jxr_string">"Error in query: "</span> + sparqlQuery);
-<a class="jxr_linenumber" name="L774" href="#L774">774</a> 			}	    
-<a class="jxr_linenumber" name="L775" href="#L775">775</a> 		}
-<a class="jxr_linenumber" name="L776" href="#L776">776</a> 		<strong class="jxr_keyword">if</strong> (!foundEntry) {
-<a class="jxr_linenumber" name="L777" href="#L777">777</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/QueryErrorException.html">QueryErrorException</a>(<span class="jxr_string">"Error in query: "</span> + sparqlQuery);
-<a class="jxr_linenumber" name="L778" href="#L778">778</a> 		}
-<a class="jxr_linenumber" name="L779" href="#L779">779</a> 		String result = <span class="jxr_string">"Tagging or branching successful"</span>;
-<a class="jxr_linenumber" name="L780" href="#L780">780</a> 
-<a class="jxr_linenumber" name="L781" href="#L781">781</a> 		ResponseBuilder responseBuilder = Response.ok();
-<a class="jxr_linenumber" name="L782" href="#L782">782</a> 		<strong class="jxr_keyword">if</strong> (format.equals(<span class="jxr_string">"text/html"</span>)){
-<a class="jxr_linenumber" name="L783" href="#L783">783</a> 			responseBuilder.entity(getHTMLResult(result, sparqlQuery));
-<a class="jxr_linenumber" name="L784" href="#L784">784</a> 		} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L785" href="#L785">785</a> 			responseBuilder.entity(result);
-<a class="jxr_linenumber" name="L786" href="#L786">786</a> 		}
-<a class="jxr_linenumber" name="L787" href="#L787">787</a> 		responseBuilder.type(format);	
-<a class="jxr_linenumber" name="L788" href="#L788">788</a> 		responseBuilder.header(<span class="jxr_string">"r43ples-revisiongraph"</span>, RevisionManagement.getResponseHeaderFromQuery(sparqlQuery));		
-<a class="jxr_linenumber" name="L789" href="#L789">789</a> 		<strong class="jxr_keyword">return</strong> responseBuilder.build();
-<a class="jxr_linenumber" name="L790" href="#L790">790</a> 	}
-<a class="jxr_linenumber" name="L791" href="#L791">791</a> 	
+<a class="jxr_linenumber" name="L736" href="#L736">736</a> 			responseBuilder.type(<span class="jxr_string">"text/html"</span>);
+<a class="jxr_linenumber" name="L737" href="#L737">737</a> 		} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L738" href="#L738">738</a> 			responseBuilder.entity(result);
+<a class="jxr_linenumber" name="L739" href="#L739">739</a> 			responseBuilder.type(<span class="jxr_string">"text/plain"</span>);
+<a class="jxr_linenumber" name="L740" href="#L740">740</a> 		}
+<a class="jxr_linenumber" name="L741" href="#L741">741</a> 		<strong class="jxr_keyword">return</strong> responseBuilder.build();
+<a class="jxr_linenumber" name="L742" href="#L742">742</a> 	}
+<a class="jxr_linenumber" name="L743" href="#L743">743</a> 
+<a class="jxr_linenumber" name="L744" href="#L744">744</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L745" href="#L745">745</a> <em class="jxr_javadoccomment">	 * Creates a tag or a branch for a specific graph and revision. Using</em>
+<a class="jxr_linenumber" name="L746" href="#L746">746</a> <em class="jxr_javadoccomment">	 * command "TAG GRAPH &lt;?&gt; REVISION "rev" TO "tag" Using command</em>
+<a class="jxr_linenumber" name="L747" href="#L747">747</a> <em class="jxr_javadoccomment">	 * "BRANCH GRAPH &lt;?&gt; REVISION "rev" TO "tag"</em>
+<a class="jxr_linenumber" name="L748" href="#L748">748</a> <em class="jxr_javadoccomment">	 * </em>
+<a class="jxr_linenumber" name="L749" href="#L749">749</a> <em class="jxr_javadoccomment">	 * @param sparqlQuery</em>
+<a class="jxr_linenumber" name="L750" href="#L750">750</a> <em class="jxr_javadoccomment">	 *            the SPARQL query</em>
+<a class="jxr_linenumber" name="L751" href="#L751">751</a> <em class="jxr_javadoccomment">	 * @param format</em>
+<a class="jxr_linenumber" name="L752" href="#L752">752</a> <em class="jxr_javadoccomment">	 *            the result format</em>
+<a class="jxr_linenumber" name="L753" href="#L753">753</a> <em class="jxr_javadoccomment">	 * @throws InternalErrorException </em>
+<a class="jxr_linenumber" name="L754" href="#L754">754</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L755" href="#L755">755</a> 	<strong class="jxr_keyword">private</strong> Response getBranchOrTagResponse(<strong class="jxr_keyword">final</strong> String sparqlQuery, <strong class="jxr_keyword">final</strong> String user, <strong class="jxr_keyword">final</strong> String commitMessage,
+<a class="jxr_linenumber" name="L756" href="#L756">756</a> 			<strong class="jxr_keyword">final</strong> String format) <strong class="jxr_keyword">throws</strong> InternalErrorException {
+<a class="jxr_linenumber" name="L757" href="#L757">757</a> 		logger.info(<span class="jxr_string">"Tag or branch creation detected"</span>);
+<a class="jxr_linenumber" name="L758" href="#L758">758</a> 
+<a class="jxr_linenumber" name="L759" href="#L759">759</a> 		<em class="jxr_comment">// Add R43ples information</em>
+<a class="jxr_linenumber" name="L760" href="#L760">760</a> 		Matcher m = patternBranchOrTagQuery.matcher(sparqlQuery);
+<a class="jxr_linenumber" name="L761" href="#L761">761</a> 
+<a class="jxr_linenumber" name="L762" href="#L762">762</a> 		<strong class="jxr_keyword">boolean</strong> foundEntry = false;
+<a class="jxr_linenumber" name="L763" href="#L763">763</a> 		<strong class="jxr_keyword">while</strong> (m.find()) {
+<a class="jxr_linenumber" name="L764" href="#L764">764</a> 			foundEntry = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L765" href="#L765">765</a> 			String action = m.group(<span class="jxr_string">"action"</span>);
+<a class="jxr_linenumber" name="L766" href="#L766">766</a> 			String graphName = m.group(<span class="jxr_string">"graph"</span>);
+<a class="jxr_linenumber" name="L767" href="#L767">767</a> 			String revisionNumber = m.group(<span class="jxr_string">"revision"</span>).toLowerCase();
+<a class="jxr_linenumber" name="L768" href="#L768">768</a> 			String referenceName = m.group(<span class="jxr_string">"name"</span>).toLowerCase();
+<a class="jxr_linenumber" name="L769" href="#L769">769</a> 			<strong class="jxr_keyword">if</strong> (action.equals(<span class="jxr_string">"TAG"</span>)) {
+<a class="jxr_linenumber" name="L770" href="#L770">770</a> 				RevisionManagement.createTag(graphName, revisionNumber, referenceName, user, commitMessage);
+<a class="jxr_linenumber" name="L771" href="#L771">771</a> 			} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (action.equals(<span class="jxr_string">"BRANCH"</span>)) {
+<a class="jxr_linenumber" name="L772" href="#L772">772</a> 				RevisionManagement.createBranch(graphName, revisionNumber, referenceName, user, commitMessage);
+<a class="jxr_linenumber" name="L773" href="#L773">773</a> 			} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L774" href="#L774">774</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/QueryErrorException.html">QueryErrorException</a>(<span class="jxr_string">"Error in query: "</span> + sparqlQuery);
+<a class="jxr_linenumber" name="L775" href="#L775">775</a> 			}	    
+<a class="jxr_linenumber" name="L776" href="#L776">776</a> 		}
+<a class="jxr_linenumber" name="L777" href="#L777">777</a> 		<strong class="jxr_keyword">if</strong> (!foundEntry) {
+<a class="jxr_linenumber" name="L778" href="#L778">778</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/QueryErrorException.html">QueryErrorException</a>(<span class="jxr_string">"Error in query: "</span> + sparqlQuery);
+<a class="jxr_linenumber" name="L779" href="#L779">779</a> 		}
+<a class="jxr_linenumber" name="L780" href="#L780">780</a> 		String result = <span class="jxr_string">"Tagging or branching successful"</span>;
+<a class="jxr_linenumber" name="L781" href="#L781">781</a> 
+<a class="jxr_linenumber" name="L782" href="#L782">782</a> 		ResponseBuilder responseBuilder = Response.ok();
+<a class="jxr_linenumber" name="L783" href="#L783">783</a> 		<strong class="jxr_keyword">if</strong> (format.equals(<span class="jxr_string">"text/html"</span>)){
+<a class="jxr_linenumber" name="L784" href="#L784">784</a> 			responseBuilder.entity(getHTMLResult(result, sparqlQuery));
+<a class="jxr_linenumber" name="L785" href="#L785">785</a> 		} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L786" href="#L786">786</a> 			responseBuilder.entity(result);
+<a class="jxr_linenumber" name="L787" href="#L787">787</a> 		}
+<a class="jxr_linenumber" name="L788" href="#L788">788</a> 		responseBuilder.type(format);	
+<a class="jxr_linenumber" name="L789" href="#L789">789</a> 		responseBuilder.header(<span class="jxr_string">"r43ples-revisiongraph"</span>, RevisionManagement.getResponseHeaderFromQuery(sparqlQuery));		
+<a class="jxr_linenumber" name="L790" href="#L790">790</a> 		<strong class="jxr_keyword">return</strong> responseBuilder.build();
+<a class="jxr_linenumber" name="L791" href="#L791">791</a> 	}
 <a class="jxr_linenumber" name="L792" href="#L792">792</a> 	
-<a class="jxr_linenumber" name="L793" href="#L793">793</a> 	<em class="jxr_javadoccomment">/** </em>
-<a class="jxr_linenumber" name="L794" href="#L794">794</a> <em class="jxr_javadoccomment">	 * Creates a merge between the specified branches.</em>
-<a class="jxr_linenumber" name="L795" href="#L795">795</a> <em class="jxr_javadoccomment">	 * </em>
-<a class="jxr_linenumber" name="L796" href="#L796">796</a> <em class="jxr_javadoccomment">	 * Using command: MERGE GRAPH &lt;graphURI&gt; BRANCH "branchNameA" INTO "branchNameB"</em>
-<a class="jxr_linenumber" name="L797" href="#L797">797</a> <em class="jxr_javadoccomment">	 * </em>
-<a class="jxr_linenumber" name="L798" href="#L798">798</a> <em class="jxr_javadoccomment">	 * @param sparqlQuery the SPARQL query</em>
-<a class="jxr_linenumber" name="L799" href="#L799">799</a> <em class="jxr_javadoccomment">	 * @param format the result format</em>
-<a class="jxr_linenumber" name="L800" href="#L800">800</a> <em class="jxr_javadoccomment">	 * @throws InternalErrorException </em>
-<a class="jxr_linenumber" name="L801" href="#L801">801</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L802" href="#L802">802</a> 	<strong class="jxr_keyword">private</strong> Response getMergeResponse(<strong class="jxr_keyword">final</strong> String sparqlQuery, <strong class="jxr_keyword">final</strong> String user, <strong class="jxr_keyword">final</strong> String commitMessage, <strong class="jxr_keyword">final</strong> String format) <strong class="jxr_keyword">throws</strong> InternalErrorException {
-<a class="jxr_linenumber" name="L803" href="#L803">803</a> 		ResponseBuilder responseBuilder = Response.created(URI.create(<span class="jxr_string">""</span>));
-<a class="jxr_linenumber" name="L804" href="#L804">804</a> 		logger.info(<span class="jxr_string">"Merge creation detected"</span>);
-<a class="jxr_linenumber" name="L805" href="#L805">805</a> 
-<a class="jxr_linenumber" name="L806" href="#L806">806</a> 		<em class="jxr_comment">// Add R43ples information</em>
-<a class="jxr_linenumber" name="L807" href="#L807">807</a> 		Matcher m = patternMergeQuery.matcher(sparqlQuery);
-<a class="jxr_linenumber" name="L808" href="#L808">808</a> 		
-<a class="jxr_linenumber" name="L809" href="#L809">809</a> 		<strong class="jxr_keyword">boolean</strong> foundEntry = false;
-<a class="jxr_linenumber" name="L810" href="#L810">810</a> 		<strong class="jxr_keyword">while</strong> (m.find()) {
-<a class="jxr_linenumber" name="L811" href="#L811">811</a> 			foundEntry = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L812" href="#L812">812</a> 			String newRevisionNumber = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L813" href="#L813">813</a> 			
-<a class="jxr_linenumber" name="L814" href="#L814">814</a> 			String action = m.group(<span class="jxr_string">"action"</span>);
-<a class="jxr_linenumber" name="L815" href="#L815">815</a> 			String graphName = m.group(<span class="jxr_string">"graph"</span>);
-<a class="jxr_linenumber" name="L816" href="#L816">816</a> 			String sdd = m.group(<span class="jxr_string">"sdd"</span>);
-<a class="jxr_linenumber" name="L817" href="#L817">817</a> 			String sddURI = m.group(<span class="jxr_string">"sddURI"</span>);
-<a class="jxr_linenumber" name="L818" href="#L818">818</a> 			String branchNameA = m.group(<span class="jxr_string">"branchNameA"</span>).toLowerCase();
-<a class="jxr_linenumber" name="L819" href="#L819">819</a> 			String branchNameB = m.group(<span class="jxr_string">"branchNameB"</span>).toLowerCase();
-<a class="jxr_linenumber" name="L820" href="#L820">820</a> 			String with = m.group(<span class="jxr_string">"with"</span>);
-<a class="jxr_linenumber" name="L821" href="#L821">821</a> 			String triples = m.group(<span class="jxr_string">"triples"</span>);
-<a class="jxr_linenumber" name="L822" href="#L822">822</a> 			
-<a class="jxr_linenumber" name="L823" href="#L823">823</a> 			String revisionUriA = RevisionManagement.getRevisionUri(graphName, branchNameA);
-<a class="jxr_linenumber" name="L824" href="#L824">824</a> 			String revisionUriB = RevisionManagement.getRevisionUri(graphName, branchNameB);
-<a class="jxr_linenumber" name="L825" href="#L825">825</a> 			
-<a class="jxr_linenumber" name="L826" href="#L826">826</a> 			logger.debug(<span class="jxr_string">"action: "</span> + action);
-<a class="jxr_linenumber" name="L827" href="#L827">827</a> 			logger.debug(<span class="jxr_string">"graph: "</span> + graphName);
-<a class="jxr_linenumber" name="L828" href="#L828">828</a> 			logger.debug(<span class="jxr_string">"sdd: "</span> + sdd);
-<a class="jxr_linenumber" name="L829" href="#L829">829</a> 			logger.debug(<span class="jxr_string">"sddURI: "</span> + sddURI);
-<a class="jxr_linenumber" name="L830" href="#L830">830</a> 			logger.debug(<span class="jxr_string">"branchNameA: "</span> + branchNameA);
-<a class="jxr_linenumber" name="L831" href="#L831">831</a> 			logger.debug(<span class="jxr_string">"branchNameB: "</span> + branchNameB);
-<a class="jxr_linenumber" name="L832" href="#L832">832</a> 			logger.debug(<span class="jxr_string">"with: "</span> + with);
-<a class="jxr_linenumber" name="L833" href="#L833">833</a> 			logger.debug(<span class="jxr_string">"triples: "</span> + triples);
-<a class="jxr_linenumber" name="L834" href="#L834">834</a> 			
-<a class="jxr_linenumber" name="L835" href="#L835">835</a> 			<strong class="jxr_keyword">if</strong> (!RevisionManagement.checkGraphExistence(graphName)){
-<a class="jxr_linenumber" name="L836" href="#L836">836</a> 				logger.error(<span class="jxr_string">"Graph &lt;"</span>+graphName+<span class="jxr_string">"&gt; does not exist."</span>);
-<a class="jxr_linenumber" name="L837" href="#L837">837</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"Graph &lt;"</span>+graphName+<span class="jxr_string">"&gt; does not exist."</span>);
-<a class="jxr_linenumber" name="L838" href="#L838">838</a> 			}
-<a class="jxr_linenumber" name="L839" href="#L839">839</a> 				
-<a class="jxr_linenumber" name="L840" href="#L840">840</a> 			
-<a class="jxr_linenumber" name="L841" href="#L841">841</a> 			<em class="jxr_comment">// Check if A and B are different revisions</em>
-<a class="jxr_linenumber" name="L842" href="#L842">842</a> 			<strong class="jxr_keyword">if</strong> (RevisionManagement.getRevisionNumber(graphName, branchNameA).equals(RevisionManagement.getRevisionNumber(graphName, branchNameB))) {
-<a class="jxr_linenumber" name="L843" href="#L843">843</a> 				<em class="jxr_comment">// Branches are equal - throw error</em>
-<a class="jxr_linenumber" name="L844" href="#L844">844</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"Specified branches are equal: "</span> + sparqlQuery);
-<a class="jxr_linenumber" name="L845" href="#L845">845</a> 			}
-<a class="jxr_linenumber" name="L846" href="#L846">846</a> 			
-<a class="jxr_linenumber" name="L847" href="#L847">847</a> 			<em class="jxr_comment">// Check if both are terminal nodes</em>
-<a class="jxr_linenumber" name="L848" href="#L848">848</a> 			<strong class="jxr_keyword">if</strong> (!(RevisionManagement.isBranch(graphName, branchNameA) &amp;&amp; RevisionManagement.isBranch(graphName, branchNameB))) {
-<a class="jxr_linenumber" name="L849" href="#L849">849</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"Non terminal nodes were used: "</span> + sparqlQuery);
-<a class="jxr_linenumber" name="L850" href="#L850">850</a> 			}
-<a class="jxr_linenumber" name="L851" href="#L851">851</a> 
-<a class="jxr_linenumber" name="L852" href="#L852">852</a> 			
-<a class="jxr_linenumber" name="L853" href="#L853">853</a> 			<em class="jxr_comment">// Differ between MERGE query with specified SDD and without SDD			</em>
-<a class="jxr_linenumber" name="L854" href="#L854">854</a> 			String usedSDDURI = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L855" href="#L855">855</a> 			<strong class="jxr_keyword">if</strong> (sdd != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L856" href="#L856">856</a> 				<em class="jxr_comment">// Specified SDD</em>
-<a class="jxr_linenumber" name="L857" href="#L857">857</a> 				usedSDDURI = sddURI;
-<a class="jxr_linenumber" name="L858" href="#L858">858</a> 			} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L859" href="#L859">859</a> 				<em class="jxr_comment">// Default SDD</em>
-<a class="jxr_linenumber" name="L860" href="#L860">860</a> 				<em class="jxr_comment">// Query the referenced SDD</em>
-<a class="jxr_linenumber" name="L861" href="#L861">861</a> 				String querySDD = String.format(
-<a class="jxr_linenumber" name="L862" href="#L862">862</a> 						  <span class="jxr_string">"PREFIX sddo: &lt;http://eatld.et.tu-dresden.de/sddo#&gt; %n"</span>
-<a class="jxr_linenumber" name="L863" href="#L863">863</a> 						+ <span class="jxr_string">"PREFIX rmo: &lt;http://eatld.et.tu-dresden.de/rmo#&gt; %n"</span>
-<a class="jxr_linenumber" name="L864" href="#L864">864</a> 						+ <span class="jxr_string">"SELECT ?defaultSDD %n"</span>
-<a class="jxr_linenumber" name="L865" href="#L865">865</a> 						+ <span class="jxr_string">"WHERE { GRAPH &lt;%s&gt; {	%n"</span>
-<a class="jxr_linenumber" name="L866" href="#L866">866</a> 						+ <span class="jxr_string">"	&lt;%s&gt; a rmo:Graph ;%n"</span>
-<a class="jxr_linenumber" name="L867" href="#L867">867</a> 						+ <span class="jxr_string">"		sddo:hasDefaultSDD ?defaultSDD . %n"</span>
-<a class="jxr_linenumber" name="L868" href="#L868">868</a> 						+ <span class="jxr_string">"} }"</span>, Config.revision_graph, graphName);
-<a class="jxr_linenumber" name="L869" href="#L869">869</a> 				
-<a class="jxr_linenumber" name="L870" href="#L870">870</a> 				ResultSet resultSetSDD = TripleStoreInterfaceFactory.get().executeSelectQuery(querySDD);
-<a class="jxr_linenumber" name="L871" href="#L871">871</a> 				<strong class="jxr_keyword">if</strong> (resultSetSDD.hasNext()) {
-<a class="jxr_linenumber" name="L872" href="#L872">872</a> 					QuerySolution qs = resultSetSDD.next();
-<a class="jxr_linenumber" name="L873" href="#L873">873</a> 					usedSDDURI = qs.getResource(<span class="jxr_string">"?defaultSDD"</span>).toString();
-<a class="jxr_linenumber" name="L874" href="#L874">874</a> 				} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L875" href="#L875">875</a> 					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"Error in revision graph! Selected graph &lt;"</span> + graphName + <span class="jxr_string">"&gt; has no default SDD referenced."</span>);
-<a class="jxr_linenumber" name="L876" href="#L876">876</a> 				}
-<a class="jxr_linenumber" name="L877" href="#L877">877</a> 			}
-<a class="jxr_linenumber" name="L878" href="#L878">878</a> 
-<a class="jxr_linenumber" name="L879" href="#L879">879</a> 			<em class="jxr_comment">// Get the common revision with shortest path</em>
-<a class="jxr_linenumber" name="L880" href="#L880">880</a> 			String commonRevision = MergeManagement.getCommonRevisionWithShortestPath(revisionUriA, revisionUriB);
-<a class="jxr_linenumber" name="L881" href="#L881">881</a> 			
-<a class="jxr_linenumber" name="L882" href="#L882">882</a> 			<em class="jxr_comment">// Create the revision progress for A and B</em>
-<a class="jxr_linenumber" name="L883" href="#L883">883</a> 			String graphNameA = graphName + <span class="jxr_string">"-RM-REVISION-PROGRESS-A"</span>;
-<a class="jxr_linenumber" name="L884" href="#L884">884</a> 			String graphNameB = graphName + <span class="jxr_string">"-RM-REVISION-PROGRESS-B"</span>;
-<a class="jxr_linenumber" name="L885" href="#L885">885</a> 			String graphNameDiff = graphName + <span class="jxr_string">"-RM-DIFFERENCE-MODEL"</span>;
-<a class="jxr_linenumber" name="L886" href="#L886">886</a> 			String uriA = <span class="jxr_string">"http://eatld.et.tu-dresden.de/branch-A"</span>;
-<a class="jxr_linenumber" name="L887" href="#L887">887</a> 			String uriB = <span class="jxr_string">"http://eatld.et.tu-dresden.de/branch-B"</span>;
-<a class="jxr_linenumber" name="L888" href="#L888">888</a> 			
-<a class="jxr_linenumber" name="L889" href="#L889">889</a> 			MergeManagement.createRevisionProgress(MergeManagement.getPathBetweenStartAndTargetRevision(commonRevision, revisionUriA), graphNameA, uriA);
-<a class="jxr_linenumber" name="L890" href="#L890">890</a> 			MergeManagement.createRevisionProgress(MergeManagement.getPathBetweenStartAndTargetRevision(commonRevision, revisionUriB), graphNameB, uriB);
-<a class="jxr_linenumber" name="L891" href="#L891">891</a> 			
-<a class="jxr_linenumber" name="L892" href="#L892">892</a> 			<em class="jxr_comment">// Create difference model</em>
-<a class="jxr_linenumber" name="L893" href="#L893">893</a> 			MergeManagement.createDifferenceTripleModel(graphName,  graphNameDiff, graphNameA, uriA, graphNameB, uriB, usedSDDURI);
-<a class="jxr_linenumber" name="L894" href="#L894">894</a> 			
-<a class="jxr_linenumber" name="L895" href="#L895">895</a> 			<em class="jxr_comment">// Differ between the different merge queries</em>
-<a class="jxr_linenumber" name="L896" href="#L896">896</a> 			<strong class="jxr_keyword">if</strong> ((action != <strong class="jxr_keyword">null</strong>) &amp;&amp; (action.equalsIgnoreCase(<span class="jxr_string">"AUTO"</span>)) &amp;&amp; (with == <strong class="jxr_keyword">null</strong>) &amp;&amp; (triples == <strong class="jxr_keyword">null</strong>)) {
-<a class="jxr_linenumber" name="L897" href="#L897">897</a> 				logger.info(<span class="jxr_string">"AUTO MERGE query detected"</span>);
-<a class="jxr_linenumber" name="L898" href="#L898">898</a> 				<em class="jxr_comment">// Create the merged revision</em>
-<a class="jxr_linenumber" name="L899" href="#L899">899</a> 				newRevisionNumber = MergeManagement.createMergedRevision(graphName, branchNameA, branchNameB, user, commitMessage, graphNameDiff, graphNameA, uriA, graphNameB, uriB, usedSDDURI, MergeQueryTypeEnum.AUTO, <span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="L900" href="#L900">900</a> 			} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> ((action != <strong class="jxr_keyword">null</strong>) &amp;&amp; (action.equalsIgnoreCase(<span class="jxr_string">"MANUAL"</span>)) &amp;&amp; (with != <strong class="jxr_keyword">null</strong>) &amp;&amp; (triples != <strong class="jxr_keyword">null</strong>)) {
-<a class="jxr_linenumber" name="L901" href="#L901">901</a> 				logger.info(<span class="jxr_string">"MANUAL MERGE query detected"</span>);
-<a class="jxr_linenumber" name="L902" href="#L902">902</a> 				<em class="jxr_comment">// Create the merged revision</em>
-<a class="jxr_linenumber" name="L903" href="#L903">903</a> 				newRevisionNumber = MergeManagement.createMergedRevision(graphName, branchNameA, branchNameB, user, commitMessage, graphNameDiff, graphNameA, uriA, graphNameB, uriB, usedSDDURI, MergeQueryTypeEnum.MANUAL, triples);
-<a class="jxr_linenumber" name="L904" href="#L904">904</a> 			} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> ((action == <strong class="jxr_keyword">null</strong>) &amp;&amp; (with != <strong class="jxr_keyword">null</strong>) &amp;&amp; (triples != <strong class="jxr_keyword">null</strong>)) {
-<a class="jxr_linenumber" name="L905" href="#L905">905</a> 				logger.info(<span class="jxr_string">"MERGE WITH query detected"</span>);
-<a class="jxr_linenumber" name="L906" href="#L906">906</a> 				<em class="jxr_comment">// Create the merged revision</em>
-<a class="jxr_linenumber" name="L907" href="#L907">907</a> 				newRevisionNumber = MergeManagement.createMergedRevision(graphName, branchNameA, branchNameB, user, commitMessage, graphNameDiff, graphNameA, uriA, graphNameB, uriB, usedSDDURI, MergeQueryTypeEnum.WITH, triples);
-<a class="jxr_linenumber" name="L908" href="#L908">908</a> 			} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> ((action == <strong class="jxr_keyword">null</strong>) &amp;&amp; (with == <strong class="jxr_keyword">null</strong>) &amp;&amp; (triples == <strong class="jxr_keyword">null</strong>)) {
-<a class="jxr_linenumber" name="L909" href="#L909">909</a> 				logger.info(<span class="jxr_string">"MERGE query detected"</span>);
-<a class="jxr_linenumber" name="L910" href="#L910">910</a> 				<em class="jxr_comment">// Check if difference model contains conflicts</em>
-<a class="jxr_linenumber" name="L911" href="#L911">911</a> 				String queryASK = String.format(
-<a class="jxr_linenumber" name="L912" href="#L912">912</a> 						  <span class="jxr_string">"ASK { %n"</span>
-<a class="jxr_linenumber" name="L913" href="#L913">913</a> 						+ <span class="jxr_string">"	GRAPH &lt;%s&gt; { %n"</span>
-<a class="jxr_linenumber" name="L914" href="#L914">914</a> 						+ <span class="jxr_string">" 	?ref &lt;http://eatld.et.tu-dresden.de/sddo#isConflicting&gt; \&quot;true\&quot;^^&lt;http://www.w3.org/2001/XMLSchema#boolean&gt; . %n"</span>
-<a class="jxr_linenumber" name="L915" href="#L915">915</a> 						+ <span class="jxr_string">"	} %n"</span>
-<a class="jxr_linenumber" name="L916" href="#L916">916</a> 						+ <span class="jxr_string">"}"</span>, graphNameDiff);
-<a class="jxr_linenumber" name="L917" href="#L917">917</a> 				<strong class="jxr_keyword">if</strong> (TripleStoreInterfaceFactory.get().executeAskQuery(queryASK)) {
-<a class="jxr_linenumber" name="L918" href="#L918">918</a> 					<em class="jxr_comment">// Difference model contains conflicts</em>
-<a class="jxr_linenumber" name="L919" href="#L919">919</a> 					<em class="jxr_comment">// Return the conflict model to the client</em>
-<a class="jxr_linenumber" name="L920" href="#L920">920</a> 					responseBuilder = Response.status(Response.Status.CONFLICT);
-<a class="jxr_linenumber" name="L921" href="#L921">921</a> 					responseBuilder.entity(RevisionManagement.getContentOfGraphByConstruct(graphNameDiff));
-<a class="jxr_linenumber" name="L922" href="#L922">922</a> 				} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L923" href="#L923">923</a> 					<em class="jxr_comment">// Difference model contains no conflicts</em>
-<a class="jxr_linenumber" name="L924" href="#L924">924</a> 					<em class="jxr_comment">// Create the merged revision</em>
-<a class="jxr_linenumber" name="L925" href="#L925">925</a> 					newRevisionNumber = MergeManagement.createMergedRevision(graphName, branchNameA, branchNameB, user, commitMessage, graphNameDiff, graphNameA, uriA, graphNameB, uriB, usedSDDURI, MergeQueryTypeEnum.COMMON, <span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="L926" href="#L926">926</a> 				}
-<a class="jxr_linenumber" name="L927" href="#L927">927</a> 			} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L928" href="#L928">928</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"This is not a valid MERGE query: "</span> + sparqlQuery);
-<a class="jxr_linenumber" name="L929" href="#L929">929</a> 			}
-<a class="jxr_linenumber" name="L930" href="#L930">930</a> 			
-<a class="jxr_linenumber" name="L931" href="#L931">931</a> 			String graphNameHeader;
-<a class="jxr_linenumber" name="L932" href="#L932">932</a> 			<strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L933" href="#L933">933</a> 				graphNameHeader = URLEncoder.encode(graphName, <span class="jxr_string">"UTF-8"</span>);
-<a class="jxr_linenumber" name="L934" href="#L934">934</a> 			} <strong class="jxr_keyword">catch</strong> (UnsupportedEncodingException e) {
-<a class="jxr_linenumber" name="L935" href="#L935">935</a> 				e.printStackTrace();
-<a class="jxr_linenumber" name="L936" href="#L936">936</a> 				graphNameHeader = graphName;
-<a class="jxr_linenumber" name="L937" href="#L937">937</a> 			}
-<a class="jxr_linenumber" name="L938" href="#L938">938</a> 			
+<a class="jxr_linenumber" name="L793" href="#L793">793</a> 	
+<a class="jxr_linenumber" name="L794" href="#L794">794</a> 	<em class="jxr_javadoccomment">/** </em>
+<a class="jxr_linenumber" name="L795" href="#L795">795</a> <em class="jxr_javadoccomment">	 * Creates a merge between the specified branches.</em>
+<a class="jxr_linenumber" name="L796" href="#L796">796</a> <em class="jxr_javadoccomment">	 * </em>
+<a class="jxr_linenumber" name="L797" href="#L797">797</a> <em class="jxr_javadoccomment">	 * Using command: MERGE GRAPH &lt;graphURI&gt; BRANCH "branchNameA" INTO "branchNameB"</em>
+<a class="jxr_linenumber" name="L798" href="#L798">798</a> <em class="jxr_javadoccomment">	 * </em>
+<a class="jxr_linenumber" name="L799" href="#L799">799</a> <em class="jxr_javadoccomment">	 * @param sparqlQuery the SPARQL query</em>
+<a class="jxr_linenumber" name="L800" href="#L800">800</a> <em class="jxr_javadoccomment">	 * @param format the result format</em>
+<a class="jxr_linenumber" name="L801" href="#L801">801</a> <em class="jxr_javadoccomment">	 * @throws InternalErrorException </em>
+<a class="jxr_linenumber" name="L802" href="#L802">802</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L803" href="#L803">803</a> 	<strong class="jxr_keyword">private</strong> Response getMergeResponse(<strong class="jxr_keyword">final</strong> String sparqlQuery, <strong class="jxr_keyword">final</strong> String user, <strong class="jxr_keyword">final</strong> String commitMessage, <strong class="jxr_keyword">final</strong> String format) <strong class="jxr_keyword">throws</strong> InternalErrorException {
+<a class="jxr_linenumber" name="L804" href="#L804">804</a> 		ResponseBuilder responseBuilder = Response.created(URI.create(<span class="jxr_string">""</span>));
+<a class="jxr_linenumber" name="L805" href="#L805">805</a> 		logger.info(<span class="jxr_string">"Merge creation detected"</span>);
+<a class="jxr_linenumber" name="L806" href="#L806">806</a> 
+<a class="jxr_linenumber" name="L807" href="#L807">807</a> 		<em class="jxr_comment">// Add R43ples information</em>
+<a class="jxr_linenumber" name="L808" href="#L808">808</a> 		Matcher m = patternMergeQuery.matcher(sparqlQuery);
+<a class="jxr_linenumber" name="L809" href="#L809">809</a> 		
+<a class="jxr_linenumber" name="L810" href="#L810">810</a> 		<strong class="jxr_keyword">boolean</strong> foundEntry = false;
+<a class="jxr_linenumber" name="L811" href="#L811">811</a> 		<strong class="jxr_keyword">while</strong> (m.find()) {
+<a class="jxr_linenumber" name="L812" href="#L812">812</a> 			foundEntry = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L813" href="#L813">813</a> 			String newRevisionNumber = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L814" href="#L814">814</a> 			
+<a class="jxr_linenumber" name="L815" href="#L815">815</a> 			String action = m.group(<span class="jxr_string">"action"</span>);
+<a class="jxr_linenumber" name="L816" href="#L816">816</a> 			String graphName = m.group(<span class="jxr_string">"graph"</span>);
+<a class="jxr_linenumber" name="L817" href="#L817">817</a> 			String sdd = m.group(<span class="jxr_string">"sdd"</span>);
+<a class="jxr_linenumber" name="L818" href="#L818">818</a> 			String sddURI = m.group(<span class="jxr_string">"sddURI"</span>);
+<a class="jxr_linenumber" name="L819" href="#L819">819</a> 			String branchNameA = m.group(<span class="jxr_string">"branchNameA"</span>).toLowerCase();
+<a class="jxr_linenumber" name="L820" href="#L820">820</a> 			String branchNameB = m.group(<span class="jxr_string">"branchNameB"</span>).toLowerCase();
+<a class="jxr_linenumber" name="L821" href="#L821">821</a> 			String with = m.group(<span class="jxr_string">"with"</span>);
+<a class="jxr_linenumber" name="L822" href="#L822">822</a> 			String triples = m.group(<span class="jxr_string">"triples"</span>);
+<a class="jxr_linenumber" name="L823" href="#L823">823</a> 			
+<a class="jxr_linenumber" name="L824" href="#L824">824</a> 			String revisionUriA = RevisionManagement.getRevisionUri(graphName, branchNameA);
+<a class="jxr_linenumber" name="L825" href="#L825">825</a> 			String revisionUriB = RevisionManagement.getRevisionUri(graphName, branchNameB);
+<a class="jxr_linenumber" name="L826" href="#L826">826</a> 			
+<a class="jxr_linenumber" name="L827" href="#L827">827</a> 			logger.debug(<span class="jxr_string">"action: "</span> + action);
+<a class="jxr_linenumber" name="L828" href="#L828">828</a> 			logger.debug(<span class="jxr_string">"graph: "</span> + graphName);
+<a class="jxr_linenumber" name="L829" href="#L829">829</a> 			logger.debug(<span class="jxr_string">"sdd: "</span> + sdd);
+<a class="jxr_linenumber" name="L830" href="#L830">830</a> 			logger.debug(<span class="jxr_string">"sddURI: "</span> + sddURI);
+<a class="jxr_linenumber" name="L831" href="#L831">831</a> 			logger.debug(<span class="jxr_string">"branchNameA: "</span> + branchNameA);
+<a class="jxr_linenumber" name="L832" href="#L832">832</a> 			logger.debug(<span class="jxr_string">"branchNameB: "</span> + branchNameB);
+<a class="jxr_linenumber" name="L833" href="#L833">833</a> 			logger.debug(<span class="jxr_string">"with: "</span> + with);
+<a class="jxr_linenumber" name="L834" href="#L834">834</a> 			logger.debug(<span class="jxr_string">"triples: "</span> + triples);
+<a class="jxr_linenumber" name="L835" href="#L835">835</a> 			
+<a class="jxr_linenumber" name="L836" href="#L836">836</a> 			<strong class="jxr_keyword">if</strong> (!RevisionManagement.checkGraphExistence(graphName)){
+<a class="jxr_linenumber" name="L837" href="#L837">837</a> 				logger.error(<span class="jxr_string">"Graph &lt;"</span>+graphName+<span class="jxr_string">"&gt; does not exist."</span>);
+<a class="jxr_linenumber" name="L838" href="#L838">838</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"Graph &lt;"</span>+graphName+<span class="jxr_string">"&gt; does not exist."</span>);
+<a class="jxr_linenumber" name="L839" href="#L839">839</a> 			}
+<a class="jxr_linenumber" name="L840" href="#L840">840</a> 				
+<a class="jxr_linenumber" name="L841" href="#L841">841</a> 			
+<a class="jxr_linenumber" name="L842" href="#L842">842</a> 			<em class="jxr_comment">// Check if A and B are different revisions</em>
+<a class="jxr_linenumber" name="L843" href="#L843">843</a> 			<strong class="jxr_keyword">if</strong> (RevisionManagement.getRevisionNumber(graphName, branchNameA).equals(RevisionManagement.getRevisionNumber(graphName, branchNameB))) {
+<a class="jxr_linenumber" name="L844" href="#L844">844</a> 				<em class="jxr_comment">// Branches are equal - throw error</em>
+<a class="jxr_linenumber" name="L845" href="#L845">845</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"Specified branches are equal: "</span> + sparqlQuery);
+<a class="jxr_linenumber" name="L846" href="#L846">846</a> 			}
+<a class="jxr_linenumber" name="L847" href="#L847">847</a> 			
+<a class="jxr_linenumber" name="L848" href="#L848">848</a> 			<em class="jxr_comment">// Check if both are terminal nodes</em>
+<a class="jxr_linenumber" name="L849" href="#L849">849</a> 			<strong class="jxr_keyword">if</strong> (!(RevisionManagement.isBranch(graphName, branchNameA) &amp;&amp; RevisionManagement.isBranch(graphName, branchNameB))) {
+<a class="jxr_linenumber" name="L850" href="#L850">850</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"Non terminal nodes were used: "</span> + sparqlQuery);
+<a class="jxr_linenumber" name="L851" href="#L851">851</a> 			}
+<a class="jxr_linenumber" name="L852" href="#L852">852</a> 
+<a class="jxr_linenumber" name="L853" href="#L853">853</a> 			
+<a class="jxr_linenumber" name="L854" href="#L854">854</a> 			<em class="jxr_comment">// Differ between MERGE query with specified SDD and without SDD			</em>
+<a class="jxr_linenumber" name="L855" href="#L855">855</a> 			String usedSDDURI = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L856" href="#L856">856</a> 			<strong class="jxr_keyword">if</strong> (sdd != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L857" href="#L857">857</a> 				<em class="jxr_comment">// Specified SDD</em>
+<a class="jxr_linenumber" name="L858" href="#L858">858</a> 				usedSDDURI = sddURI;
+<a class="jxr_linenumber" name="L859" href="#L859">859</a> 			} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L860" href="#L860">860</a> 				<em class="jxr_comment">// Default SDD</em>
+<a class="jxr_linenumber" name="L861" href="#L861">861</a> 				<em class="jxr_comment">// Query the referenced SDD</em>
+<a class="jxr_linenumber" name="L862" href="#L862">862</a> 				String querySDD = String.format(
+<a class="jxr_linenumber" name="L863" href="#L863">863</a> 						  <span class="jxr_string">"PREFIX sddo: &lt;http://eatld.et.tu-dresden.de/sddo#&gt; %n"</span>
+<a class="jxr_linenumber" name="L864" href="#L864">864</a> 						+ <span class="jxr_string">"PREFIX rmo: &lt;http://eatld.et.tu-dresden.de/rmo#&gt; %n"</span>
+<a class="jxr_linenumber" name="L865" href="#L865">865</a> 						+ <span class="jxr_string">"SELECT ?defaultSDD %n"</span>
+<a class="jxr_linenumber" name="L866" href="#L866">866</a> 						+ <span class="jxr_string">"WHERE { GRAPH &lt;%s&gt; {	%n"</span>
+<a class="jxr_linenumber" name="L867" href="#L867">867</a> 						+ <span class="jxr_string">"	&lt;%s&gt; a rmo:Graph ;%n"</span>
+<a class="jxr_linenumber" name="L868" href="#L868">868</a> 						+ <span class="jxr_string">"		sddo:hasDefaultSDD ?defaultSDD . %n"</span>
+<a class="jxr_linenumber" name="L869" href="#L869">869</a> 						+ <span class="jxr_string">"} }"</span>, Config.revision_graph, graphName);
+<a class="jxr_linenumber" name="L870" href="#L870">870</a> 				
+<a class="jxr_linenumber" name="L871" href="#L871">871</a> 				ResultSet resultSetSDD = TripleStoreInterfaceSingleton.get().executeSelectQuery(querySDD);
+<a class="jxr_linenumber" name="L872" href="#L872">872</a> 				<strong class="jxr_keyword">if</strong> (resultSetSDD.hasNext()) {
+<a class="jxr_linenumber" name="L873" href="#L873">873</a> 					QuerySolution qs = resultSetSDD.next();
+<a class="jxr_linenumber" name="L874" href="#L874">874</a> 					usedSDDURI = qs.getResource(<span class="jxr_string">"?defaultSDD"</span>).toString();
+<a class="jxr_linenumber" name="L875" href="#L875">875</a> 				} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L876" href="#L876">876</a> 					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"Error in revision graph! Selected graph &lt;"</span> + graphName + <span class="jxr_string">"&gt; has no default SDD referenced."</span>);
+<a class="jxr_linenumber" name="L877" href="#L877">877</a> 				}
+<a class="jxr_linenumber" name="L878" href="#L878">878</a> 			}
+<a class="jxr_linenumber" name="L879" href="#L879">879</a> 
+<a class="jxr_linenumber" name="L880" href="#L880">880</a> 			<em class="jxr_comment">// Get the common revision with shortest path</em>
+<a class="jxr_linenumber" name="L881" href="#L881">881</a> 			String commonRevision = MergeManagement.getCommonRevisionWithShortestPath(revisionUriA, revisionUriB);
+<a class="jxr_linenumber" name="L882" href="#L882">882</a> 			
+<a class="jxr_linenumber" name="L883" href="#L883">883</a> 			<em class="jxr_comment">// Create the revision progress for A and B</em>
+<a class="jxr_linenumber" name="L884" href="#L884">884</a> 			String graphNameA = graphName + <span class="jxr_string">"-RM-REVISION-PROGRESS-A"</span>;
+<a class="jxr_linenumber" name="L885" href="#L885">885</a> 			String graphNameB = graphName + <span class="jxr_string">"-RM-REVISION-PROGRESS-B"</span>;
+<a class="jxr_linenumber" name="L886" href="#L886">886</a> 			String graphNameDiff = graphName + <span class="jxr_string">"-RM-DIFFERENCE-MODEL"</span>;
+<a class="jxr_linenumber" name="L887" href="#L887">887</a> 			String uriA = <span class="jxr_string">"http://eatld.et.tu-dresden.de/branch-A"</span>;
+<a class="jxr_linenumber" name="L888" href="#L888">888</a> 			String uriB = <span class="jxr_string">"http://eatld.et.tu-dresden.de/branch-B"</span>;
+<a class="jxr_linenumber" name="L889" href="#L889">889</a> 			
+<a class="jxr_linenumber" name="L890" href="#L890">890</a> 			MergeManagement.createRevisionProgress(MergeManagement.getPathBetweenStartAndTargetRevision(commonRevision, revisionUriA), graphNameA, uriA);
+<a class="jxr_linenumber" name="L891" href="#L891">891</a> 			MergeManagement.createRevisionProgress(MergeManagement.getPathBetweenStartAndTargetRevision(commonRevision, revisionUriB), graphNameB, uriB);
+<a class="jxr_linenumber" name="L892" href="#L892">892</a> 			
+<a class="jxr_linenumber" name="L893" href="#L893">893</a> 			<em class="jxr_comment">// Create difference model</em>
+<a class="jxr_linenumber" name="L894" href="#L894">894</a> 			MergeManagement.createDifferenceTripleModel(graphName,  graphNameDiff, graphNameA, uriA, graphNameB, uriB, usedSDDURI);
+<a class="jxr_linenumber" name="L895" href="#L895">895</a> 			
+<a class="jxr_linenumber" name="L896" href="#L896">896</a> 			<em class="jxr_comment">// Differ between the different merge queries</em>
+<a class="jxr_linenumber" name="L897" href="#L897">897</a> 			<strong class="jxr_keyword">if</strong> ((action != <strong class="jxr_keyword">null</strong>) &amp;&amp; (action.equalsIgnoreCase(<span class="jxr_string">"AUTO"</span>)) &amp;&amp; (with == <strong class="jxr_keyword">null</strong>) &amp;&amp; (triples == <strong class="jxr_keyword">null</strong>)) {
+<a class="jxr_linenumber" name="L898" href="#L898">898</a> 				logger.info(<span class="jxr_string">"AUTO MERGE query detected"</span>);
+<a class="jxr_linenumber" name="L899" href="#L899">899</a> 				<em class="jxr_comment">// Create the merged revision</em>
+<a class="jxr_linenumber" name="L900" href="#L900">900</a> 				newRevisionNumber = MergeManagement.createMergedRevision(graphName, branchNameA, branchNameB, user, commitMessage, graphNameDiff, graphNameA, uriA, graphNameB, uriB, usedSDDURI, MergeQueryTypeEnum.AUTO, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L901" href="#L901">901</a> 			} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> ((action != <strong class="jxr_keyword">null</strong>) &amp;&amp; (action.equalsIgnoreCase(<span class="jxr_string">"MANUAL"</span>)) &amp;&amp; (with != <strong class="jxr_keyword">null</strong>) &amp;&amp; (triples != <strong class="jxr_keyword">null</strong>)) {
+<a class="jxr_linenumber" name="L902" href="#L902">902</a> 				logger.info(<span class="jxr_string">"MANUAL MERGE query detected"</span>);
+<a class="jxr_linenumber" name="L903" href="#L903">903</a> 				<em class="jxr_comment">// Create the merged revision</em>
+<a class="jxr_linenumber" name="L904" href="#L904">904</a> 				newRevisionNumber = MergeManagement.createMergedRevision(graphName, branchNameA, branchNameB, user, commitMessage, graphNameDiff, graphNameA, uriA, graphNameB, uriB, usedSDDURI, MergeQueryTypeEnum.MANUAL, triples);
+<a class="jxr_linenumber" name="L905" href="#L905">905</a> 			} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> ((action == <strong class="jxr_keyword">null</strong>) &amp;&amp; (with != <strong class="jxr_keyword">null</strong>) &amp;&amp; (triples != <strong class="jxr_keyword">null</strong>)) {
+<a class="jxr_linenumber" name="L906" href="#L906">906</a> 				logger.info(<span class="jxr_string">"MERGE WITH query detected"</span>);
+<a class="jxr_linenumber" name="L907" href="#L907">907</a> 				<em class="jxr_comment">// Create the merged revision</em>
+<a class="jxr_linenumber" name="L908" href="#L908">908</a> 				newRevisionNumber = MergeManagement.createMergedRevision(graphName, branchNameA, branchNameB, user, commitMessage, graphNameDiff, graphNameA, uriA, graphNameB, uriB, usedSDDURI, MergeQueryTypeEnum.WITH, triples);
+<a class="jxr_linenumber" name="L909" href="#L909">909</a> 			} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> ((action == <strong class="jxr_keyword">null</strong>) &amp;&amp; (with == <strong class="jxr_keyword">null</strong>) &amp;&amp; (triples == <strong class="jxr_keyword">null</strong>)) {
+<a class="jxr_linenumber" name="L910" href="#L910">910</a> 				logger.info(<span class="jxr_string">"MERGE query detected"</span>);
+<a class="jxr_linenumber" name="L911" href="#L911">911</a> 				<em class="jxr_comment">// Check if difference model contains conflicts</em>
+<a class="jxr_linenumber" name="L912" href="#L912">912</a> 				String queryASK = String.format(
+<a class="jxr_linenumber" name="L913" href="#L913">913</a> 						  <span class="jxr_string">"ASK { %n"</span>
+<a class="jxr_linenumber" name="L914" href="#L914">914</a> 						+ <span class="jxr_string">"	GRAPH &lt;%s&gt; { %n"</span>
+<a class="jxr_linenumber" name="L915" href="#L915">915</a> 						+ <span class="jxr_string">" 	?ref &lt;http://eatld.et.tu-dresden.de/sddo#isConflicting&gt; \&quot;true\&quot;^^&lt;http://www.w3.org/2001/XMLSchema#boolean&gt; . %n"</span>
+<a class="jxr_linenumber" name="L916" href="#L916">916</a> 						+ <span class="jxr_string">"	} %n"</span>
+<a class="jxr_linenumber" name="L917" href="#L917">917</a> 						+ <span class="jxr_string">"}"</span>, graphNameDiff);
+<a class="jxr_linenumber" name="L918" href="#L918">918</a> 				<strong class="jxr_keyword">if</strong> (TripleStoreInterfaceSingleton.get().executeAskQuery(queryASK)) {
+<a class="jxr_linenumber" name="L919" href="#L919">919</a> 					<em class="jxr_comment">// Difference model contains conflicts</em>
+<a class="jxr_linenumber" name="L920" href="#L920">920</a> 					<em class="jxr_comment">// Return the conflict model to the client</em>
+<a class="jxr_linenumber" name="L921" href="#L921">921</a> 					responseBuilder = Response.status(Response.Status.CONFLICT);
+<a class="jxr_linenumber" name="L922" href="#L922">922</a> 					responseBuilder.entity(RevisionManagement.getContentOfGraphByConstruct(graphNameDiff));
+<a class="jxr_linenumber" name="L923" href="#L923">923</a> 				} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L924" href="#L924">924</a> 					<em class="jxr_comment">// Difference model contains no conflicts</em>
+<a class="jxr_linenumber" name="L925" href="#L925">925</a> 					<em class="jxr_comment">// Create the merged revision</em>
+<a class="jxr_linenumber" name="L926" href="#L926">926</a> 					newRevisionNumber = MergeManagement.createMergedRevision(graphName, branchNameA, branchNameB, user, commitMessage, graphNameDiff, graphNameA, uriA, graphNameB, uriB, usedSDDURI, MergeQueryTypeEnum.COMMON, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L927" href="#L927">927</a> 				}
+<a class="jxr_linenumber" name="L928" href="#L928">928</a> 			} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L929" href="#L929">929</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"This is not a valid MERGE query: "</span> + sparqlQuery);
+<a class="jxr_linenumber" name="L930" href="#L930">930</a> 			}
+<a class="jxr_linenumber" name="L931" href="#L931">931</a> 			
+<a class="jxr_linenumber" name="L932" href="#L932">932</a> 			String graphNameHeader;
+<a class="jxr_linenumber" name="L933" href="#L933">933</a> 			<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L934" href="#L934">934</a> 				graphNameHeader = URLEncoder.encode(graphName, <span class="jxr_string">"UTF-8"</span>);
+<a class="jxr_linenumber" name="L935" href="#L935">935</a> 			} <strong class="jxr_keyword">catch</strong> (UnsupportedEncodingException e) {
+<a class="jxr_linenumber" name="L936" href="#L936">936</a> 				e.printStackTrace();
+<a class="jxr_linenumber" name="L937" href="#L937">937</a> 				graphNameHeader = graphName;
+<a class="jxr_linenumber" name="L938" href="#L938">938</a> 			}
 <a class="jxr_linenumber" name="L939" href="#L939">939</a> 			
-<a class="jxr_linenumber" name="L940" href="#L940">940</a> 			<em class="jxr_comment">// Return the revision number which were used (convert tag or branch identifier to revision number)</em>
-<a class="jxr_linenumber" name="L941" href="#L941">941</a> 			responseBuilder.header(graphNameHeader + <span class="jxr_string">"-revision-number-of-branch-A"</span>, RevisionManagement.getRevisionNumber(graphName, branchNameA));
-<a class="jxr_linenumber" name="L942" href="#L942">942</a> 			responseBuilder.header(graphNameHeader + <span class="jxr_string">"-revision-number-of-branch-B"</span>, RevisionManagement.getRevisionNumber(graphName, branchNameB));			
-<a class="jxr_linenumber" name="L943" href="#L943">943</a> 			
-<a class="jxr_linenumber" name="L944" href="#L944">944</a> 			<strong class="jxr_keyword">if</strong> (newRevisionNumber != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L945" href="#L945">945</a> 				<em class="jxr_comment">// Respond with next revision number</em>
-<a class="jxr_linenumber" name="L946" href="#L946">946</a> 		    	responseBuilder.header(graphNameHeader + <span class="jxr_string">"-revision-number"</span>, newRevisionNumber);
-<a class="jxr_linenumber" name="L947" href="#L947">947</a> 				responseBuilder.header(graphNameHeader + <span class="jxr_string">"-revision-number-of-MASTER"</span>, RevisionManagement.getMasterRevisionNumber(graphName));
-<a class="jxr_linenumber" name="L948" href="#L948">948</a> 				logger.debug(<span class="jxr_string">"Respond with new revision number "</span> + newRevisionNumber + <span class="jxr_string">"."</span>);
-<a class="jxr_linenumber" name="L949" href="#L949">949</a> 			}
-<a class="jxr_linenumber" name="L950" href="#L950">950</a> 		}
-<a class="jxr_linenumber" name="L951" href="#L951">951</a> 		<strong class="jxr_keyword">if</strong> (!foundEntry)
-<a class="jxr_linenumber" name="L952" href="#L952">952</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"Error in query: "</span> + sparqlQuery);
-<a class="jxr_linenumber" name="L953" href="#L953">953</a> 		
-<a class="jxr_linenumber" name="L954" href="#L954">954</a> 		<strong class="jxr_keyword">return</strong> responseBuilder.build();	
-<a class="jxr_linenumber" name="L955" href="#L955">955</a> 	}
-<a class="jxr_linenumber" name="L956" href="#L956">956</a> 	
-<a class="jxr_linenumber" name="L957" href="#L957">957</a> }
+<a class="jxr_linenumber" name="L940" href="#L940">940</a> 			
+<a class="jxr_linenumber" name="L941" href="#L941">941</a> 			<em class="jxr_comment">// Return the revision number which were used (convert tag or branch identifier to revision number)</em>
+<a class="jxr_linenumber" name="L942" href="#L942">942</a> 			responseBuilder.header(graphNameHeader + <span class="jxr_string">"-revision-number-of-branch-A"</span>, RevisionManagement.getRevisionNumber(graphName, branchNameA));
+<a class="jxr_linenumber" name="L943" href="#L943">943</a> 			responseBuilder.header(graphNameHeader + <span class="jxr_string">"-revision-number-of-branch-B"</span>, RevisionManagement.getRevisionNumber(graphName, branchNameB));			
+<a class="jxr_linenumber" name="L944" href="#L944">944</a> 			
+<a class="jxr_linenumber" name="L945" href="#L945">945</a> 			<strong class="jxr_keyword">if</strong> (newRevisionNumber != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L946" href="#L946">946</a> 				<em class="jxr_comment">// Respond with next revision number</em>
+<a class="jxr_linenumber" name="L947" href="#L947">947</a> 		    	responseBuilder.header(graphNameHeader + <span class="jxr_string">"-revision-number"</span>, newRevisionNumber);
+<a class="jxr_linenumber" name="L948" href="#L948">948</a> 				responseBuilder.header(graphNameHeader + <span class="jxr_string">"-revision-number-of-MASTER"</span>, RevisionManagement.getMasterRevisionNumber(graphName));
+<a class="jxr_linenumber" name="L949" href="#L949">949</a> 				logger.debug(<span class="jxr_string">"Respond with new revision number "</span> + newRevisionNumber + <span class="jxr_string">"."</span>);
+<a class="jxr_linenumber" name="L950" href="#L950">950</a> 			}
+<a class="jxr_linenumber" name="L951" href="#L951">951</a> 		}
+<a class="jxr_linenumber" name="L952" href="#L952">952</a> 		<strong class="jxr_keyword">if</strong> (!foundEntry)
+<a class="jxr_linenumber" name="L953" href="#L953">953</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/exception/InternalErrorException.html">InternalErrorException</a>(<span class="jxr_string">"Error in query: "</span> + sparqlQuery);
+<a class="jxr_linenumber" name="L954" href="#L954">954</a> 		
+<a class="jxr_linenumber" name="L955" href="#L955">955</a> 		<strong class="jxr_keyword">return</strong> responseBuilder.build();	
+<a class="jxr_linenumber" name="L956" href="#L956">956</a> 	}
+<a class="jxr_linenumber" name="L957" href="#L957">957</a> 	
+<a class="jxr_linenumber" name="L958" href="#L958">958</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2015 <a href="http://www.et.tu-dresden.de/ifa/index.php?id=prozessleittechnik">Technische Universität Dresden - Professur für Prozessleittechnik</a>. All rights reserved.</div>

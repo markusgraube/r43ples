@@ -1,0 +1,22 @@
+<map id="G" name="G">
+<area shape="rect" id="c92" href="./Config.html" title="de.tud.plt.r43ples.management.Config" alt="" coords="15,155,249,437"/>
+<area shape="rect" id="node1" href="./Config.html" title="&lt;TABLE&gt;" alt="" coords="5,150,259,442"/>
+<area shape="rect" id="c93" href="./SparqlRewriter.html" title="de.tud.plt.r43ples.management.SparqlRewriter" alt="" coords="293,251,581,341"/>
+<area shape="rect" id="node2" href="./SparqlRewriter.html" title="&lt;TABLE&gt;" alt="" coords="283,246,592,346"/>
+<area shape="rect" id="c94" href="./MergeQueryTypeEnum.html" title="de.tud.plt.r43ples.management.MergeQueryTypeEnum" alt="" coords="627,227,781,365"/>
+<area shape="rect" id="node3" href="./MergeQueryTypeEnum.html" title="&lt;TABLE&gt;" alt="" coords="616,222,792,370"/>
+<area shape="rect" id="c95" href="./SDDTripleState.html" title="de.tud.plt.r43ples.management.SDDTripleState" alt="" coords="826,227,945,365"/>
+<area shape="rect" id="node4" href="./SDDTripleState.html" title="&lt;TABLE&gt;" alt="" coords="816,222,955,370"/>
+<area shape="rect" id="c96" href="./SampleDataSet.html" title="de.tud.plt.r43ples.management.SampleDataSet" alt="" coords="989,211,1376,381"/>
+<area shape="rect" id="node5" href="./SampleDataSet.html" title="&lt;TABLE&gt;" alt="" coords="979,206,1387,386"/>
+<area shape="rect" id="c97" href="./DatasetGenerationManagement.html" title="de.tud.plt.r43ples.management.DatasetGenerationManagement" alt="" coords="1421,203,2261,389"/>
+<area shape="rect" id="node6" href="./DatasetGenerationManagement.html" title="&lt;TABLE&gt;" alt="" coords="1411,198,2272,394"/>
+<area shape="rect" id="c98" href="./GitRepositoryState.html" title="de.tud.plt.r43ples.management.GitRepositoryState" alt="" coords="2307,155,2600,437"/>
+<area shape="rect" id="node7" href="./GitRepositoryState.html" title="&lt;TABLE&gt;" alt="" coords="2296,150,2611,442"/>
+<area shape="rect" id="c99" href="./MergeManagement.html" title="de.tud.plt.r43ples.management.MergeManagement" alt="" coords="2645,195,4710,397"/>
+<area shape="rect" id="node8" href="./MergeManagement.html" title="&lt;TABLE&gt;" alt="" coords="2635,190,4720,402"/>
+<area shape="rect" id="c100" href="./RevisionManagement.html" title="de.tud.plt.r43ples.management.RevisionManagement" alt="" coords="4755,11,6088,581"/>
+<area shape="rect" id="node9" href="./RevisionManagement.html" title="&lt;TABLE&gt;" alt="" coords="4744,6,6099,586"/>
+<area shape="rect" id="c101" href="./ResourceManagement.html" title="de.tud.plt.r43ples.management.ResourceManagement" alt="" coords="6133,251,6501,341"/>
+<area shape="rect" id="node10" href="./ResourceManagement.html" title="&lt;TABLE&gt;" alt="" coords="6123,246,6512,346"/>
+</map>

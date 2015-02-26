@@ -54,7 +54,7 @@
 <tr>  <td class="numLine">&nbsp;18</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> de.tud.plt.r43ples.management.RevisionManagement;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;19</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> de.tud.plt.r43ples.triplestoreInterface.TripleStoreInterfaceFactory;</pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;<span class="keyword">import</span> de.tud.plt.r43ples.triplestoreInterface.TripleStoreInterfaceSingleton;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;20</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;21</td>  <td class="nbHits">&nbsp;</td>
@@ -118,26 +118,26 @@
 <tr>  <td class="numLine">&nbsp;60</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                RevisionManagement.prefixes</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;61</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"SELECT ?branch ?title ?commit\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"SELECT ?branch ?title ?commit%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;62</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"WHERE { GRAPH &lt;%s&gt; { \n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"WHERE { GRAPH &lt;%s&gt; { %n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;63</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?branch a rmo:Branch;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?branch a rmo:Branch;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;64</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"rdfs:label ?title;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"rdfs:label ?title;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;65</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"rmo:references ?rev.\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"rmo:references ?rev.%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;66</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?rev rmo:revisionOf &lt;%s&gt;.\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?rev rmo:revisionOf &lt;%s&gt;.%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;67</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?commit a rmo:Commit;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?commit a rmo:Commit;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;68</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:generated ?rev.\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:generated ?rev.%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;69</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"} }"</span>, Config.revision_graph, graph);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;70</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;71</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                ResultSet resultsBranches = TripleStoreInterfaceFactory.get().executeSelectQuery(queryBranches);</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;71</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                ResultSet resultsBranches = TripleStoreInterfaceSingleton.get().executeSelectQuery(queryBranches);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;72</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;73</td>  <td class="nbHitsUncovered"><a title="Line 73: Conditional coverage 0% (0/2).">&nbsp;0</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 73: Conditional coverage 0% (0/2).">                <span class="keyword">while</span> (resultsBranches.hasNext()) {</a></span></pre></td></tr>
@@ -158,26 +158,26 @@
 <tr>  <td class="numLine">&nbsp;84</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                RevisionManagement.prefixes</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;85</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"SELECT ?tag ?title ?commit\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"SELECT ?tag ?title ?commit%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;86</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"WHERE { GRAPH &lt;%s&gt; {\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"WHERE { GRAPH &lt;%s&gt; {%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;87</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?tag a rmo:Tag;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?tag a rmo:Tag;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;88</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"rdfs:label ?title;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"rdfs:label ?title;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;89</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"rmo:references ?rev.\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"rmo:references ?rev.%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;90</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?rev rmo:revisionOf &lt;%s&gt;.\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?rev rmo:revisionOf &lt;%s&gt;.%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;91</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?commit a rmo:Commit;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?commit a rmo:Commit;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;92</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:generated ?rev.\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:generated ?rev.%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;93</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"} }"</span>, Config.revision_graph, graph);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;94</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;95</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                ResultSet resultsTags = TripleStoreInterfaceFactory.get().executeSelectQuery(queryBranches);</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;95</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                ResultSet resultsTags = TripleStoreInterfaceSingleton.get().executeSelectQuery(queryBranches);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;96</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;97</td>  <td class="nbHitsUncovered"><a title="Line 97: Conditional coverage 0% (0/2).">&nbsp;0</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 97: Conditional coverage 0% (0/2).">                <span class="keyword">while</span> (resultsTags.hasNext()) {</a></span></pre></td></tr>
@@ -225,31 +225,31 @@
 <tr>  <td class="numLine">&nbsp;123</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                RevisionManagement.prefixes</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;124</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"SELECT ?commit ?time ?prev ?next ?title ?authname ?branch\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"SELECT ?commit ?time ?prev ?next ?title ?authname ?branch%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;125</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"WHERE { GRAPH &lt;%s&gt; {\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"WHERE { GRAPH &lt;%s&gt; {%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;126</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?commit a rmo:Commit;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?commit a rmo:Commit;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;127</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"dc-terms:title ?title;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"dc-terms:title ?title;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;128</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:used ?reva;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:used ?reva;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;129</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:generated ?revb;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:generated ?revb;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;130</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:atTime ?time;\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:atTime ?time;%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;131</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:wasAssociatedWith ?author.\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"prov:wasAssociatedWith ?author.%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;132</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"OPTIONAL { ?author rdfs:label ?authname. }\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"OPTIONAL { ?author rdfs:label ?authname. }%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;133</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?reva rmo:revisionNumber ?prev;"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;134</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"rmo:revisionOf &lt;%s&gt;.\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"rmo:revisionOf &lt;%s&gt;.%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;135</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"?revb rmo:revisionNumber ?next."</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;136</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"OPTIONAL { ?revb rmo:revisionOfBranch ?branch. }\n"</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"OPTIONAL { ?revb rmo:revisionOfBranch ?branch. }%n"</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;137</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                                + <span class="string">"} }"</span>,</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;138</td>  <td class="nbHits">&nbsp;</td>
@@ -258,7 +258,7 @@
   <td class="src"><pre class="src">&nbsp;                                graph);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;140</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                </pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;141</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                ResultSet resultsCommits = TripleStoreInterfaceFactory.get().executeSelectQuery(queryCommits);</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;141</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                ResultSet resultsCommits = TripleStoreInterfaceSingleton.get().executeSelectQuery(queryCommits);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;142</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;143</td>  <td class="nbHits">&nbsp;</td>
@@ -334,6 +334,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.0.3 on 2/25/15 5:59 PM.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.0.3 on 2/26/15 12:21 AM.</div>
 </body>
 </html>

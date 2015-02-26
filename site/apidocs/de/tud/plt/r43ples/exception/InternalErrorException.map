@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="c932" href="./IdentifierAlreadyExistsException.html" title="de.tud.plt.r43ples.exception.IdentifierAlreadyExistsException" alt="" coords="15,310,345,383"/>
+<area shape="rect" id="node1" href="./IdentifierAlreadyExistsException.html" title="&lt;TABLE&gt;" alt="" coords="5,305,355,389"/>
+<area shape="rect" id="c933" href="./QueryErrorException.html" title="de.tud.plt.r43ples.exception.QueryErrorException" alt="" coords="389,310,651,383"/>
+<area shape="rect" id="node2" href="./QueryErrorException.html" title="&lt;TABLE&gt;" alt="" coords="379,305,661,389"/>
+<area shape="rect" id="c934" href="./InternalErrorException.html" title="de.tud.plt.r43ples.exception.InternalErrorException" alt="" coords="215,177,484,250"/>
+<area shape="rect" id="node3" href="./InternalErrorException.html" title="&lt;TABLE&gt;" alt="" coords="204,171,495,255"/>
+<area shape="rect" id="c947" href="../webservice/ExceptionMapper.html" title="de.tud.plt.r43ples.webservice.ExceptionMapper" alt="" coords="53,11,646,117"/>
+<area shape="rect" id="node4" href="../webservice/ExceptionMapper.html" title="&lt;TABLE&gt;" alt="" coords="43,6,656,122"/>
+</map>
