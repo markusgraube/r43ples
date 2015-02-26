@@ -1,8 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="c138" href="./Service.html" title="de.tud.plt.r43ples.webservice.Service" alt="" coords="15,51,163,173"/>
-<area shape="rect" id="node1" href="./Service.html" title="&lt;TABLE&gt;" alt="" coords="5,46,173,178"/>
-<area shape="rect" id="c139" href="./Endpoint.html" title="de.tud.plt.r43ples.webservice.Endpoint" alt="" coords="208,11,765,213"/>
-<area shape="rect" id="node2" href="./Endpoint.html" title="&lt;TABLE&gt;" alt="" coords="197,6,776,218"/>
-<area shape="rect" id="c140" href="./ExceptionMapper.html" title="de.tud.plt.r43ples.webservice.ExceptionMapper" alt="" coords="810,67,1139,157"/>
-<area shape="rect" id="node3" href="./ExceptionMapper.html" title="&lt;TABLE&gt;" alt="" coords="800,62,1149,162"/>
+<area shape="rect" id="c0" href="./Endpoint.html" title="de.tud.plt.r43ples.webservice.Endpoint" alt="" coords="16,11,573,213"/>
+<area shape="rect" id="node1" href="./Endpoint.html" title="&lt;TABLE&gt;" alt="" coords="5,6,584,218"/>
+<area shape="rect" id="c1" href="./ExceptionMapper.html" title="de.tud.plt.r43ples.webservice.ExceptionMapper" alt="" coords="618,67,947,157"/>
+<area shape="rect" id="node2" href="./ExceptionMapper.html" title="&lt;TABLE&gt;" alt="" coords="608,62,957,162"/>
+<area shape="rect" id="c2" href="./Service.html" title="de.tud.plt.r43ples.webservice.Service" alt="" coords="991,51,1139,173"/>
+<area shape="rect" id="node3" href="./Service.html" title="&lt;TABLE&gt;" alt="" coords="981,46,1149,178"/>
 </map>

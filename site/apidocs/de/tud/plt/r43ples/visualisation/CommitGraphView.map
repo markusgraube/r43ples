@@ -1,8 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="c456" href="../revisionTree/Commit.html" title="de.tud.plt.r43ples.revisionTree.Commit" alt="" coords="16,342,971,623"/>
-<area shape="rect" id="node1" href="../revisionTree/Commit.html" title="&lt;TABLE&gt;" alt="" coords="5,337,981,629"/>
-<area shape="rect" id="c458" href="./MMSTVisualisation.html" title="de.tud.plt.r43ples.visualisation.MMSTVisualisation" alt="" coords="232,11,555,117"/>
-<area shape="rect" id="node2" href="./MMSTVisualisation.html" title="&lt;TABLE&gt;" alt="" coords="221,6,565,122"/>
-<area shape="rect" id="c459" href="./CommitGraphView.html" title="de.tud.plt.r43ples.visualisation.CommitGraphView" alt="" coords="342,177,645,282"/>
-<area shape="rect" id="node3" href="./CommitGraphView.html" title="&lt;TABLE&gt;" alt="" coords="332,171,655,287"/>
+<area shape="rect" id="c433" href="./CommitGraphView.html" title="de.tud.plt.r43ples.visualisation.CommitGraphView" alt="" coords="342,177,645,282"/>
+<area shape="rect" id="node1" href="./CommitGraphView.html" title="&lt;TABLE&gt;" alt="" coords="332,171,655,287"/>
+<area shape="rect" id="c444" href="../revisionTree/Commit.html" title="de.tud.plt.r43ples.revisionTree.Commit" alt="" coords="16,342,971,623"/>
+<area shape="rect" id="node3" href="../revisionTree/Commit.html" title="&lt;TABLE&gt;" alt="" coords="5,337,981,629"/>
+<area shape="rect" id="c434" href="./MMSTVisualisation.html" title="de.tud.plt.r43ples.visualisation.MMSTVisualisation" alt="" coords="431,11,753,117"/>
+<area shape="rect" id="node2" href="./MMSTVisualisation.html" title="&lt;TABLE&gt;" alt="" coords="420,6,764,122"/>
 </map>

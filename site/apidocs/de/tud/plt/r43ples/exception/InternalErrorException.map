@@ -1,10 +1,10 @@
 <map id="G" name="G">
-<area shape="rect" id="c920" href="./QueryErrorException.html" title="de.tud.plt.r43ples.exception.QueryErrorException" alt="" coords="16,310,277,383"/>
-<area shape="rect" id="node1" href="./QueryErrorException.html" title="&lt;TABLE&gt;" alt="" coords="5,305,288,389"/>
-<area shape="rect" id="c921" href="./InternalErrorException.html" title="de.tud.plt.r43ples.exception.InternalErrorException" alt="" coords="181,177,451,250"/>
-<area shape="rect" id="node2" href="./InternalErrorException.html" title="&lt;TABLE&gt;" alt="" coords="171,171,461,255"/>
-<area shape="rect" id="c922" href="./IdentifierAlreadyExistsException.html" title="de.tud.plt.r43ples.exception.IdentifierAlreadyExistsException" alt="" coords="322,310,651,383"/>
-<area shape="rect" id="node3" href="./IdentifierAlreadyExistsException.html" title="&lt;TABLE&gt;" alt="" coords="312,305,661,389"/>
-<area shape="rect" id="c930" href="../webservice/ExceptionMapper.html" title="de.tud.plt.r43ples.webservice.ExceptionMapper" alt="" coords="19,11,613,117"/>
-<area shape="rect" id="node4" href="../webservice/ExceptionMapper.html" title="&lt;TABLE&gt;" alt="" coords="9,6,623,122"/>
+<area shape="rect" id="c911" href="../webservice/ExceptionMapper.html" title="de.tud.plt.r43ples.webservice.ExceptionMapper" alt="" coords="53,11,646,117"/>
+<area shape="rect" id="node1" href="../webservice/ExceptionMapper.html" title="&lt;TABLE&gt;" alt="" coords="43,6,656,122"/>
+<area shape="rect" id="c941" href="./InternalErrorException.html" title="de.tud.plt.r43ples.exception.InternalErrorException" alt="" coords="215,177,484,250"/>
+<area shape="rect" id="node3" href="./InternalErrorException.html" title="&lt;TABLE&gt;" alt="" coords="204,171,495,255"/>
+<area shape="rect" id="c940" href="./IdentifierAlreadyExistsException.html" title="de.tud.plt.r43ples.exception.IdentifierAlreadyExistsException" alt="" coords="15,310,345,383"/>
+<area shape="rect" id="node2" href="./IdentifierAlreadyExistsException.html" title="&lt;TABLE&gt;" alt="" coords="5,305,355,389"/>
+<area shape="rect" id="c942" href="./QueryErrorException.html" title="de.tud.plt.r43ples.exception.QueryErrorException" alt="" coords="389,310,651,383"/>
+<area shape="rect" id="node4" href="./QueryErrorException.html" title="&lt;TABLE&gt;" alt="" coords="379,305,661,389"/>
 </map>
