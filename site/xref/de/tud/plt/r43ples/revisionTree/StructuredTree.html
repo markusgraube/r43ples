@@ -127,75 +127,74 @@
 <a class="jxr_linenumber" name="L119" href="#L119">119</a> 
 <a class="jxr_linenumber" name="L120" href="#L120">120</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> updateCommits(String graph) {
 <a class="jxr_linenumber" name="L121" href="#L121">121</a> 		<em class="jxr_comment">// query all commits</em>
-<a class="jxr_linenumber" name="L122" href="#L122">122</a> 		String queryCommits = String.format(
-<a class="jxr_linenumber" name="L123" href="#L123">123</a> 				RevisionManagement.prefixes
-<a class="jxr_linenumber" name="L124" href="#L124">124</a> 						+ <span class="jxr_string">"SELECT ?commit ?time ?prev ?next ?title ?authname ?branch%n"</span>
-<a class="jxr_linenumber" name="L125" href="#L125">125</a> 						+ <span class="jxr_string">"WHERE { GRAPH &lt;%s&gt; {%n"</span>
-<a class="jxr_linenumber" name="L126" href="#L126">126</a> 						+ <span class="jxr_string">"?commit a rmo:Commit;%n"</span>
-<a class="jxr_linenumber" name="L127" href="#L127">127</a> 						+ <span class="jxr_string">"dc-terms:title ?title;%n"</span>
-<a class="jxr_linenumber" name="L128" href="#L128">128</a> 						+ <span class="jxr_string">"prov:used ?reva;%n"</span>
-<a class="jxr_linenumber" name="L129" href="#L129">129</a> 						+ <span class="jxr_string">"prov:generated ?revb;%n"</span>
-<a class="jxr_linenumber" name="L130" href="#L130">130</a> 						+ <span class="jxr_string">"prov:atTime ?time;%n"</span>
-<a class="jxr_linenumber" name="L131" href="#L131">131</a> 						+ <span class="jxr_string">"prov:wasAssociatedWith ?author.%n"</span>
-<a class="jxr_linenumber" name="L132" href="#L132">132</a> 						+ <span class="jxr_string">"OPTIONAL { ?author rdfs:label ?authname. }%n"</span>
-<a class="jxr_linenumber" name="L133" href="#L133">133</a> 						+ <span class="jxr_string">"?reva rmo:revisionNumber ?prev;"</span>
-<a class="jxr_linenumber" name="L134" href="#L134">134</a> 						+ <span class="jxr_string">"rmo:revisionOf &lt;%s&gt;.%n"</span>
-<a class="jxr_linenumber" name="L135" href="#L135">135</a> 						+ <span class="jxr_string">"?revb rmo:revisionNumber ?next."</span>
-<a class="jxr_linenumber" name="L136" href="#L136">136</a> 						+ <span class="jxr_string">"OPTIONAL { ?revb rmo:revisionOfBranch ?branch. }%n"</span>
-<a class="jxr_linenumber" name="L137" href="#L137">137</a> 						+ <span class="jxr_string">"} }"</span>,
-<a class="jxr_linenumber" name="L138" href="#L138">138</a> 				Config.revision_graph,
-<a class="jxr_linenumber" name="L139" href="#L139">139</a> 				graph);
-<a class="jxr_linenumber" name="L140" href="#L140">140</a> 		
-<a class="jxr_linenumber" name="L141" href="#L141">141</a> 		ResultSet resultsCommits = TripleStoreInterfaceSingleton.get().executeSelectQuery(queryCommits);
-<a class="jxr_linenumber" name="L142" href="#L142">142</a> 
-<a class="jxr_linenumber" name="L143" href="#L143">143</a> 		<em class="jxr_comment">// generate list of commits</em>
-<a class="jxr_linenumber" name="L144" href="#L144">144</a> 		DateFormat df = <strong class="jxr_keyword">new</strong> SimpleDateFormat(<span class="jxr_string">"yyyy-MM-dd'T'HH:mm:ss"</span>);
-<a class="jxr_linenumber" name="L145" href="#L145">145</a> 		<strong class="jxr_keyword">while</strong> (resultsCommits.hasNext()) {
-<a class="jxr_linenumber" name="L146" href="#L146">146</a> 			QuerySolution sol = resultsCommits.next();
-<a class="jxr_linenumber" name="L147" href="#L147">147</a> 			<strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L148" href="#L148">148</a> 				Commit commit = <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/revisionTree/Commit.html">Commit</a>(sol.get(<span class="jxr_string">"commit"</span>).toString());
-<a class="jxr_linenumber" name="L149" href="#L149">149</a> 				<em class="jxr_comment">// commit can be multiple times in solution set because of</em>
-<a class="jxr_linenumber" name="L150" href="#L150">150</a> 				<em class="jxr_comment">// multiple "prov:used" attributes</em>
-<a class="jxr_linenumber" name="L151" href="#L151">151</a> 				<strong class="jxr_keyword">if</strong> (commits.contains(commit))
-<a class="jxr_linenumber" name="L152" href="#L152">152</a> 				{
-<a class="jxr_linenumber" name="L153" href="#L153">153</a> 					<em class="jxr_comment">// if commit is already in list, just add new base revision</em>
-<a class="jxr_linenumber" name="L154" href="#L154">154</a> 					<em class="jxr_comment">// to existing commit</em>
-<a class="jxr_linenumber" name="L155" href="#L155">155</a> 					commits.get(commits.indexOf(commit)).getBaseRevisions().add(sol.getLiteral(<span class="jxr_string">"prev"</span>).getString());
-<a class="jxr_linenumber" name="L156" href="#L156">156</a> 				} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L157" href="#L157">157</a> 					<em class="jxr_comment">// generate new commit object</em>
-<a class="jxr_linenumber" name="L158" href="#L158">158</a> 					String authname = sol.getLiteral(<span class="jxr_string">"authname"</span>) == <strong class="jxr_keyword">null</strong> ? <span class="jxr_string">""</span> : sol.getLiteral(<span class="jxr_string">"authname"</span>).getString();
-<a class="jxr_linenumber" name="L159" href="#L159">159</a> 					Commit newCommit = <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/revisionTree/Commit.html">Commit</a>(
-<a class="jxr_linenumber" name="L160" href="#L160">160</a> 							sol.get(<span class="jxr_string">"commit"</span>).toString(),
-<a class="jxr_linenumber" name="L161" href="#L161">161</a> 							sol.getLiteral(<span class="jxr_string">"title"</span>).getString(),
-<a class="jxr_linenumber" name="L162" href="#L162">162</a> 							df.parse(sol.getLiteral(<span class="jxr_string">"time"</span>).toString()),
-<a class="jxr_linenumber" name="L163" href="#L163">163</a> 							authname,
-<a class="jxr_linenumber" name="L164" href="#L164">164</a> 							sol.getLiteral(<span class="jxr_string">"prev"</span>).getString(),
-<a class="jxr_linenumber" name="L165" href="#L165">165</a> 							sol.getLiteral(<span class="jxr_string">"next"</span>).getString());
-<a class="jxr_linenumber" name="L166" href="#L166">166</a> 					<em class="jxr_comment">// save branch uri in Map to set branch reference later</em>
-<a class="jxr_linenumber" name="L167" href="#L167">167</a> 					<em class="jxr_comment">// after branches were generated</em>
-<a class="jxr_linenumber" name="L168" href="#L168">168</a> 					<strong class="jxr_keyword">if</strong> (sol.get(<span class="jxr_string">"branch"</span>) != <strong class="jxr_keyword">null</strong>)
-<a class="jxr_linenumber" name="L169" href="#L169">169</a> 						commit_branch_tmp.put(newCommit, sol.get(<span class="jxr_string">"branch"</span>).toString());
-<a class="jxr_linenumber" name="L170" href="#L170">170</a> 					commits.add(newCommit);
-<a class="jxr_linenumber" name="L171" href="#L171">171</a> 				}
-<a class="jxr_linenumber" name="L172" href="#L172">172</a> 			} <strong class="jxr_keyword">catch</strong> (ParseException e) {
-<a class="jxr_linenumber" name="L173" href="#L173">173</a> 				logger.error(<span class="jxr_string">"Commit could not be parsed!"</span>);
-<a class="jxr_linenumber" name="L174" href="#L174">174</a> 			}
-<a class="jxr_linenumber" name="L175" href="#L175">175</a> 		}
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> 
-<a class="jxr_linenumber" name="L177" href="#L177">177</a> 		<em class="jxr_comment">// fill predecessor and successor lists of commits</em>
-<a class="jxr_linenumber" name="L178" href="#L178">178</a> 		<strong class="jxr_keyword">for</strong> (Commit c : commits) {
-<a class="jxr_linenumber" name="L179" href="#L179">179</a> 			<strong class="jxr_keyword">for</strong> (Commit b : commits) {
-<a class="jxr_linenumber" name="L180" href="#L180">180</a> 				<strong class="jxr_keyword">if</strong> (c.getBaseRevisions().contains(b.getNextRevision()))
-<a class="jxr_linenumber" name="L181" href="#L181">181</a> 					c.predecessor.add(b);
-<a class="jxr_linenumber" name="L182" href="#L182">182</a> 				<strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (b.getBaseRevisions().contains(c.getNextRevision()))
-<a class="jxr_linenumber" name="L183" href="#L183">183</a> 					c.successors.add(b);
-<a class="jxr_linenumber" name="L184" href="#L184">184</a> 			}
-<a class="jxr_linenumber" name="L185" href="#L185">185</a> 		}
-<a class="jxr_linenumber" name="L186" href="#L186">186</a> 
-<a class="jxr_linenumber" name="L187" href="#L187">187</a> 		<em class="jxr_comment">// sort list of commits by order of their occurrence</em>
-<a class="jxr_linenumber" name="L188" href="#L188">188</a> 		Collections.sort(commits);
-<a class="jxr_linenumber" name="L189" href="#L189">189</a> 	}
-<a class="jxr_linenumber" name="L190" href="#L190">190</a> }
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> 		String queryCommits = RevisionManagement.prefixes + String.format(
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 						<span class="jxr_string">"SELECT ?commit ?time ?prev ?next ?title ?authname ?branch%n"</span>
+<a class="jxr_linenumber" name="L124" href="#L124">124</a> 						+ <span class="jxr_string">"WHERE { GRAPH &lt;%s&gt; {%n"</span>
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> 						+ <span class="jxr_string">"?commit a rmo:Commit;%n"</span>
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> 						+ <span class="jxr_string">"dc-terms:title ?title;%n"</span>
+<a class="jxr_linenumber" name="L127" href="#L127">127</a> 						+ <span class="jxr_string">"prov:used ?reva;%n"</span>
+<a class="jxr_linenumber" name="L128" href="#L128">128</a> 						+ <span class="jxr_string">"prov:generated ?revb;%n"</span>
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> 						+ <span class="jxr_string">"prov:atTime ?time;%n"</span>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> 						+ <span class="jxr_string">"prov:wasAssociatedWith ?author.%n"</span>
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> 						+ <span class="jxr_string">"OPTIONAL { ?author rdfs:label ?authname. }%n"</span>
+<a class="jxr_linenumber" name="L132" href="#L132">132</a> 						+ <span class="jxr_string">"?reva rmo:revisionNumber ?prev;"</span>
+<a class="jxr_linenumber" name="L133" href="#L133">133</a> 						+ <span class="jxr_string">"rmo:revisionOf &lt;%s&gt;.%n"</span>
+<a class="jxr_linenumber" name="L134" href="#L134">134</a> 						+ <span class="jxr_string">"?revb rmo:revisionNumber ?next."</span>
+<a class="jxr_linenumber" name="L135" href="#L135">135</a> 						+ <span class="jxr_string">"OPTIONAL { ?revb rmo:revisionOfBranch ?branch. }%n"</span>
+<a class="jxr_linenumber" name="L136" href="#L136">136</a> 						+ <span class="jxr_string">"} }"</span>,
+<a class="jxr_linenumber" name="L137" href="#L137">137</a> 				Config.revision_graph,
+<a class="jxr_linenumber" name="L138" href="#L138">138</a> 				graph);
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> 		
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> 		ResultSet resultsCommits = TripleStoreInterfaceSingleton.get().executeSelectQuery(queryCommits);
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> 		<em class="jxr_comment">// generate list of commits</em>
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> 		DateFormat df = <strong class="jxr_keyword">new</strong> SimpleDateFormat(<span class="jxr_string">"yyyy-MM-dd'T'HH:mm:ss"</span>);
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> 		<strong class="jxr_keyword">while</strong> (resultsCommits.hasNext()) {
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> 			QuerySolution sol = resultsCommits.next();
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> 			<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> 				Commit commit = <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/revisionTree/Commit.html">Commit</a>(sol.get(<span class="jxr_string">"commit"</span>).toString());
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> 				<em class="jxr_comment">// commit can be multiple times in solution set because of</em>
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> 				<em class="jxr_comment">// multiple "prov:used" attributes</em>
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> 				<strong class="jxr_keyword">if</strong> (commits.contains(commit))
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> 				{
+<a class="jxr_linenumber" name="L152" href="#L152">152</a> 					<em class="jxr_comment">// if commit is already in list, just add new base revision</em>
+<a class="jxr_linenumber" name="L153" href="#L153">153</a> 					<em class="jxr_comment">// to existing commit</em>
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> 					commits.get(commits.indexOf(commit)).getBaseRevisions().add(sol.getLiteral(<span class="jxr_string">"prev"</span>).getString());
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 				} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> 					<em class="jxr_comment">// generate new commit object</em>
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> 					String authname = sol.getLiteral(<span class="jxr_string">"authname"</span>) == <strong class="jxr_keyword">null</strong> ? <span class="jxr_string">""</span> : sol.getLiteral(<span class="jxr_string">"authname"</span>).getString();
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> 					Commit newCommit = <strong class="jxr_keyword">new</strong> <a href="../../../../../de/tud/plt/r43ples/revisionTree/Commit.html">Commit</a>(
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> 							sol.get(<span class="jxr_string">"commit"</span>).toString(),
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> 							sol.getLiteral(<span class="jxr_string">"title"</span>).getString(),
+<a class="jxr_linenumber" name="L161" href="#L161">161</a> 							df.parse(sol.getLiteral(<span class="jxr_string">"time"</span>).toString()),
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> 							authname,
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> 							sol.getLiteral(<span class="jxr_string">"prev"</span>).getString(),
+<a class="jxr_linenumber" name="L164" href="#L164">164</a> 							sol.getLiteral(<span class="jxr_string">"next"</span>).getString());
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> 					<em class="jxr_comment">// save branch uri in Map to set branch reference later</em>
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> 					<em class="jxr_comment">// after branches were generated</em>
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> 					<strong class="jxr_keyword">if</strong> (sol.get(<span class="jxr_string">"branch"</span>) != <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L168" href="#L168">168</a> 						commit_branch_tmp.put(newCommit, sol.get(<span class="jxr_string">"branch"</span>).toString());
+<a class="jxr_linenumber" name="L169" href="#L169">169</a> 					commits.add(newCommit);
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> 				}
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> 			} <strong class="jxr_keyword">catch</strong> (ParseException e) {
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> 				logger.error(<span class="jxr_string">"Commit could not be parsed!"</span>);
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> 			}
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 		}
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> 		<em class="jxr_comment">// fill predecessor and successor lists of commits</em>
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> 		<strong class="jxr_keyword">for</strong> (Commit c : commits) {
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> 			<strong class="jxr_keyword">for</strong> (Commit b : commits) {
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> 				<strong class="jxr_keyword">if</strong> (c.getBaseRevisions().contains(b.getNextRevision()))
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> 					c.predecessor.add(b);
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> 				<strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (b.getBaseRevisions().contains(c.getNextRevision()))
+<a class="jxr_linenumber" name="L182" href="#L182">182</a> 					c.successors.add(b);
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> 			}
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> 		}
+<a class="jxr_linenumber" name="L185" href="#L185">185</a> 
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> 		<em class="jxr_comment">// sort list of commits by order of their occurrence</em>
+<a class="jxr_linenumber" name="L187" href="#L187">187</a> 		Collections.sort(commits);
+<a class="jxr_linenumber" name="L188" href="#L188">188</a> 	}
+<a class="jxr_linenumber" name="L189" href="#L189">189</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2015 <a href="http://www.et.tu-dresden.de/ifa/index.php?id=prozessleittechnik">Technische Universität Dresden - Professur für Prozessleittechnik</a>. All rights reserved.</div>

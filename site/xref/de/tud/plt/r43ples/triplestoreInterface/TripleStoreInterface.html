@@ -20,7 +20,7 @@
 <a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> com.hp.hpl.jena.shared.NoWriterForLangException;
 <a class="jxr_linenumber" name="L13" href="#L13">13</a>  
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.management.Config;
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.management.MergeManagement;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.management.JenaModelManagement;
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> de.tud.plt.r43ples.management.RevisionManagement;
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  
@@ -40,7 +40,7 @@
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  			logger.info(<span class="jxr_string">"Create sdd graph"</span>);
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  			executeUpdateQuery(<span class="jxr_string">"CREATE SILENT GRAPH &lt;"</span> + Config.revision_graph +<span class="jxr_string">"&gt;"</span>);
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  			<em class="jxr_comment">// Insert default content into SDD graph</em>
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  			RevisionManagement.executeINSERT(Config.sdd_graph, MergeManagement.convertJenaModelToNTriple(MergeManagement.readTurtleFileToJenaModel(Config.sdd_graph_defaultContent)));
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  			RevisionManagement.executeINSERT(Config.sdd_graph, JenaModelManagement.convertJenaModelToNTriple(JenaModelManagement.readTurtleFileToJenaModel(Config.sdd_graph_defaultContent)));
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  	 	}		
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  	}
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  	
@@ -118,7 +118,7 @@
 <a class="jxr_linenumber" name="L110" href="#L110">110</a> 		Model result = executeConstructQuery(constructQueryString);
 <a class="jxr_linenumber" name="L111" href="#L111">111</a> 		ByteArrayOutputStream baos = <strong class="jxr_keyword">new</strong> ByteArrayOutputStream();
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> 		
-<a class="jxr_linenumber" name="L113" href="#L113">113</a> 		<strong class="jxr_keyword">if</strong> (format.toLowerCase().contains(<span class="jxr_string">"xml2"</span>) )
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> 		<strong class="jxr_keyword">if</strong> (format.toLowerCase().contains(<span class="jxr_string">"xml"</span>) )
 <a class="jxr_linenumber" name="L114" href="#L114">114</a> 			result.write(baos, <span class="jxr_string">"RDF/XML"</span>);
 <a class="jxr_linenumber" name="L115" href="#L115">115</a> 		<strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (format.toLowerCase().contains(<span class="jxr_string">"turtle"</span>) )
 <a class="jxr_linenumber" name="L116" href="#L116">116</a> 			result.write(baos, <span class="jxr_string">"Turtle"</span>);

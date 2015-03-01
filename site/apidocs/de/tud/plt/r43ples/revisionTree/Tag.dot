@@ -9,25 +9,21 @@ digraph G {
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	nodesep=0.25;
 	ranksep=0.5;
-	// de.tud.plt.r43ples.revisionTree.Reference
-	c1675 [label=<<table title="de.tud.plt.r43ples.revisionTree.Reference" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Reference.html">
+	// de.tud.plt.r43ples.revisionTree.Tag
+	c1777 [label=<<table title="de.tud.plt.r43ples.revisionTree.Tag" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Tag.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Reference </font></td></tr>
+<tr><td align="center" balign="center"> Tag </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left">  </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + Reference(uri : String) </td></tr>
-<tr><td align="left" balign="left"> + Reference(uri : String, name : String, ref : Commit) </td></tr>
-<tr><td align="left" balign="left"> + getUri() : String </td></tr>
-<tr><td align="left" balign="left"> + getName() : String </td></tr>
-<tr><td align="left" balign="left"> + getReference() : Commit </td></tr>
-<tr><td align="left" balign="left"> + equals(obj : Object) : boolean </td></tr>
+<tr><td align="left" balign="left"> + Tag(uri : String, name : String, ref : Commit) </td></tr>
+<tr><td align="left" balign="left"> + Tag(uri : String) </td></tr>
 		</table></td></tr>
-		</table>>, URL="./Reference.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+		</table>>, URL="./Tag.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.revisionTree.StructuredTree
-	c1677 [label=<<table title="de.tud.plt.r43ples.revisionTree.StructuredTree" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./StructuredTree.html">
+	c1778 [label=<<table title="de.tud.plt.r43ples.revisionTree.StructuredTree" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./StructuredTree.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> StructuredTree </td></tr>
 		</table></td></tr>
@@ -41,22 +37,27 @@ digraph G {
 <tr><td align="left" balign="left"> + getTags() : List&lt;Tag&gt; </td></tr>
 		</table></td></tr>
 		</table>>, URL="./StructuredTree.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// de.tud.plt.r43ples.revisionTree.Tag
-	c1678 [label=<<table title="de.tud.plt.r43ples.revisionTree.Tag" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Tag.html">
+	// de.tud.plt.r43ples.revisionTree.Reference
+	c1779 [label=<<table title="de.tud.plt.r43ples.revisionTree.Reference" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Reference.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> Tag </td></tr>
+<tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Reference </font></td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left">  </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + Tag(uri : String, name : String, ref : Commit) </td></tr>
-<tr><td align="left" balign="left"> + Tag(uri : String) </td></tr>
+<tr><td align="left" balign="left"> + Reference(uri : String) </td></tr>
+<tr><td align="left" balign="left"> + Reference(uri : String, name : String, ref : Commit) </td></tr>
+<tr><td align="left" balign="left"> + getUri() : String </td></tr>
+<tr><td align="left" balign="left"> + getName() : String </td></tr>
+<tr><td align="left" balign="left"> + getReference() : Commit </td></tr>
+<tr><td align="left" balign="left"> + equals(obj : Object) : boolean </td></tr>
+<tr><td align="left" balign="left"> + hashCode() : int </td></tr>
 		</table></td></tr>
-		</table>>, URL="./Tag.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+		</table>>, URL="./Reference.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//de.tud.plt.r43ples.revisionTree.Tag extends de.tud.plt.r43ples.revisionTree.Reference
-	c1675:p -> c1678:p [dir=back,arrowtail=empty];
+	c1779:p -> c1777:p [dir=back,arrowtail=empty];
 	// de.tud.plt.r43ples.revisionTree.StructuredTree NAVASSOC de.tud.plt.r43ples.revisionTree.Tag
-	c1677:p -> c1678:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1778:p -> c1777:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 }
 

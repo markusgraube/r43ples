@@ -31,14 +31,14 @@
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>  
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../de/tud/plt/r43ples/visualisation/MMSTVisualisation.html">MMSTVisualisation</a> {
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  	
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> timelineView_width = 70;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> TIMELINEVIEW_WIDTH = 70;
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment">	 * Vertical distance between commits</em>
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> LineHeight = 22;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> LINE_HEIGHT = 22;
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  	
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> padding = 10;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> PADDING = 10;
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  	
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  	<strong class="jxr_keyword">private</strong> <a href="../../../../../de/tud/plt/r43ples/visualisation/TimeLineView.html">TimeLineView</a> timeView;
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  
@@ -70,26 +70,26 @@
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  		
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  		<em class="jxr_comment">// translate to first text-baseline</em>
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>  		g.translate(0, LineHeight);		
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  		g.translate(0, LINE_HEIGHT);		
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  		timeView.draw(g);
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		g.translate(timelineView_width, 0);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		g.translate(TIMELINEVIEW_WIDTH, 0);
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  		graphView.drawGraph(g);
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		g.translate(graphView.getDimension().getWidth() + padding, 0);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		g.translate(graphView.getDimension().getWidth() + PADDING, 0);
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  		msgView.draw(g);
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  		
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>  		g.translate(-graphView.getDimension().getWidth() - padding - timelineView_width, 0);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  		g.translate(-graphView.getDimension().getWidth() - PADDING - TIMELINEVIEW_WIDTH, 0);
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  		<em class="jxr_comment">// calculate overall width</em>
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  		<strong class="jxr_keyword">int</strong> totalWidth = (<strong class="jxr_keyword">int</strong>) (timelineView_width + graphView.getDimension().getWidth() + padding + msgView.getDimension().getWidth());
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  		<strong class="jxr_keyword">int</strong> totalWidth = (<strong class="jxr_keyword">int</strong>) (TIMELINEVIEW_WIDTH + graphView.getDimension().getWidth() + PADDING + msgView.getDimension().getWidth());
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>  		
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  		
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>  		<em class="jxr_comment">// draw header line</em>
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  		<strong class="jxr_keyword">int</strong> offset = g.getFontMetrics(msgView.TextFont).getDescent();
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  		g.drawLine(0, offset, totalWidth, offset);
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  		<strong class="jxr_keyword">int</strong> totalHeight = LineHeight * (commits.size()+1) + offset;
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  		<strong class="jxr_keyword">int</strong> totalHeight = LINE_HEIGHT * (commits.size()+1) + offset;
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>  		g.setSVGCanvasSize(<strong class="jxr_keyword">new</strong> Dimension(totalWidth, totalHeight));
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  		Writer writer = <strong class="jxr_keyword">new</strong> StringWriter();

@@ -1,10 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="c911" href="../webservice/ExceptionMapper.html" title="de.tud.plt.r43ples.webservice.ExceptionMapper" alt="" coords="53,11,646,117"/>
-<area shape="rect" id="node1" href="../webservice/ExceptionMapper.html" title="&lt;TABLE&gt;" alt="" coords="43,6,656,122"/>
-<area shape="rect" id="c941" href="./InternalErrorException.html" title="de.tud.plt.r43ples.exception.InternalErrorException" alt="" coords="215,177,484,250"/>
-<area shape="rect" id="node3" href="./InternalErrorException.html" title="&lt;TABLE&gt;" alt="" coords="204,171,495,255"/>
-<area shape="rect" id="c940" href="./IdentifierAlreadyExistsException.html" title="de.tud.plt.r43ples.exception.IdentifierAlreadyExistsException" alt="" coords="15,310,345,383"/>
-<area shape="rect" id="node2" href="./IdentifierAlreadyExistsException.html" title="&lt;TABLE&gt;" alt="" coords="5,305,355,389"/>
-<area shape="rect" id="c942" href="./QueryErrorException.html" title="de.tud.plt.r43ples.exception.QueryErrorException" alt="" coords="389,310,651,383"/>
-<area shape="rect" id="node4" href="./QueryErrorException.html" title="&lt;TABLE&gt;" alt="" coords="379,305,661,389"/>
+<area shape="rect" id="c949" href="./IdentifierAlreadyExistsException.html" title="de.tud.plt.r43ples.exception.IdentifierAlreadyExistsException" alt="" coords="15,145,345,218"/>
+<area shape="rect" id="node1" href="./IdentifierAlreadyExistsException.html" title="&lt;TABLE&gt;" alt="" coords="5,139,355,223"/>
+<area shape="rect" id="c950" href="./QueryErrorException.html" title="de.tud.plt.r43ples.exception.QueryErrorException" alt="" coords="389,145,651,218"/>
+<area shape="rect" id="node2" href="./QueryErrorException.html" title="&lt;TABLE&gt;" alt="" coords="379,139,661,223"/>
+<area shape="rect" id="c951" href="./InternalErrorException.html" title="de.tud.plt.r43ples.exception.InternalErrorException" alt="" coords="215,11,484,85"/>
+<area shape="rect" id="node3" href="./InternalErrorException.html" title="&lt;TABLE&gt;" alt="" coords="204,6,495,90"/>
 </map>

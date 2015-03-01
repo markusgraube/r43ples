@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// de.tud.plt.r43ples.management.RevisionManagement
-	c1431 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./RevisionManagement.html">
+	c1510 [label=<<table title="de.tud.plt.r43ples.management.RevisionManagement" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./RevisionManagement.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> RevisionManagement </td></tr>
 		</table></td></tr>
@@ -28,7 +28,7 @@ digraph G {
 <tr><td align="left" balign="left"> + checkGraphExistence(graphName : String) : boolean </td></tr>
 <tr><td align="left" balign="left"> + generateFullGraphOfRevision(graphName : String, revisionName : String, tempGraphName : String) </td></tr>
 <tr><td align="left" balign="left"> + getRevisionUri(graphName : String, revisionIdentifier : String) : String </td></tr>
-<tr><td align="left" balign="left"> + getReferenceUri(graphName : String, referenceIdentifier : String) : String </td></tr>
+<tr><td align="left" balign="left"> + getBranchUri(graphName : String, referenceIdentifier : String) : String </td></tr>
 <tr><td align="left" balign="left"> + getReferenceGraph(graphName : String, referenceIdentifier : String) : String </td></tr>
 <tr><td align="left" balign="left"> + getRevisionNumber(graphName : String, referenceName : String) : String </td></tr>
 <tr><td align="left" balign="left"> + getMasterRevisionNumber(graphName : String) : String </td></tr>
@@ -47,15 +47,15 @@ digraph G {
 <tr><td align="left" balign="left"> + isBranch(graphName : String, identifier : String) : boolean </td></tr>
 <tr><td align="left" balign="left"> + getAddSetURI(revisionURI : String, revisionGraph : String) : String </td></tr>
 <tr><td align="left" balign="left"> + getDeleteSetURI(revisionURI : String, revisionGraph : String) : String </td></tr>
-<tr><td align="left" balign="left"> + getContentOfGraphByConstruct(graphName : String) : String </td></tr>
+<tr><td align="left" balign="left"> + getContentOfGraphByConstruct(graphName : String, format : String) : String </td></tr>
 <tr><td align="left" balign="left"> + getResponseHeaderFromQuery(query : String) : String </td></tr>
 <tr><td align="left" balign="left"> + getResponseHeader(graphList : String) : String </td></tr>
 		</table></td></tr>
 		</table>>, URL="./RevisionManagement.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.management.RevisionManagement DEPEND com.hp.hpl.jena.query.ResultSet
-	c1431:p -> c1445:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c1510:p -> c1521:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// com.hp.hpl.jena.query.ResultSet
-	c1445 [label=<<table title="com.hp.hpl.jena.query.ResultSet" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/com/hp/hpl/jena/query/ResultSet.html">
+	c1521 [label=<<table title="com.hp.hpl.jena.query.ResultSet" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/com/hp/hpl/jena/query/ResultSet.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> ResultSet </td></tr>

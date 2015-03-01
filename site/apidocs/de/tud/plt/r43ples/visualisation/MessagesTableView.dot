@@ -10,13 +10,13 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// de.tud.plt.r43ples.visualisation.MMSTVisualisation
-	c1129 [label=<<table title="de.tud.plt.r43ples.visualisation.MMSTVisualisation" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MMSTVisualisation.html">
+	c1194 [label=<<table title="de.tud.plt.r43ples.visualisation.MMSTVisualisation" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./MMSTVisualisation.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> MMSTVisualisation </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> # LineHeight : int </td></tr>
-<tr><td align="left" balign="left"> # padding : int </td></tr>
+<tr><td align="left" balign="left"> # LINE_HEIGHT : int </td></tr>
+<tr><td align="left" balign="left"> # PADDING : int </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> + MMSTVisualisation(revisionTree : StructuredTree) </td></tr>
@@ -24,7 +24,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="./MMSTVisualisation.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.visualisation.MessagesTableView
-	c1130 [label=<<table title="de.tud.plt.r43ples.visualisation.MessagesTableView" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./MessagesTableView.html">
+	c1195 [label=<<table title="de.tud.plt.r43ples.visualisation.MessagesTableView" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./MessagesTableView.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> MessagesTableView </td></tr>
 		</table></td></tr>
@@ -38,7 +38,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="./MessagesTableView.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.revisionTree.Commit
-	c1139 [label=<<table title="de.tud.plt.r43ples.revisionTree.Commit" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../revisionTree/Commit.html">
+	c1233 [label=<<table title="de.tud.plt.r43ples.revisionTree.Commit" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../revisionTree/Commit.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Commit </td></tr>
 <tr><td align="center" balign="center"> de.tud.plt.r43ples.revisionTree </td></tr>
@@ -63,14 +63,14 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="../revisionTree/Commit.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// de.tud.plt.r43ples.visualisation.MMSTVisualisation NAVASSOC de.tud.plt.r43ples.revisionTree.Commit
-	c1129:p -> c1139:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1194:p -> c1233:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// de.tud.plt.r43ples.visualisation.MMSTVisualisation NAVASSOC de.tud.plt.r43ples.visualisation.MessagesTableView
-	c1129:p -> c1130:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1194:p -> c1195:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// de.tud.plt.r43ples.visualisation.MessagesTableView NAVASSOC de.tud.plt.r43ples.revisionTree.Commit
-	c1130:p -> c1139:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1195:p -> c1233:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// de.tud.plt.r43ples.revisionTree.Commit NAVASSOC de.tud.plt.r43ples.revisionTree.Commit
-	c1139:p -> c1139:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1233:p -> c1233:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// de.tud.plt.r43ples.revisionTree.Commit NAVASSOC de.tud.plt.r43ples.revisionTree.Commit
-	c1139:p -> c1139:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c1233:p -> c1233:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 }
 
